@@ -35,8 +35,11 @@ export const profile = {
   // Replace Eric-Dalton-Resume.pdf with the finished 3-page version — the
   // download link below works regardless, but it currently serves stale content.
   resumeHtml: './resume.html',
+  // Sanitized label — profile.js always loads regardless of PRIVACY_MODE
+  // (it isn't part of the public/full split), so the customer name itself
+  // must never appear here even though the URL slug does.
   liveArtifacts: [
-    { label: 'Bradley Company — Sample Customer Deck', url: 'https://edalton122.github.io/bradley-salesforce-deck/' },
+    { label: 'Live Interactive Customer Deck — Water Infrastructure Account', url: 'https://edalton122.github.io/bradley-salesforce-deck/' },
   ],
   // Single flag gating all analytics. Off by default — turn on only once
   // Eric has picked a privacy-respecting provider (Plausible / GoatCounter /
@@ -52,9 +55,12 @@ export function yearsAtSalesforce(today = new Date()) {
   return Math.round(months / 12);
 }
 
-/** Exact months between two dates (whole months, calendar-aware). */
+/** Exact months between two dates (whole months, calendar-aware).
+ * Uses UTC getters — see the comment in roles.js's monthsInRole for why
+ * mixing UTC-parsed date strings with local getters causes an off-by-one
+ * month error in negative-UTC-offset zones. */
 export function monthsBetween(start, end) {
   const s = new Date(start), e = new Date(end);
-  return (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth()) +
-    (e.getDate() >= s.getDate() ? 0 : -1);
+  return (e.getUTCFullYear() - s.getUTCFullYear()) * 12 + (e.getUTCMonth() - s.getUTCMonth()) +
+    (e.getUTCDate() >= s.getUTCDate() ? 0 : -1);
 }

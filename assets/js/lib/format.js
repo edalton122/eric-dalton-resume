@@ -19,14 +19,18 @@ export function formatNumber(n) {
 
 export function formatMonthYear(dateStr) {
   const d = new Date(dateStr);
-  return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  // timeZone: 'UTC' matches how date-only ISO strings parse.
+  return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 }
 
-/** Calendar-aware whole months between two dates (shared with roles.js math). */
+/** Calendar-aware whole months between two dates (shared with roles.js math).
+ * Uses UTC getters — date-only ISO strings parse as UTC midnight, and
+ * mixing that with local getMonth()/getFullYear() causes an off-by-one
+ * month error in negative-UTC-offset zones. */
 export function monthsBetween(startStr, endStr) {
   const start = new Date(startStr);
   const end = endStr ? new Date(endStr) : new Date();
-  return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  return (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + (end.getUTCMonth() - start.getUTCMonth());
 }
 
 export function formatDuration(months) {

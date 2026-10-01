@@ -114,11 +114,16 @@ export const roles = [
   },
 ];
 
-/** Whole months in a role; end=null measures against `today`, not asOf. */
+/** Whole months in a role; end=null measures against `today`, not asOf.
+ * Uses UTC getters throughout: date-only ISO strings (e.g. '2025-11-01')
+ * parse as UTC midnight, but getMonth()/getFullYear() read local time —
+ * mixing the two causes an off-by-one-month error in negative-UTC-offset
+ * zones (including Eric's own Atlanta/EDT). Reading both ends as UTC
+ * keeps the comparison internally consistent. */
 export function monthsInRole(role, today = new Date()) {
   const start = new Date(role.start);
   const end = role.end ? new Date(role.end) : today;
-  const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  const months = (end.getUTCFullYear() - start.getUTCFullYear()) * 12 + (end.getUTCMonth() - start.getUTCMonth());
   return Math.max(1, months);
 }
 

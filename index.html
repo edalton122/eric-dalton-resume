@@ -4,649 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eric Dalton — Lead Solutions Engineer at Salesforce</title>
+<meta name="description" content="Lead Solutions Engineer at Salesforce with $6.3M+ in career closed ACV across 623 deals. Interactive résumé covering revenue performance, career progression, and AI-native customer engagement work.">
+<link rel="canonical" href="https://edalton122.github.io/eric-dalton-resume/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Eric Dalton — Lead Solutions Engineer at Salesforce">
+<meta property="og:description" content="$6.3M+ in career closed ACV across 623 deals. Interactive résumé with revenue performance, career progression, and AI-native customer engagement work.">
+<meta property="og:image" content="https://edalton122.github.io/eric-dalton-resume/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://edalton122.github.io/eric-dalton-resume/">
+<meta property="og:site_name" content="Eric Dalton — Interactive Résumé">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eric Dalton — Lead Solutions Engineer at Salesforce">
+<meta name="twitter:description" content="$6.3M+ in career closed ACV across 623 deals. Interactive résumé with revenue performance, career progression, and AI-native customer engagement work.">
+<meta name="twitter:image" content="https://edalton122.github.io/eric-dalton-resume/og-image.png">
+
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+<meta name="theme-color" content="#032D60">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-:root {
-  --navy:       #032D60;
-  --navy-mid:   #0B4A8C;
-  --blue:       #0176D3;
-  --blue-light: #1B96FF;
-  --gold:       #F4B942;
-  --gold-dark:  #C8900A;
-  --white:      #FFFFFF;
-  --light:      #F3F6FB;
-  --border:     #DDE4EE;
-  --text:       #1A2332;
-  --muted:      #6B7280;
-}
+<link rel="stylesheet" href="./assets/css/tokens.css">
+<link rel="stylesheet" href="./assets/css/base.css">
+<link rel="stylesheet" href="./assets/css/layout.css">
+<link rel="stylesheet" href="./assets/css/components.css">
+<link rel="stylesheet" href="./assets/css/sections.css">
+<link rel="stylesheet" href="./assets/css/print.css" media="print">
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* ── NAV ────────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  height: 64px;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: background 0.35s, backdrop-filter 0.35s;
-}
-nav.scrolled {
-  background: rgba(3, 45, 96, 0.97);
-  backdrop-filter: blur(8px);
-}
-.nav-brand {
-  font-size: 15px; font-weight: 800;
-  color: white; text-decoration: none;
-  letter-spacing: 0.01em;
-}
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a {
-  font-size: 12px; font-weight: 600;
-  color: rgba(255,255,255,0.65);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: white; }
-.nav-pdf {
-  font-size: 12px; font-weight: 700;
-  color: var(--navy); background: white;
-  padding: 8px 18px; border-radius: 100px;
-  border: none; cursor: pointer;
-  letter-spacing: 0.03em;
-  transition: background 0.2s, color 0.2s;
-}
-.nav-pdf:hover { background: var(--gold); }
-
-/* ── HERO ───────────────────────────────────────── */
-#hero {
-  min-height: 100vh;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  padding: 120px 80px 80px;
-  position: relative;
-  overflow: hidden;
-}
-#hero::before {
-  content: '';
-  position: absolute;
-  top: -300px; right: -200px;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(1,118,211,0.12) 0%, transparent 65%);
-  pointer-events: none;
-}
-#hero::after {
-  content: '';
-  position: absolute;
-  bottom: -200px; left: -100px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(244,185,66,0.06) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 80px;
-  align-items: center;
-  position: relative;
-}
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px; font-weight: 700;
-  color: var(--blue-light);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 24px;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 28px; height: 2px;
-  background: var(--blue-light);
-}
-.hero-name {
-  font-size: clamp(60px, 7.5vw, 96px);
-  font-weight: 900;
-  color: white;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
-.hero-name em { color: var(--gold); font-style: normal; }
-.hero-desc {
-  font-size: 17px;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.75;
-  max-width: 500px;
-  margin-bottom: 36px;
-}
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 48px;
-}
-.hero-tag {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 100px;
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.75);
-}
-.hero-tag.hi { border-color: var(--gold); color: var(--gold); }
-.hero-cta-row { display: flex; gap: 14px; align-items: center; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 26px;
-  background: var(--blue); color: white;
-  font-size: 13px; font-weight: 700;
-  border-radius: 8px; text-decoration: none;
-  transition: background 0.2s;
-}
-.btn-primary:hover { background: var(--blue-light); }
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 26px;
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.75);
-  font-size: 13px; font-weight: 700;
-  border-radius: 8px; cursor: pointer;
-  background: transparent;
-  transition: border-color 0.2s, color 0.2s;
-}
-.btn-ghost:hover { border-color: white; color: white; }
-
-/* Hero Photo */
-.hero-photo-wrap { display: flex; justify-content: center; position: relative; }
-.photo-ring {
-  width: 360px; height: 360px;
-  border-radius: 50%;
-  padding: 4px;
-  background: conic-gradient(var(--gold) 0deg, var(--blue-light) 120deg, var(--gold) 240deg, var(--blue-light) 360deg);
-  position: relative;
-}
-.photo-ring img {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
-  border: 5px solid var(--navy);
-}
-.photo-badge {
-  position: absolute;
-  bottom: 16px; right: -8px;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 10px; font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 6px 14px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-/* ── BY THE NUMBERS ─────────────────────────────── */
-#numbers { background: var(--light); padding: 72px 48px; }
-.container { max-width: 1200px; margin: 0 auto; }
-.numbers-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  background: var(--border);
-  gap: 1px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-.num-card {
-  background: var(--white);
-  padding: 32px 20px;
-  text-align: center;
-}
-.num-val {
-  font-size: 34px; font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 8px;
-  min-height: 40px;
-}
-.num-val.gold { color: var(--gold-dark); }
-.num-lbl {
-  font-size: 11px; font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  line-height: 1.4;
-}
-
-/* ── SECTIONS SHARED ────────────────────────────── */
-.sec-eyebrow {
-  font-size: 11px; font-weight: 700;
-  color: var(--blue);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 10px;
-}
-.sec-title {
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  margin-bottom: 14px;
-}
-.sec-sub {
-  font-size: 15px;
-  color: var(--muted);
-  max-width: 560px;
-  line-height: 1.7;
-  margin-bottom: 52px;
-}
-
-/* ── ACV CHART ──────────────────────────────────── */
-#performance { background: var(--white); padding: 96px 48px; }
-.chart-wrap { position: relative; height: 320px; }
-.chart-note {
-  font-size: 12px; color: var(--muted);
-  margin-top: 20px; text-align: center;
-  font-style: italic;
-}
-
-/* ── TIMELINE ───────────────────────────────────── */
-#timeline { background: var(--light); padding: 96px 48px; }
-.tl-wrap { position: relative; max-width: 820px; }
-.tl-line {
-  position: absolute;
-  left: 19px; top: 10px; bottom: 0;
-  width: 2px; background: var(--border);
-}
-.tl-item {
-  display: flex; gap: 36px;
-  margin-bottom: 44px;
-  position: relative;
-  opacity: 0; transform: translateX(-16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-.tl-item.visible { opacity: 1; transform: none; }
-.tl-dot {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; z-index: 1;
-  transition: border-color 0.3s, background 0.3s;
-}
-.tl-dot.current { background: var(--navy); border-color: var(--navy); }
-.tl-body { padding-top: 4px; flex: 1; }
-.tl-date {
-  font-size: 11px; font-weight: 700;
-  color: var(--blue);
-  text-transform: uppercase; letter-spacing: 0.09em;
-  margin-bottom: 3px;
-}
-.tl-role {
-  font-size: 17px; font-weight: 800;
-  color: var(--navy); margin-bottom: 3px;
-}
-.tl-company { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-.tl-desc { font-size: 14px; color: var(--text); line-height: 1.65; }
-.tl-award {
-  display: inline-block; margin-top: 10px;
-  font-size: 11px; font-weight: 700;
-  color: var(--gold-dark);
-  background: rgba(244,185,66,0.13);
-  padding: 3px 10px; border-radius: 100px;
-  letter-spacing: 0.04em;
-}
-
-/* ── WINS ───────────────────────────────────────── */
-#wins { background: var(--navy); padding: 96px 48px; }
-#wins .sec-eyebrow { color: var(--gold); }
-#wins .sec-title { color: white; }
-#wins .sec-sub { color: rgba(255,255,255,0.55); }
-.wins-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.win-card {
-  background: rgba(255,255,255,0.055);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 16px; padding: 30px;
-  opacity: 0; transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
-}
-.win-card.visible { opacity: 1; transform: none; }
-.win-card:hover {
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(255,255,255,0.18);
-}
-.win-icon {
-  width: 42px; height: 42px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 18px;
-  background: rgba(1,118,211,0.18);
-}
-.win-icon.g { background: rgba(244,185,66,0.18); }
-.win-metric {
-  font-size: 30px; font-weight: 900;
-  color: white; letter-spacing: -0.02em;
-  line-height: 1; margin-bottom: 6px;
-}
-.win-metric.gold { color: var(--gold); }
-.win-title {
-  font-size: 14px; font-weight: 700;
-  color: rgba(255,255,255,0.88);
-  margin-bottom: 8px; line-height: 1.3;
-}
-.win-desc {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.65;
-}
-
-/* ── RECOGNITION ────────────────────────────────── */
-#recognition { background: var(--white); padding: 96px 48px; }
-.quotes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-.q-card {
-  background: var(--light);
-  border-radius: 14px; padding: 28px;
-  border-left: 3px solid var(--blue);
-  opacity: 0; transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.q-card.visible { opacity: 1; transform: none; }
-.q-card.gold-l { border-left-color: var(--gold-dark); }
-.q-text {
-  font-size: 14px; color: var(--text);
-  line-height: 1.72; font-style: italic;
-  margin-bottom: 16px;
-}
-.q-author {
-  font-size: 12px; font-weight: 800;
-  color: var(--navy);
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-.q-role { font-size: 12px; color: var(--muted); }
-
-/* ── CERTIFICATIONS ─────────────────────────────── */
-#certifications { background: var(--light); padding: 96px 48px; }
-.certs-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-.cert-card {
-  background: var(--white);
-  border-radius: 12px; padding: 22px 18px;
-  opacity: 0; transform: translateY(14px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.cert-card.visible { opacity: 1; transform: none; }
-.cert-bar {
-  height: 3px; border-radius: 2px;
-  margin-bottom: 14px;
-}
-.cert-name {
-  font-size: 13px; font-weight: 800;
-  color: var(--navy); line-height: 1.35;
-  margin-bottom: 6px;
-}
-.cert-issuer { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-.cert-date {
-  font-size: 11px; font-weight: 700;
-  color: var(--blue);
-  text-transform: uppercase; letter-spacing: 0.06em;
-}
-
-/* ── WHAT I BUILD ───────────────────────────────── */
-#builds { background: var(--white); padding: 96px 48px; }
-.builds-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-.build-col h3 {
-  font-size: 11px; font-weight: 800;
-  color: var(--blue);
-  text-transform: uppercase; letter-spacing: 0.12em;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.build-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.build-list li {
-  font-size: 13px; color: var(--text);
-  line-height: 1.55;
-  padding-left: 16px;
-  position: relative;
-}
-.build-list li::before {
-  content: '';
-  position: absolute; left: 0; top: 7px;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--blue-light);
-}
-
-/* ── PHOTOS ─────────────────────────────────────── */
-#photos { background: var(--navy); padding: 96px 48px; }
-#photos .sec-eyebrow { color: var(--gold); }
-#photos .sec-title { color: white; margin-bottom: 36px; }
-.photos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 240px 240px;
-  gap: 10px;
-}
-.p-item {
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  background: var(--navy-mid);
-}
-.p-item.s2 { grid-column: span 2; }
-.p-item img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  display: block;
-}
-.p-item:hover img { transform: scale(1.04); }
-.p-cap {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(3,45,96,0.88));
-  color: rgba(255,255,255,0.9);
-  font-size: 12px; font-weight: 500;
-  padding: 28px 14px 12px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.p-item:hover .p-cap { opacity: 1; }
-
-/* ── FUTURE ─────────────────────────────────────── */
-#future { background: var(--light); padding: 96px 48px; }
-.future-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
-}
-.future-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.future-list li {
-  display: flex; align-items: flex-start;
-  gap: 14px;
-  font-size: 15px; color: var(--text);
-  line-height: 1.55;
-}
-.f-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--blue);
-  flex-shrink: 0; margin-top: 7px;
-}
-.future-stats { display: flex; flex-direction: column; gap: 14px; }
-.f-stat {
-  background: var(--white);
-  border-radius: 12px; padding: 24px;
-}
-.f-stat-val {
-  font-size: 26px; font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
-}
-.f-stat-lbl { font-size: 13px; color: var(--muted); line-height: 1.4; }
-
-/* ── FOOTER ─────────────────────────────────────── */
-footer { background: var(--navy); padding: 56px 48px; }
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-name {
-  font-size: 20px; font-weight: 900;
-  color: white; letter-spacing: -0.01em;
-  margin-bottom: 5px;
-}
-.footer-title { font-size: 13px; color: rgba(255,255,255,0.5); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: white; }
-
-/* ── FADE-UP UTILITY ────────────────────────────── */
-.fade-up {
-  opacity: 0; transform: translateY(22px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-up.visible { opacity: 1; transform: none; }
-
-/* ── PRINT ──────────────────────────────────────── */
-@media print {
-  nav, .hero-cta-row, #photos { display: none !important; }
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  #hero { min-height: auto; padding: 40px; }
-  .hero-inner { grid-template-columns: 1fr 260px; gap: 40px; }
-  section { padding: 40px !important; break-inside: avoid; }
-  .wins-grid, .quotes-grid { grid-template-columns: repeat(2, 1fr); }
-  .certs-grid { grid-template-columns: repeat(3, 1fr); }
-  .win-card, .q-card, .cert-card, .fade-up, .tl-item { opacity: 1 !important; transform: none !important; }
-  .hero-name { font-size: 52px; }
-}
-
-/* ── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 1024px) {
-  .numbers-grid { grid-template-columns: repeat(3, 1fr); }
-  .wins-grid { grid-template-columns: repeat(2, 1fr); }
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
-  .photos-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-  .p-item.s2 { grid-column: span 2; }
-  .builds-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  #hero { padding: 90px 24px 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 44px; }
-  .hero-photo-wrap { order: -1; }
-  .photo-ring { width: 200px; height: 200px; }
-  section { padding: 64px 24px !important; }
-  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
-  .wins-grid, .quotes-grid, .future-grid { grid-template-columns: 1fr; }
-  .builds-grid { grid-template-columns: 1fr; }
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
-  .photos-grid { grid-template-columns: 1fr 1fr; }
-  .p-item.s2 { grid-column: span 2; }
-  .footer-inner { flex-direction: column; gap: 28px; text-align: center; }
-}
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eric Dalton",
+  "jobTitle": "Lead Solutions Engineer",
+  "worksFor": { "@type": "Organization", "name": "Salesforce" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Kentucky" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Atlanta", "addressRegion": "GA", "addressCountry": "US" },
+  "sameAs": ["https://www.linkedin.com/in/eric-dalton-se"],
+  "url": "https://edalton122.github.io/eric-dalton-resume/",
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "name": "Salesforce Certified Administrator" },
+    { "@type": "EducationalOccupationalCredential", "name": "Salesforce Certified Platform App Builder" },
+    { "@type": "EducationalOccupationalCredential", "name": "Revenue Cloud Blackbelt" },
+    { "@type": "EducationalOccupationalCredential", "name": "Data Cloud Blackbelt Captain" },
+    { "@type": "EducationalOccupationalCredential", "name": "Trailhead Triple Star Ranger" },
+    { "@type": "EducationalOccupationalCredential", "name": "Agentblazer Innovator" }
+  ],
+  "knowsAbout": ["Salesforce Sales Cloud", "Revenue Cloud", "Data Cloud", "Agentforce", "MuleSoft", "Experience Cloud", "Field Service"]
+}
+</script>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<noscript>
+  <div class="noscript-banner">
+    Interactive features on this page need JavaScript. You can still read everything here, or view the
+    <a href="./resume.html">résumé in your browser</a> or <a href="./Eric-Dalton-Resume.pdf">download the PDF</a>.
+  </div>
+</noscript>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <!-- ── NAV ─────────────────────────────────────── -->
-<nav id="main-nav">
+<nav id="main-nav" aria-label="Primary">
   <a href="#hero" class="nav-brand">Eric Dalton</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#performance">Performance</a></li>
     <li><a href="#timeline">Career</a></li>
     <li><a href="#wins">Wins</a></li>
     <li><a href="#recognition">Recognition</a></li>
     <li><a href="#certifications">Credentials</a></li>
+    <li><a href="#builds">What I Build</a></li>
     <li><a href="#future">Aspirations</a></li>
   </ul>
-  <button class="nav-pdf" onclick="window.print()">Download PDF</button>
+  <div class="nav-cta-group">
+    <a class="nav-pdf" href="./Eric-Dalton-Resume.pdf" download="Eric-Dalton-Resume.pdf" data-analytics="pdf-download">Download Résumé</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
 </nav>
 
+<div class="nav-drawer-backdrop" id="nav-drawer-backdrop"></div>
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <ul class="nav-drawer-links">
+    <li><a href="#performance">Performance</a></li>
+    <li><a href="#timeline">Career</a></li>
+    <li><a href="#wins">Wins</a></li>
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#certifications">Credentials</a></li>
+    <li><a href="#builds">What I Build</a></li>
+    <li><a href="#future">Aspirations</a></li>
+  </ul>
+  <div class="nav-drawer-actions">
+    <a class="btn-primary" href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+    <a class="btn-ghost" href="./Eric-Dalton-Resume.pdf" download="Eric-Dalton-Resume.pdf">Download Résumé (PDF)</a>
+  </div>
+</div>
+
+<button class="section-pill" id="section-pill" aria-haspopup="dialog">
+  <span id="section-pill-label">Menu</span>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<main id="main-content">
+
 <!-- ── HERO ────────────────────────────────────── -->
-<section id="hero">
+<section id="hero" aria-label="Introduction">
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Lead Solutions Engineer · Salesforce · Atlanta, GA</div>
       <h1 class="hero-name">Eric<br><em>Dalton</em></h1>
-      <p class="hero-desc">7 years at Salesforce. $6.3M+ in career closed ACV across 623 deals. Leading CBS New Logo pursuits across Home Services, Specialty Contractors, and Engineering &amp; Construction — with a track record of competitive displacements, multi-team deal orchestration, and AI-native technical selling.</p>
-      <div class="hero-tags">
-        <span class="hero-tag hi">$6.3M+ Career ACV</span>
-        <span class="hero-tag">CBS New Logo</span>
-        <span class="hero-tag">Agentforce</span>
-        <span class="hero-tag">Data Cloud</span>
-        <span class="hero-tag">Revenue Cloud</span>
-        <span class="hero-tag">SE of the Year</span>
+      <p class="hero-desc">7 years at Salesforce. $6.3M+ in career closed ACV across 623 deals. Leading CBS New Logo pursuits across Home Services, Specialty Contracting, and Engineering &amp; Construction — with a track record of competitive displacements, multi-team deal orchestration, and AI-native technical selling.</p>
+
+      <div class="hero-live-strip" id="hero-live-strip">
+        <span><span class="hero-live-dot" aria-hidden="true"></span><strong>Currently:</strong> Lead SE, CBS New Logo</span>
+        <span>FY27 YTD <strong>$281,357</strong> across <strong>17 deals</strong></span>
+        <span><strong>$2.25M+</strong> open pipeline</span>
+        <span><strong>11 mo</strong> in current role</span>
       </div>
+
+      <div class="hero-tags" role="group" aria-label="Jump to section">
+        <button class="hero-tag hi" data-jump="performance">$6.3M+ Career ACV</button>
+        <button class="hero-tag" data-jump="hero">CBS New Logo</button>
+        <button class="hero-tag" data-jump="builds" data-filter-product="Agentforce">Agentforce</button>
+        <button class="hero-tag" data-jump="builds" data-filter-product="Data Cloud">Data Cloud</button>
+        <button class="hero-tag" data-jump="builds" data-filter-product="Revenue Cloud (CPQ)">Revenue Cloud</button>
+        <button class="hero-tag" data-jump="wins" data-flip="fy24-se-of-the-year">SE of the Year</button>
+      </div>
+
       <div class="hero-cta-row">
-        <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" class="btn-primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" rel="noopener noreferrer" class="btn-primary" data-analytics="linkedin-click">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn Profile
         </a>
-        <button class="btn-ghost" onclick="window.print()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download PDF
+        <a href="./Eric-Dalton-Resume.pdf" download="Eric-Dalton-Resume.pdf" class="btn-ghost" data-analytics="pdf-download">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Résumé (PDF)
+        </a>
+        <a href="./resume.html" target="_blank" rel="noopener noreferrer" class="btn-ghost" data-analytics="resume-html-click">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View Résumé in Browser
+        </a>
+        <button class="hero-copy-link" id="copy-link-btn" type="button" data-analytics="copy-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M10 13a5 5 0 007.07 0l1.93-1.93a5 5 0 00-7.07-7.07L10.5 5.43"/><path d="M14 11a5 5 0 00-7.07 0l-1.93 1.93a5 5 0 007.07 7.07L13.5 18.57"/></svg>
+          Copy link
         </button>
       </div>
     </div>
     <div class="hero-photo-wrap">
-      <div class="photo-ring">
-        <img src="./images/headshot.jpg" alt="Eric Dalton — Lead Solutions Engineer at Salesforce">
+      <div class="photo-ring" id="photo-ring">
+        <img src="./images/headshot.jpg" alt="Eric Dalton — Lead Solutions Engineer at Salesforce" width="360" height="360" fetchpriority="high">
       </div>
       <div class="photo-badge">SE of the Year · Triple Star Ranger</div>
     </div>
@@ -654,132 +173,399 @@ footer { background: var(--navy); padding: 56px 48px; }
 </section>
 
 <!-- ── BY THE NUMBERS ──────────────────────────── -->
-<section id="numbers">
+<section id="numbers" aria-labelledby="numbers-h">
+  <h2 class="visually-hidden" id="numbers-h">By the Numbers</h2>
   <div class="container">
-    <div class="numbers-grid">
-      <div class="num-card">
-        <div class="num-val" id="n-acv">—</div>
-        <div class="num-lbl">Career Closed ACV</div>
+    <div class="numbers-grid" id="numbers-grid">
+
+      <div class="flip-card num-card" id="num-acv" tabindex="0" role="button" aria-pressed="false" aria-label="Career closed ACV: 6.3 million dollars plus. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="6.3" data-prefix="$" data-suffix="M+" data-decimals="1">—</div>
+            <div class="num-lbl">Career Closed ACV</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">FY23–FY27 YTD, 623 closed-won transactions. Sourced from Salesforce Deal Contribution records.</div>
+          </div>
+        </div>
       </div>
-      <div class="num-card">
-        <div class="num-val" id="n-deals">—</div>
-        <div class="num-lbl">Deals Closed Won</div>
+
+      <div class="flip-card num-card" id="num-deals" tabindex="0" role="button" aria-pressed="false" aria-label="Deals closed won: 623 plus. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="623" data-suffix="+">—</div>
+            <div class="num-lbl">Deals Closed Won</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">Across five fiscal years, FY23 through FY27 YTD, spanning three roles.</div>
+          </div>
+        </div>
       </div>
-      <div class="num-card">
-        <div class="num-val" id="n-years">—</div>
-        <div class="num-lbl">Years at Salesforce</div>
+
+      <div class="flip-card num-card" id="num-years" tabindex="0" role="button" aria-pressed="false" aria-label="Years at Salesforce: 7. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="7" data-suffix=" Yrs">—</div>
+            <div class="num-lbl">Years at Salesforce</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">Started December 2019 as an SDR. Computed live from tenure start — never a hardcoded string.</div>
+          </div>
+        </div>
       </div>
-      <div class="num-card">
-        <div class="num-val gold" id="n-peak">—</div>
-        <div class="num-lbl">Peak Year ACV (FY24)</div>
+
+      <div class="flip-card num-card" id="num-peak" tabindex="0" role="button" aria-pressed="false" aria-label="Peak year ACV, FY24: 2.9 million dollars. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val gold" data-count data-target="2.9" data-prefix="$" data-suffix="M" data-decimals="1">—</div>
+            <div class="num-lbl">Peak Year ACV (FY24)</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">Earned while a Solution Engineer — 234 deals, Solutions Engineer of the Year.</div>
+          </div>
+        </div>
       </div>
-      <div class="num-card">
-        <div class="num-val" id="n-fy24deals">—</div>
-        <div class="num-lbl">FY24 Deals Closed</div>
+
+      <div class="flip-card num-card" id="num-fy24deals" tabindex="0" role="button" aria-pressed="false" aria-label="FY24 deals closed: 234. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="234" data-suffix=" deals">—</div>
+            <div class="num-lbl">FY24 Deals Closed</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">Roughly one closed deal per working day across the fiscal year.</div>
+          </div>
+        </div>
       </div>
-      <div class="num-card">
-        <div class="num-val" id="n-promos">—</div>
-        <div class="num-lbl">Promotions at Salesforce</div>
+
+      <div class="flip-card num-card" id="num-promos" tabindex="0" role="button" aria-pressed="false" aria-label="Promotions at Salesforce: 5. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="5" data-suffix=" total">—</div>
+            <div class="num-lbl">Promotions at Salesforce</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">SDR → Account Specialist → Solution Engineer → Senior SE → Lead SE.</div>
+          </div>
+        </div>
       </div>
+
+      <div class="flip-card num-card" id="num-avgdeal" tabindex="0" role="button" aria-pressed="false" aria-label="Average deal size: 10,129 dollars. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val" data-count data-target="10129" data-prefix="$">—</div>
+            <div class="num-lbl">Avg Deal Size (Career)</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">$6,310,080 ÷ 623 deals. Average deal size has roughly tripled since FY23 as the focus shifted upmarket.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card num-card" id="num-bestmonth" tabindex="0" role="button" aria-pressed="false" aria-label="Best single month: 300 thousand dollars plus. Press Enter for detail.">
+        <div class="flip-card-inner">
+          <div class="flip-face front">
+            <div class="num-val gold" data-count data-target="300" data-prefix="$" data-suffix="K+">—</div>
+            <div class="num-lbl">Best Month (Apr 2026)</div>
+          </div>
+          <div class="flip-face back">
+            <div class="num-back-detail">Three six-figure deals closed in a single calendar month — recognized by the Regional Vice President.</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ── ACV PERFORMANCE ─────────────────────────── -->
+<!-- ── REVENUE PERFORMANCE EXPLORER ─────────────── -->
 <section id="performance">
   <div class="container">
     <div class="sec-eyebrow fade-up">Revenue Performance</div>
-    <h2 class="sec-title fade-up">ACV by Fiscal Year</h2>
-    <p class="sec-sub fade-up">Sourced from Salesforce Deal Contribution records (FY23–FY27). FY24's $2.9M across 234 deals was recognized as the most productive year of any SE in the SMB ESS segment.</p>
-    <div class="chart-wrap fade-up">
-      <canvas id="acvChart"></canvas>
+    <h2 class="sec-title fade-up">Revenue Performance Explorer</h2>
+    <p class="sec-sub fade-up">Sourced from Salesforce Deal Contribution records (FY23–FY27 YTD). Click a bar to drill into the role, recognition, and notable deals for that year.</p>
+
+    <div class="explorer-controls fade-up">
+      <div class="segmented" role="tablist" aria-label="Chart view" id="chart-view-tabs">
+        <button role="tab" aria-selected="true" id="tab-acv" data-view="acv">ACV</button>
+        <button role="tab" aria-selected="false" id="tab-deals" data-view="deals">Deals</button>
+        <button role="tab" aria-selected="false" id="tab-avg" data-view="avg">Avg Deal Size</button>
+        <button role="tab" aria-selected="false" id="tab-cumulative" data-view="cumulative">Cumulative</button>
+      </div>
     </div>
-    <p class="chart-note fade-up">Salesforce Fiscal Year runs Feb–Jan. FY27 YTD through September 2026 with $2.25M+ in active open pipeline.</p>
+
+    <div class="chart-wrap fade-up" id="chart-wrap"
+         role="application" tabindex="0"
+         aria-describedby="chart-instructions">
+      <span id="chart-instructions" class="visually-hidden">Left and right arrow keys move between fiscal years. Enter opens a detail panel for the selected year.</span>
+      <table class="chart-table" id="revenue-table">
+        <caption class="visually-hidden">Closed ACV and deal count by Salesforce fiscal year</caption>
+        <thead>
+          <tr><th scope="col">Fiscal Year</th><th scope="col">Closed ACV</th><th scope="col">Deals</th><th scope="col">Avg Deal Size</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">FY23</th><td>$573,190</td><td>106</td><td>$5,407</td></tr>
+          <tr><th scope="row">FY24</th><td>$2,904,583</td><td>234</td><td>$12,413</td></tr>
+          <tr><th scope="row">FY25</th><td>$1,429,770</td><td>145</td><td>$9,860</td></tr>
+          <tr><th scope="row">FY26</th><td>$1,121,180</td><td>121</td><td>$9,266</td></tr>
+          <tr><th scope="row">FY27 YTD</th><td>$281,357</td><td>17</td><td>$16,550</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="chart-annotation" id="chart-annotation" hidden>
+      Average deal size has roughly <strong>tripled</strong> from FY23 ($5,407) to FY27 YTD ($16,550) while annual deal volume has fallen from the FY24 peak of 234 to 121 in FY26 — a deliberate move upmarket from velocity selling toward enterprise pursuits. FY27 YTD rests on only 17 deals in a partial year, so treat it as directional rather than settled.
+    </div>
+
+    <div class="drilldown-panel" id="drilldown-panel" role="region" aria-live="polite" aria-label="Fiscal year detail">
+      <div class="drilldown-head">
+        <div>
+          <div class="drilldown-fy" id="drilldown-fy">—</div>
+          <div class="drilldown-period" id="drilldown-period">—</div>
+        </div>
+        <button class="modal-close" id="drilldown-close" aria-label="Close detail panel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="drilldown-stats" id="drilldown-stats"></div>
+      <div class="drilldown-headline" id="drilldown-headline"></div>
+      <div class="drilldown-chips" id="drilldown-chips"></div>
+    </div>
+
+    <p class="chart-note fade-up">Salesforce Fiscal Year runs Feb–Jan. FY27 YTD is a partial year, through <span id="asof-label">September 2026</span>, with $2.25M+ in active open pipeline.</p>
   </div>
 </section>
 
-<!-- ── CAREER TIMELINE ─────────────────────────── -->
+<!-- ── PROMOTION VELOCITY + CAREER TIMELINE ─────── -->
 <section id="timeline">
   <div class="container">
     <div class="sec-eyebrow fade-up">Career Journey</div>
     <h2 class="sec-title fade-up">From SDR to Lead SE — 7 Years</h2>
     <p class="sec-sub fade-up">Five promotions in seven years at Salesforce, progressing from pipeline generation to leading complex CBS New Logo pursuits at the enterprise level.</p>
 
-    <div class="tl-wrap">
+    <div class="velocity-wrap fade-up" id="velocity-wrap">
+      <h3 class="visually-hidden">Promotion velocity — months in each role</h3>
+      <div class="velocity-row" data-role-id="ae-schneider">
+        <div class="velocity-label">Account Executive · Schneider</div>
+        <div class="velocity-track"><div class="velocity-bar muted" style="width:0%" data-pct="48"></div></div>
+        <div class="velocity-months">13 mo</div>
+      </div>
+      <div class="velocity-row" data-role-id="sdr">
+        <div class="velocity-label">SDR · Salesforce</div>
+        <div class="velocity-track"><div class="velocity-bar blue" style="width:0%" data-pct="59"></div></div>
+        <div class="velocity-months">16 mo</div>
+      </div>
+      <div class="velocity-row" data-role-id="account-specialist">
+        <div class="velocity-label">Account Specialist</div>
+        <div class="velocity-track"><div class="velocity-bar blue" style="width:0%" data-pct="48"></div></div>
+        <div class="velocity-months">13 mo</div>
+      </div>
+      <div class="velocity-row" data-role-id="solution-engineer">
+        <div class="velocity-label">Solution Engineer</div>
+        <div class="velocity-track"><div class="velocity-bar blue" style="width:0%" data-pct="100"></div></div>
+        <div class="velocity-months">27 mo</div>
+      </div>
+      <div class="velocity-row" data-role-id="senior-se">
+        <div class="velocity-label">Senior Solutions Engineer</div>
+        <div class="velocity-track"><div class="velocity-bar blue" style="width:0%" data-pct="56"></div></div>
+        <div class="velocity-months">15 mo</div>
+      </div>
+      <div class="velocity-row" data-role-id="lead-se">
+        <div class="velocity-label">Lead Solutions Engineer — current</div>
+        <div class="velocity-track"><div class="velocity-bar gold" style="width:0%" data-pct="41"></div></div>
+        <div class="velocity-months" id="velocity-current-months">11 mo+</div>
+      </div>
+      <p class="velocity-summary">5 promotions across the Salesforce roles above · <strong id="velocity-total-months">82 months</strong> total. Hover or focus a bar for exact dates.</p>
+      <button class="velocity-toggle" id="velocity-table-toggle" aria-expanded="false" aria-controls="velocity-table-wrap">View as table</button>
+      <div id="velocity-table-wrap" class="disclosure-panel">
+        <div>
+          <table class="chart-table" style="margin-top:12px;">
+            <caption class="visually-hidden">Role start, end, and duration</caption>
+            <thead><tr><th scope="col">Role</th><th scope="col">Start</th><th scope="col">End</th><th scope="col">Duration</th></tr></thead>
+            <tbody id="velocity-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-head-row">
+      <h3 class="visually-hidden">Detailed role history</h3>
+      <button class="velocity-toggle" id="tl-toggle-all" aria-expanded="false">Expand all</button>
+    </div>
+
+    <div class="tl-wrap" id="tl-wrap">
       <div class="tl-line"></div>
+      <div class="tl-line-progress" id="tl-line-progress"></div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="ae-schneider">
         <div class="tl-dot">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#9AA5B5" stroke-width="1.6"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">Jun 2018 – Jul 2019</div>
-          <div class="tl-role">Account Executive</div>
-          <div class="tl-company">Schneider · Greater Chicago Area</div>
-          <div class="tl-desc">B2B transportation and logistics sales across the Chicago market. Built foundational skills in outbound prospecting, pipeline management, and enterprise account development that directly informed the transition into technical SaaS sales.</div>
+          <div class="tl-date">Jun 2018 – Jul 2019 · 13 mo</div>
+          <button class="disclosure-trigger" aria-expanded="false" aria-controls="tl-panel-0" id="tl-trigger-0">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Account Executive</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Schneider · Greater Chicago Area</div>
+            <div class="tl-scope">B2B transportation and logistics sales across the Chicago market.</div>
+          </button>
+          <div class="disclosure-panel" id="tl-panel-0">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Managed a portfolio of B2B accounts for one of North America's largest transportation and logistics providers. Built foundational skills in outbound prospecting, pipeline management, and consultative selling that directly informed the transition into technical SaaS sales.</p>
+              <ul class="tl-outcomes">
+                <li>Drove revenue growth through consultative, account-planning-led sales motions.</li>
+                <li>Built the prospecting and pipeline discipline carried into every Salesforce role since.</li>
+              </ul>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="sdr">
         <div class="tl-dot">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">Dec 2019 – Apr 2021</div>
-          <div class="tl-role">Sales Development Representative</div>
-          <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
-          <div class="tl-desc">Generated net-new pipeline for SMB Account Executives through strategic outbound programs and account-level research. Built foundational product knowledge and AE partnerships. Earned promotion to Account Specialist within 16 months.</div>
+          <div class="tl-date">Dec 2019 – Apr 2021 · 16 mo</div>
+          <button class="disclosure-trigger" aria-expanded="false" aria-controls="tl-panel-1" id="tl-trigger-1">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Sales Development Representative</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
+            <div class="tl-scope">Pipeline generation and outbound prospecting for the SMB segment.</div>
+          </button>
+          <div class="disclosure-panel" id="tl-panel-1">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Generated net-new pipeline for SMB Account Executives through strategic outbound programs and account-level research across the Atlanta market. Built foundational product knowledge and AE partnerships.</p>
+              <ul class="tl-outcomes">
+                <li>Built the AE trust and partnership model carried forward into every later role.</li>
+                <li>Promoted to Account Specialist in 16 months.</li>
+              </ul>
+              <span class="tl-product-chip">Sales Cloud</span>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="account-specialist">
         <div class="tl-dot">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">Apr 2021 – May 2022</div>
-          <div class="tl-role">Account Specialist</div>
-          <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
-          <div class="tl-desc">Transitioned into a hybrid commercial role supporting Account Executives across the SMB segment. Self-developed and launched "What's a Salesforce?" — a foundational enablement session for incoming Account Specialist cohorts, delivered 2–3 times per year as a recurring onboarding program. Promoted to Solutions Engineer within 13 months.</div>
+          <div class="tl-date">Apr 2021 – May 2022 · 13 mo</div>
+          <button class="disclosure-trigger" aria-expanded="false" aria-controls="tl-panel-2" id="tl-trigger-2">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Account Specialist</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
+            <div class="tl-scope">Hybrid commercial role supporting Account Executives across the SMB segment.</div>
+          </button>
+          <div class="disclosure-panel" id="tl-panel-2">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Transitioned into a hybrid commercial role supporting Account Executives with technical discovery, solution positioning, and customer-facing engagements. Self-developed and launched "What's a Salesforce?" — a foundational enablement session for incoming Account Specialist cohorts, delivered 2–3 times per year as a recurring onboarding program ever since.</p>
+              <ul class="tl-outcomes">
+                <li>Launched "What's a Salesforce?" — still delivered as a standing quarterly program five years later.</li>
+                <li>Promoted to Solutions Engineer in 13 months.</li>
+              </ul>
+              <span class="tl-product-chip">Sales Cloud</span>
+              <span class="tl-product-chip">Service Cloud</span>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="solution-engineer">
         <div class="tl-dot">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">May 2022 – Aug 2024</div>
-          <div class="tl-role">Solution Engineer</div>
-          <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
-          <div class="tl-desc">Technical discovery, solution design, and demo delivery across a high-velocity New Logo book of business. Closed a $275,000 TCV deal with Hacking Immigration Law. Delivered tailored CPQ demonstrations leveraging Revenue Cloud Blackbelt expertise. Designed monthly AE enablement sessions and launched recurring "What's a Salesforce?" onboarding cohorts.</div>
-          <span class="tl-award">Revenue Cloud Blackbelt · SCA · Platform App Builder Certified</span>
+          <div class="tl-date">May 2022 – Aug 2024 · 27 mo</div>
+          <button class="disclosure-trigger" aria-expanded="false" aria-controls="tl-panel-3" id="tl-trigger-3">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Solution Engineer</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
+            <div class="tl-scope">Technical discovery, solution design, and demo delivery across a high-velocity New Logo book of business.</div>
+          </button>
+          <div class="disclosure-panel" id="tl-panel-3">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Delivered $2.9M in closed ACV across 234 transactions in FY24 — the highest single-year production of any Solutions Engineer in the segment, averaging roughly one closed deal per working day. Closed a $275K TCV deal with a high-growth immigration law firm. Architected a CPQ and partner-portal solution supporting 1,000+ SKUs with ERP integration. Earned Salesforce Certified Administrator and Platform App Builder certifications.</p>
+              <ul class="tl-outcomes">
+                <li>Named Solutions Engineer of the Year and awarded the Creative Hustle Award.</li>
+                <li>Three-time team MVP; achieved Revenue Cloud Blackbelt.</li>
+              </ul>
+              <span class="tl-award">SE of the Year</span>
+              <span class="tl-award">Creative Hustle Award</span>
+              <span class="tl-award">3× Team MVP</span>
+              <span class="tl-product-chip">Sales Cloud</span>
+              <span class="tl-product-chip">Revenue Cloud (CPQ)</span>
+              <span class="tl-product-chip">Service Cloud</span>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="senior-se">
         <div class="tl-dot">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4" stroke="#CBD5E0" stroke-width="1.5"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">Aug 2024 – Nov 2025</div>
-          <div class="tl-role">Senior Solutions Engineer</div>
-          <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
-          <div class="tl-desc">Appointed Data Cloud Blackbelt Captain by Sr. Director of Solution Engineering. Designed and delivered the NASA strategic AE enablement program across an entire SMB org. Generated $2.9M in ACV in FY24 across 234 deals — recognized as the most productive year of any SE in the SMB ESS segment. Named SMB Solutions SE of the Year.</div>
-          <span class="tl-award">SE of the Year · Creative Hustle Award · 3× MVP · Data Cloud Blackbelt Captain</span>
+          <div class="tl-date">Aug 2024 – Nov 2025 · 15 mo</div>
+          <button class="disclosure-trigger" aria-expanded="false" aria-controls="tl-panel-4" id="tl-trigger-4">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Senior Solutions Engineer</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Salesforce · SMB Core · Atlanta, GA</div>
+            <div class="tl-scope">Expanded scope with formal community leadership and organization-wide enablement.</div>
+          </button>
+          <div class="disclosure-panel" id="tl-panel-4">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Appointed by the Senior Director of Solution Engineering to lead the segment's Data Cloud specialist community — facilitating monthly strategy sessions across Sales, Service, Analytics, and AI product lines. Designed and delivered a multi-session strategic account engagement curriculum deployed across an entire sales organization. Sustained $1.4M (FY25) and $1.1M (FY26) in annual closed ACV while carrying this expanded leadership scope.</p>
+              <ul class="tl-outcomes">
+                <li>Appointed Data Cloud Blackbelt Captain — segment-wide community leadership.</li>
+                <li>Designed the NASA strategic AE enablement curriculum, deployed org-wide.</li>
+              </ul>
+              <span class="tl-award">Data Cloud Blackbelt Captain</span>
+              <span class="tl-product-chip">Data Cloud</span>
+              <span class="tl-product-chip">Agentforce</span>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-role-id="lead-se">
         <div class="tl-dot current">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="white"><circle cx="7" cy="7" r="4"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="white" aria-hidden="true"><circle cx="7" cy="7" r="4"/></svg>
         </div>
         <div class="tl-body">
-          <div class="tl-date">Nov 2025 – Present</div>
-          <div class="tl-role">Lead Solution Engineer</div>
-          <div class="tl-company">Salesforce · CBS Segment · Atlanta, GA</div>
-          <div class="tl-desc">Promoted and transferred into the CBS segment covering New Logo acquisition across Home Services, Specialty Contractors, and Engineering &amp; Construction. Leading complex multi-stakeholder pursuits, recognized by RVP for elite-level impact ($300K+ in a single month, $5M+ pipeline). Pioneering AI-native demo workflows and interactive customer experiences using Cursor and Claude — adopted as reusable techniques across the CBS SE team.</div>
-          <span class="tl-award">Current Role · CBS New Logo · Agentblazer Innovator</span>
+          <div class="tl-date">Nov 2025 – Present · <span id="tl-current-months">11 mo</span></div>
+          <button class="disclosure-trigger" aria-expanded="true" aria-controls="tl-panel-5" id="tl-trigger-5">
+            <div class="tl-role-row">
+              <h4 class="tl-role">Lead Solutions Engineer</h4>
+              <svg class="disclosure-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="tl-company">Salesforce · CBS Segment · Atlanta, GA</div>
+            <div class="tl-scope">Current role — technical lead for New Logo acquisition across Home Services, Specialty Contracting, and Engineering &amp; Construction.</div>
+          </button>
+          <div class="disclosure-panel open" id="tl-panel-5">
+            <div><div class="tl-panel-inner">
+              <p class="tl-desc">Promoted and transferred into the CBS segment. Closed $300K+ across three six-figure deals in a single month and entered the following quarter carrying $5M+ in qualified pipeline against a $900K forecast — recognized by the Regional Vice President as setting the standard for technical sales execution across the organization. Pioneering AI-native demonstration workflows using agentic coding tools, adopted as standard practice across the segment pre-sales team.</p>
+              <ul class="tl-outcomes">
+                <li>Recognized by RVP for elite-level impact — $300K+ in a single month.</li>
+                <li>Pioneered AI-native demo workflows now standard practice across the CBS SE team.</li>
+              </ul>
+              <span class="tl-award">RVP Recognition</span>
+              <span class="tl-product-chip">Agentforce</span>
+              <span class="tl-product-chip">Data Cloud</span>
+              <span class="tl-product-chip">MuleSoft</span>
+            </div></div>
+          </div>
         </div>
       </div>
 
@@ -792,61 +578,134 @@ footer { background: var(--navy); padding: 56px 48px; }
   <div class="container">
     <div class="sec-eyebrow fade-up">Signature Accomplishments</div>
     <h2 class="sec-title fade-up">Deals &amp; Moments That Defined the Career</h2>
-    <p class="sec-sub fade-up">Selected highlights from $6.3M in career closed ACV — the pursuits, programs, and recognitions of highest impact.</p>
-    <div class="wins-grid">
+    <p class="sec-sub fade-up">Selected highlights from $6.3M in career closed ACV. Click any card for the full story.</p>
+    <div class="wins-grid" id="wins-grid">
 
-      <div class="win-card">
-        <div class="win-icon g">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="flip-card win-card" data-win-id="fy24-se-of-the-year" tabindex="0" role="button" aria-pressed="false" aria-label="FY24 — Solutions Engineer of the Year. 2.9 million dollars ACV. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="win-metric gold">$2.9M</div>
+            <div class="win-unit">ACV</div>
+            <div class="win-title">FY24 — Solutions Engineer of the Year</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">Carrying a high-velocity New Logo book of business with no dedicated specialist support.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Closed 234 deals across the fiscal year — roughly one closed deal per working day — through disciplined discovery and demo delivery at volume.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Highest single-year ACV production of any SE in the segment. Named Solutions Engineer of the Year and awarded the Creative Hustle Award.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Sales Cloud</span><span class="chip on-dark">Revenue Cloud (CPQ)</span></div>
+          </div>
         </div>
-        <div class="win-metric gold">$2.9M</div>
-        <div class="win-title">FY24 — SMB Solutions SE of the Year</div>
-        <div class="win-desc">Closed 234 deals in a single fiscal year — roughly one closed deal per working day. Recognized as the most ACV generated by any SE in the SMB ESS segment. Named SMB Solutions SE of the Year and awarded the Creative Hustle Award.</div>
       </div>
 
-      <div class="win-card">
-        <div class="win-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="flip-card win-card" data-win-id="spatco-energy" tabindex="0" role="button" aria-pressed="false" aria-label="Energy Distribution — Competitive Displacement. Approximately 1 million dollars ACV. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="win-metric">~$1M</div>
+            <div class="win-unit">ACV</div>
+            <div class="win-title">Energy Distribution — Competitive Displacement</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">Incumbent SAP and HubSpot deployments with board-level stakeholders evaluating a platform consolidation.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Led SE strategy across a multi-month evaluation cycle, presenting directly to board-level executives throughout.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Displaced both SAP and HubSpot simultaneously — positioning Salesforce as the enterprise platform for distribution operations.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Sales Cloud</span><span class="chip on-dark">Data Cloud</span></div>
+          </div>
         </div>
-        <div class="win-metric">~$1M</div>
-        <div class="win-title">SPATCO Energy — Competitive Displacement</div>
-        <div class="win-desc">Led SE strategy on a ~$1M displacement of both SAP and HubSpot simultaneously. Board-level executive attendance throughout the pursuit. Positioned Salesforce as the enterprise platform for energy distribution operations.</div>
       </div>
 
-      <div class="win-card">
-        <div class="win-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <div class="flip-card win-card" data-win-id="april-2026-month" tabindex="0" role="button" aria-pressed="false" aria-label="April 2026 — Three six-figure deals in one month. 300 thousand dollars plus ACV. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="win-metric">$300K+</div>
+            <div class="win-unit">ACV in one month</div>
+            <div class="win-title">April 2026 — Three Six-Figure Deals in One Month</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">Entering Q2 FY27 with an aggressive forecast and a thin pipeline cushion.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Closed three separate six-figure deals within a single calendar month.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Entered the following quarter carrying $5M+ in qualified pipeline against a $900K forecast — recognized by the Regional Vice President as setting the standard for technical sales execution.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Sales Cloud</span><span class="chip on-dark">Agentforce</span></div>
+          </div>
         </div>
-        <div class="win-metric">$300K+</div>
-        <div class="win-title">April 2026 — Three $100K Deals in One Month</div>
-        <div class="win-desc">Recognized by RVP Grant Stephens for closing $300K+ across three $100K deals in a single month. Entered Q2 FY27 with $5M+ in active pipeline against a $900K forecast — publicly recognized as "elite-level impact" and the standard for technical sales execution on the team.</div>
       </div>
 
-      <div class="win-card">
-        <div class="win-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="flip-card win-card" data-win-id="enercon-pursuit" tabindex="0" role="button" aria-pressed="false" aria-label="Engineering and Construction Enterprise — Full-Cycle Pursuit. 14 plus working sessions. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B96FF" stroke-width="2.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div class="win-metric">14+</div>
+            <div class="win-unit">working sessions</div>
+            <div class="win-title">Engineering &amp; Construction Enterprise — Full-Cycle Pursuit</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">A complex enterprise evaluation requiring integration, AI architecture, and systems-integrator alignment before an executive decision.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Directed the full pursuit from first demo through proof-of-value and executive readout, orchestrating Solutions, Integration (MuleSoft), and AI Architecture teams alongside an external systems-integrator partner across 14+ working sessions.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Delivered a unified executive readout that held up under cross-functional scrutiny — the template is now reused for subsequent enterprise pursuits.</div></div>
+            <div class="win-chips"><span class="chip on-dark">MuleSoft</span><span class="chip on-dark">Data Cloud</span><span class="chip on-dark">Agentforce</span></div>
+          </div>
         </div>
-        <div class="win-metric">14+</div>
-        <div class="win-title">Enercon Services — Full-Cycle Enterprise Pursuit</div>
-        <div class="win-desc">Led the complete Enercon Services pursuit from initial demo through POV delivery and Executive Readout. Orchestrated SE, AE, MuleSoft, AI Architect, PwC, BVS, and specialist teams across 14+ logged sessions spanning multiple months.</div>
       </div>
 
-      <div class="win-card">
-        <div class="win-icon g">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <div class="flip-card win-card" data-win-id="hacking-immigration-law" tabindex="0" role="button" aria-pressed="false" aria-label="High-Growth Immigration Law Firm. 275 thousand dollars TCV. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="win-metric gold">$275K</div>
+            <div class="win-unit">TCV</div>
+            <div class="win-title">High-Growth Immigration Law Firm</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">Outdated case-management tooling creating bottlenecks in a rapidly scaling practice.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Built a fully customized CRM demonstration featuring dynamic intake forms, automated case workflows, pre-filled government form generation, and operational reporting.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Closed one of the largest single deals of the Solutions Engineer tenure, with a projected 50% reduction in case-processing time.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Sales Cloud</span><span class="chip on-dark">Experience Cloud</span></div>
+          </div>
         </div>
-        <div class="win-metric">$275K</div>
-        <div class="win-title">Hacking Immigration Law — $275K TCV</div>
-        <div class="win-desc">One of the largest single deals in career history. Delivered a fully customized Sales Cloud demonstration featuring dynamic intake forms, automated workflows, and case management reporting — built specifically for a rapidly growing immigration law firm's operational complexity.</div>
       </div>
 
-      <div class="win-card">
-        <div class="win-icon g">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      <div class="flip-card win-card" data-win-id="bullhorn-engage-boston" tabindex="0" role="button" aria-pressed="false" aria-label="Bullhorn Engage Boston 2026. Premier sponsorship presence. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+            <div class="win-metric gold">Premier</div>
+            <div class="win-unit">sponsorship presence</div>
+            <div class="win-title">Bullhorn Engage Boston 2026</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">The company's largest-ever sponsorship presence at a national industry conference.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Served as technical lead at the SE demo booth across the full event, delivering live AI agent demonstrations to 30+ enterprise prospects and participating in a 30-customer executive roundtable alongside the partner's SVP of Product.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Named in the company-wide event recap as a key contributor to the sponsorship's success.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Agentforce</span><span class="chip on-dark">Data Cloud</span></div>
+          </div>
         </div>
-        <div class="win-metric">Premier</div>
-        <div class="win-title">Bullhorn Engage Boston 2026</div>
-        <div class="win-desc">Represented CBS New Logo at Salesforce's largest-ever Bullhorn Engage sponsorship. Staffed the SE demo booth for 2 full days running live Agentforce and Bullhorn Recruitment Cloud demonstrations. Personally named in the company-wide event recap as a key contributor to the event's success.</div>
+      </div>
+
+      <div class="flip-card win-card" data-win-id="ai-native-demo-workflow" tabindex="0" role="button" aria-pressed="false" aria-label="AI-Native Demonstration Workflow. Adopted team-wide. Press Enter for details.">
+        <div class="flip-card-inner">
+          <div class="flip-face front win-face">
+            <div class="win-icon g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B942" stroke-width="2.2" aria-hidden="true"><path d="M12 2l1.8 5.9L20 10l-6.2 2.1L12 18l-1.8-5.9L4 10l6.2-2.1L12 2z"/></svg></div>
+            <div class="win-metric gold">Adopted</div>
+            <div class="win-unit">team-wide</div>
+            <div class="win-title">AI-Native Demonstration Workflow</div>
+            <div class="win-cta">Details →</div>
+          </div>
+          <div class="flip-face back win-face">
+            <div class="win-sar"><div class="win-sar-label">Situation</div><div class="win-sar-text">Static slide decks and generic demo scripts were failing to differentiate pursuits in competitive evaluations.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Action</div><div class="win-sar-text">Pioneered an AI-assisted demonstration workflow using agentic coding tools (Cursor, Claude) to generate customer-specific animated assets and interactive, branded web experiences in place of static decks — including this site itself.</div></div>
+            <div class="win-sar"><div class="win-sar-label">Result</div><div class="win-sar-text">Adopted as standard practice across the segment's pre-sales team; the workflow now underpins customer-facing assets built for a dozen-plus accounts.</div></div>
+            <div class="win-chips"><span class="chip on-dark">Cursor</span><span class="chip on-dark">Claude</span><span class="chip on-dark">GitHub Pages</span></div>
+            <a class="win-link" href="https://edalton122.github.io/bradley-salesforce-deck/" target="_blank" rel="noopener noreferrer">See a live example →</a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -858,46 +717,65 @@ footer { background: var(--navy); padding: 56px 48px; }
   <div class="container">
     <div class="sec-eyebrow fade-up">Peer &amp; Leadership Recognition</div>
     <h2 class="sec-title fade-up">What Colleagues Say</h2>
-    <p class="sec-sub fade-up">Sourced directly from Salesforce internal Slack — #cbs-give-gratitude, #gp-all, and direct team channels.</p>
-    <div class="quotes-grid">
+    <p class="sec-sub fade-up">Sourced directly from Salesforce internal Slack peer-recognition channels.</p>
+    <div class="quotes-grid" id="quotes-grid">
 
-      <div class="q-card gold-l">
-        <div class="q-text">"@Eric Dalton is the best damn SE in the game."</div>
-        <div class="q-author">Lars Keeley</div>
-        <div class="q-role">Salesforce, Internal Slack</div>
+      <div class="q-card">
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#FDE7B0;">LK</div>
+          <div><div class="q-name">Lars K.</div><div class="q-role">Solutions Engineering, Salesforce</div></div>
+        </div>
+        <div class="q-text">"Eric is the best damn SE in the game."</div>
       </div>
 
       <div class="q-card">
-        <div class="q-text">"When the customer texts you mid demo that @Eric Dalton is crushing it >>>>>>>>>> You the man Eric!"</div>
-        <div class="q-author">Tucker Gustafson</div>
-        <div class="q-role">Account Executive, Salesforce</div>
-      </div>
-
-      <div class="q-card gold-l">
-        <div class="q-text">"Our very own @Eric Dalton takes home SE of the Year."</div>
-        <div class="q-author">Vick Mehrotra</div>
-        <div class="q-role">Sales Leader, Salesforce</div>
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#C9E6FF;">TG</div>
+          <div><div class="q-name">Tucker G.</div><div class="q-role">Account Executive, Salesforce</div></div>
+        </div>
+        <div class="q-text">"When the customer texts you mid demo that Eric is crushing it — you the man!"</div>
       </div>
 
       <div class="q-card">
-        <div class="q-text">"Was able to close on Monday — 24K ACV on a 5 year deal! The trust in the solution it — SE extraordinaire @Eric Dalton!!!"</div>
-        <div class="q-author">Mackenzie Moreno</div>
-        <div class="q-role">Account Executive, Salesforce</div>
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#FDE7B0;">VM</div>
+          <div><div class="q-name">Vick M.</div><div class="q-role">Sales Leadership, Salesforce</div></div>
+        </div>
+        <div class="q-text">"Our very own Eric Dalton takes home SE of the Year."</div>
       </div>
 
       <div class="q-card">
-        <div class="q-text">"MASSIVE s/o to @Eric Dalton for crushing it for the executive team. Eric goes above and beyond for every AE he works with — always ready to host on a call and ALWAYS COMES PREPARED."</div>
-        <div class="q-author">Michael Darden</div>
-        <div class="q-role">Account Executive, Salesforce</div>
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#C9E6FF;">MM</div>
+          <div><div class="q-name">Mackenzie M.</div><div class="q-role">Account Executive, Salesforce</div></div>
+        </div>
+        <div class="q-text">"Was able to close on Monday — 24K ACV on a 5 year deal! The trust in the solution — SE extraordinaire."</div>
       </div>
 
-      <div class="q-card gold-l">
-        <div class="q-text">"@Eric Dalton — you continue to amaze us! You bring so much upside to every call and consistently deliver your A Game despite your workload. Our team couldn't operate the same without your help."</div>
-        <div class="q-author">Macey Clifton</div>
-        <div class="q-role">Regional Manager, Salesforce</div>
+      <div class="q-card">
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#C9E6FF;">MD</div>
+          <div><div class="q-name">Michael D.</div><div class="q-role">Account Executive, Salesforce</div></div>
+        </div>
+        <div class="q-text">"Massive s/o to Eric for crushing it for the executive team. He goes above and beyond for every AE he works with — always ready to host a call and always comes prepared."</div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-channel">#peer-recognition</span>
+        <div class="q-head">
+          <div class="q-avatar" style="background:#FDE7B0;">MC</div>
+          <div><div class="q-name">Macey C.</div><div class="q-role">Regional Manager, Salesforce</div></div>
+        </div>
+        <div class="q-text">"You continue to amaze us! You bring so much upside to every call and consistently deliver your A game despite your workload. Our team couldn't operate the same without your help."</div>
       </div>
 
     </div>
+    <p class="quotes-count">6 of 6 shown</p>
   </div>
 </section>
 
@@ -906,159 +784,353 @@ footer { background: var(--navy); padding: 56px 48px; }
   <div class="container">
     <div class="sec-eyebrow fade-up">Credentials</div>
     <h2 class="sec-title fade-up">Certifications &amp; Specializations</h2>
-    <p class="sec-sub fade-up">Active Salesforce certifications, Trailhead achievements, and product specializations — with the Agentforce Specialist Certification targeted for FY27 Q4.</p>
-    <div class="certs-grid">
+    <p class="sec-sub fade-up">Active Salesforce certifications, Trailhead achievements, and product specializations.</p>
 
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#0176D3;"></div>
-        <div class="cert-name">Salesforce Certified Administrator</div>
-        <div class="cert-issuer">Salesforce</div>
-        <div class="cert-date">Jun 2022 · Credential ID 2347981</div>
+    <div class="cert-tier fade-up">
+      <h3 class="cert-tier-title">Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#0176D3;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Salesforce Certified Administrator</div><div class="cert-issuer">Salesforce</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">Jun 2022 · ID 2347981</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#0176D3;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Salesforce Certified Platform App Builder</div><div class="cert-issuer">Salesforce</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">Jul 2022 · ID 2457320</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#0176D3;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Agentforce Specialist</div><div class="cert-issuer">Salesforce</div></div>
+            <span class="cert-status-badge in-progress">In Progress</span>
+          </div>
+          <div class="cert-date">FY27 Q4 target</div>
+          <div class="cert-countdown" id="cert-countdown">— days remaining</div>
+        </div>
       </div>
+    </div>
 
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#0176D3;"></div>
-        <div class="cert-name">Salesforce Certified Platform App Builder</div>
-        <div class="cert-issuer">Salesforce</div>
-        <div class="cert-date">Jul 2022 · Credential ID 2457320</div>
+    <div class="cert-tier fade-up">
+      <h3 class="cert-tier-title">Blackbelts &amp; Appointments</h3>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#2E844A;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Revenue Cloud Blackbelt</div><div class="cert-issuer">Salesforce</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">Achieved</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#032D60;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Data Cloud Blackbelt Captain</div><div class="cert-issuer">Appointed by Sr. Director of SE</div></div>
+            <span class="cert-status-badge active">Active</span>
+          </div>
+          <div class="cert-date">Active appointment</div>
+        </div>
       </div>
+    </div>
 
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#72BF44;"></div>
-        <div class="cert-name">Revenue Cloud Blackbelt</div>
-        <div class="cert-issuer">Salesforce</div>
-        <div class="cert-date">Achieved</div>
+    <div class="cert-tier fade-up">
+      <h3 class="cert-tier-title">Trailhead</h3>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#F4B942;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Triple Star Ranger</div><div class="cert-issuer">Trailhead</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">Highest Trailhead tier</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#F4B942;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Process Automation Specialist</div><div class="cert-issuer">Trailhead Superbadge</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">Achieved</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-bar" style="background:#F4B942;"></div>
+          <div class="cert-status-row">
+            <div><div class="cert-name">Agentblazer Innovator</div><div class="cert-issuer">Salesforce</div></div>
+            <span class="cert-status-badge achieved">Achieved</span>
+          </div>
+          <div class="cert-date">FY27 Q1 · 2026</div>
+        </div>
       </div>
-
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#0369A1;"></div>
-        <div class="cert-name">Data Cloud Blackbelt Captain</div>
-        <div class="cert-issuer">Salesforce — Appointed by Sr. Director of SE</div>
-        <div class="cert-date">Active</div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#F26641;"></div>
-        <div class="cert-name">Agentblazer Innovator</div>
-        <div class="cert-issuer">Salesforce</div>
-        <div class="cert-date">Completed FY27 Q1 · 2026</div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#F4B942;"></div>
-        <div class="cert-name">Triple Star Ranger</div>
-        <div class="cert-issuer">Salesforce Trailhead</div>
-        <div class="cert-date">Highest Trailhead Achievement Tier</div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#7B61FF;"></div>
-        <div class="cert-name">Process Automation Specialist</div>
-        <div class="cert-issuer">Salesforce Trailhead Superbadge</div>
-        <div class="cert-date">Achieved</div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-bar" style="background:#CBD5E0;"></div>
-        <div class="cert-name">Agentforce Specialist Certification</div>
-        <div class="cert-issuer">Salesforce</div>
-        <div class="cert-date">In Progress — FY27 Q4 Target</div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── WHAT I BUILD ─────────────────────────────── -->
+<!-- ── WHAT I BUILD ──────────────────────────────── -->
 <section id="builds">
   <div class="container">
     <div class="sec-eyebrow fade-up">Asset Library &amp; Enablement</div>
     <h2 class="sec-title fade-up">What I Build</h2>
-    <p class="sec-sub fade-up">Reusable assets, enablement programs, and AI-native tools created to scale impact well beyond any individual deal.</p>
-    <div class="builds-grid">
+    <p class="sec-sub fade-up">Reusable assets, enablement programs, and AI-native tools created to scale impact well beyond any individual deal. Filter by category, tool, or search below.</p>
 
-      <div class="build-col fade-up">
-        <h3>Enablement Programs</h3>
-        <ul class="build-list">
-          <li>"What's a Salesforce?" — Quarterly foundational onboarding session for Account Specialist cohorts (2–3× per year since 2021)</li>
-          <li>NASA Program — Strategic AE engagement playbook deployed across an entire SMB org; shifted team behavior from transactional to consultative selling</li>
-          <li>Data Cloud Blackbelt Collaboration Room — Monthly strategy &amp; enablement sessions for SMB SE team</li>
-          <li>Monthly AE Team Enablements — Recurring technical alignment sessions</li>
-          <li>10-Click Demo Spiff — Streamlined the demo process for velocity selling</li>
-          <li>TaskRay Enablement — AE certification program on Project Management Tools</li>
-          <li>What is Field Service and Why Sell It?</li>
-          <li>CEME &amp; Architecture Review Series — Full guide and working enablement documentation</li>
-        </ul>
-      </div>
+    <div class="filter-bar fade-up" id="filter-bar">
+      <noscript><span style="font-size:13px;color:var(--muted);">Showing all 21 projects — filtering requires JavaScript.</span></noscript>
+      <button class="chip chip-btn" data-filter-cat="all" aria-pressed="true">All</button>
+      <button class="chip chip-btn" data-filter-cat="enablement" aria-pressed="false">Enablement</button>
+      <button class="chip chip-btn" data-filter-cat="customer-facing" aria-pressed="false">Customer-Facing</button>
+      <button class="chip chip-btn" data-filter-cat="ai-native" aria-pressed="false">AI-Native</button>
+      <span aria-hidden="true" style="width:1px;height:20px;background:var(--border);margin:0 4px;"></span>
+      <button class="chip chip-btn" data-filter-tool="Claude" aria-pressed="false">Claude</button>
+      <button class="chip chip-btn" data-filter-tool="Cursor" aria-pressed="false">Cursor</button>
+      <button class="chip chip-btn" data-filter-tool="Agentforce" aria-pressed="false">Agentforce</button>
+      <button class="chip chip-btn" data-filter-tool="Data Cloud" aria-pressed="false">Data Cloud</button>
+      <button class="chip chip-btn" data-filter-tool="MuleSoft" aria-pressed="false">MuleSoft</button>
+      <button class="chip chip-btn" data-filter-tool="Revenue Cloud (CPQ)" aria-pressed="false">Revenue Cloud</button>
+      <input class="filter-search" type="search" id="project-search" placeholder="Search projects…" aria-label="Search projects">
+      <span class="filter-count" id="filter-count">21 projects</span>
+    </div>
 
-      <div class="build-col fade-up">
-        <h3>Customer-Facing Assets</h3>
-        <ul class="build-list">
-          <li>Interactive HTML customer landing pages replacing static PDFs — USG Water Solutions, Bradley Company, and others; custom brand assets, interactive pain-point cards, live mock dashboards</li>
-          <li>Enercon Services Executive Readout &amp; Full POV Deck</li>
-          <li>Mesa Associates — E&amp;C Full Talk Track + Agentforce and Data Cloud POV</li>
-          <li>Bullhorn Engage Boston 2026 — Comprehensive Event Intelligence Canvas and SE Takeaway Brief</li>
-          <li>Demo Sizzle Reel — Independently leveraged by AE for an impromptu customer presentation</li>
-          <li>Surveys Sizzle Reel — Built for Colen Built / OTOWFL to support deal close</li>
-          <li>Enercon Slackbot AI Status Update Framework — Adopted by the full extended team</li>
-          <li>RFP builds, post-call debrief frameworks, and POV decks across 20+ accounts in FY26–27</li>
-        </ul>
-      </div>
+    <div class="projects-grid" id="projects-grid">
 
-      <div class="build-col fade-up">
-        <h3>AI-Native Innovation</h3>
-        <ul class="build-list">
-          <li>Custom demo animations — Cursor-generated bespoke MP4/GIF assets tailored to each customer's specific use case; adopted as a reusable workflow across the CBS SE team</li>
-          <li>AE Deck Kit ("Stop Sending PDFs, Send This Instead") — Self-serve tool for AEs to generate interactive, branded customer experiences using Claude, Cursor, and GitHub Pages</li>
-          <li>PuroClean Lead-Gen Microsite — Interactive Salesforce sandbox with auto-triggered demo request email flow (in development)</li>
-          <li>Participated in Salesforce × Cursor AI Coding Office Hours (2 sessions) — actively applying agentic dev tools to CBS customer workflows</li>
-          <li>TDX 2026 participation via Salesforce+ — True to the Core, Main Keynote, Hackathon Showdown</li>
-        </ul>
-      </div>
+      <article class="project-card featured" data-id="whats-a-salesforce" data-category="enablement" data-tools="" data-products="Sales Cloud">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">What's a Salesforce?</h3>
+        <p class="project-summary">Quarterly foundational onboarding session for incoming Account Specialist cohorts.</p>
+        <details><summary>Read more</summary><p>Self-developed and delivered 2–3 times per year since 2021. Translates platform architecture and product terminology into business outcomes for new hires without prior SaaS experience. Still a standing program five years later.</p></details>
+        <div class="project-chips"><span class="chip">Sales Cloud</span></div>
+        <div class="project-impact">Standing quarterly program since 2021</div>
+      </article>
+
+      <article class="project-card featured" data-id="nasa-program" data-category="enablement" data-tools="" data-products="">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">NASA Program — Strategic AE Enablement</h3>
+        <p class="project-summary">Multi-session strategic account engagement curriculum deployed across an entire sales organization.</p>
+        <details><summary>Read more</summary><p>Equips Account Executives to identify tier-one accounts and run executive mapping exercises, architecture reviews, and reverse demonstrations — shifting team behavior from transactional to consultative selling.</p></details>
+        <div class="project-impact">Deployed org-wide</div>
+      </article>
+
+      <article class="project-card" data-id="data-cloud-collab-room" data-category="enablement" data-tools="" data-products="Data Cloud">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">Data Cloud Blackbelt Collaboration Room</h3>
+        <p class="project-summary">Monthly strategy and enablement sessions for the segment's Solutions Engineering team.</p>
+        <details><summary>Read more</summary><p>Led as the appointed Data Cloud Blackbelt Captain — primary liaison between product specialists, product management, and the field pre-sales organization.</p></details>
+        <div class="project-chips"><span class="chip">Data Cloud</span></div>
+        <div class="project-impact">Monthly, segment-wide</div>
+      </article>
+
+      <article class="project-card" data-id="monthly-ae-enablement" data-category="enablement" data-tools="" data-products="">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">Monthly AE Team Enablements</h3>
+        <p class="project-summary">Recurring technical alignment sessions for the Account Executive organization.</p>
+        <details><summary>Read more</summary><p>Designed and delivered on a recurring monthly cadence to keep AE technical fluency current with product releases.</p></details>
+        <div class="project-impact">Recurring monthly</div>
+      </article>
+
+      <article class="project-card" data-id="10-click-demo-spiff" data-category="enablement" data-tools="" data-products="">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">10-Click Demo Spiff</h3>
+        <p class="project-summary">Streamlined the demo process for velocity selling.</p>
+        <details><summary>Read more</summary><p>Designed an incentive-and-process initiative that reduced the steps required to stand up a working demo, directly supporting high-volume deal velocity.</p></details>
+      </article>
+
+      <article class="project-card" data-id="taskray-enablement" data-category="enablement" data-tools="" data-products="">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">TaskRay Enablement</h3>
+        <p class="project-summary">AE certification program on Project Management Tools (PMT).</p>
+        <details><summary>Read more</summary><p>Partnered directly with the TaskRay product team to build and deliver certification-style enablement for Account Executives.</p></details>
+      </article>
+
+      <article class="project-card" data-id="field-service-why-sell-it" data-category="enablement" data-tools="" data-products="Field Service">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">What is Field Service and Why Sell It?</h3>
+        <p class="project-summary">Foundational product enablement for the AE organization.</p>
+        <details><summary>Read more</summary><p>Positioning-focused session connecting Field Service capabilities to the deals AEs were already working.</p></details>
+        <div class="project-chips"><span class="chip">Field Service</span></div>
+      </article>
+
+      <article class="project-card" data-id="ceme-arch-review-series" data-category="enablement" data-tools="" data-products="">
+        <span class="project-cat-badge enablement">Enablement</span>
+        <h3 class="project-title">CEME &amp; Architecture Review Series</h3>
+        <p class="project-summary">Full guide and working enablement documentation for strategic account engagements.</p>
+        <details><summary>Read more</summary><p>Documents when and how to run Customer Executive Mutual Engagements versus Architecture Reviews, with templates for both.</p></details>
+      </article>
+
+      <article class="project-card featured" data-id="interactive-landing-pages" data-category="customer-facing" data-tools="Claude,Cursor,GitHub Pages" data-products="">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Interactive Customer Landing Pages</h3>
+        <p class="project-summary">Branded, interactive HTML experiences replacing static sales PDFs for water infrastructure and commercial construction accounts.</p>
+        <details><summary>Read more</summary><p>Custom brand assets, interactive pain-point cards, and live mock dashboards built per account — the direct ancestor of this site's own build approach.</p></details>
+        <div class="project-chips"><span class="chip">Claude</span><span class="chip">Cursor</span><span class="chip">GitHub Pages</span></div>
+        <div class="project-impact">Deployed for multiple accounts</div>
+        <a class="project-link-indicator" href="https://edalton122.github.io/bradley-salesforce-deck/" target="_blank" rel="noopener noreferrer">View live example →</a>
+      </article>
+
+      <article class="project-card" data-id="enterprise-exec-readout" data-category="customer-facing" data-tools="" data-products="MuleSoft,Data Cloud,Agentforce">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Engineering &amp; Construction Enterprise — Executive Readout &amp; POV Deck</h3>
+        <p class="project-summary">Full proof-of-value deck and executive readout for a complex multi-team enterprise pursuit.</p>
+        <details><summary>Read more</summary><p>Built to withstand cross-functional scrutiny from integration, AI architecture, and systems-integrator stakeholders simultaneously.</p></details>
+        <div class="project-chips"><span class="chip">MuleSoft</span><span class="chip">Data Cloud</span><span class="chip">Agentforce</span></div>
+      </article>
+
+      <article class="project-card" data-id="ec-talk-track-pov" data-category="customer-facing" data-tools="" data-products="Agentforce,Data Cloud">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Engineering &amp; Construction — Full Talk Track + POV</h3>
+        <p class="project-summary">Complete discovery-to-close narrative and Agentforce/Data Cloud proof-of-value deck for the E&amp;C vertical.</p>
+        <details><summary>Read more</summary><p>Built as a reusable vertical talk track, not a one-off — subsequently adapted for other E&amp;C pursuits.</p></details>
+        <div class="project-chips"><span class="chip">Agentforce</span><span class="chip">Data Cloud</span></div>
+      </article>
+
+      <article class="project-card" data-id="bullhorn-engage-canvas" data-category="customer-facing" data-tools="" data-products="Agentforce">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Bullhorn Engage Boston 2026 — Event Intelligence Canvas</h3>
+        <p class="project-summary">Comprehensive event findings export and SE takeaway brief.</p>
+        <details><summary>Read more</summary><p>Captured keynote insights, product notes, competitive intel, and action items from the company's largest-ever sponsorship presence — distributed as a reusable asset for the broader team.</p></details>
+        <div class="project-chips"><span class="chip">Agentforce</span></div>
+      </article>
+
+      <article class="project-card" data-id="demo-sizzle-reel" data-category="customer-facing" data-tools="" data-products="">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Demo Sizzle Reel</h3>
+        <p class="project-summary">Reusable high-impact demo asset for fast-turnaround customer presentations.</p>
+        <details><summary>Read more</summary><p>Built once, reused across multiple accounts by other Solutions Engineers for impromptu customer presentations.</p></details>
+        <div class="project-impact">Reused team-wide</div>
+      </article>
+
+      <article class="project-card" data-id="surveys-sizzle-reel" data-category="customer-facing" data-tools="" data-products="">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">Surveys Sizzle Reel</h3>
+        <p class="project-summary">Custom demo asset built to support a deal close for a commercial construction account.</p>
+        <details><summary>Read more</summary><p>Purpose-built for a specific objection pattern encountered late in a pursuit.</p></details>
+      </article>
+
+      <article class="project-card" data-id="ai-status-update-framework" data-category="customer-facing" data-tools="Slack" data-products="">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">AI Status Update Framework</h3>
+        <p class="project-summary">Cross-functional deal communication framework for complex multi-team pursuits.</p>
+        <details><summary>Read more</summary><p>Standardized how status updates were authored and distributed across a large extended pursuit team, adopted by the full team for the duration of the pursuit.</p></details>
+        <div class="project-chips"><span class="chip">Slack</span></div>
+        <div class="project-impact">Adopted by full extended team</div>
+      </article>
+
+      <article class="project-card" data-id="rfp-pov-library" data-category="customer-facing" data-tools="" data-products="">
+        <span class="project-cat-badge customer-facing">Customer-Facing</span>
+        <h3 class="project-title">RFP Builds &amp; Post-Call Debrief Frameworks</h3>
+        <p class="project-summary">RFP responses, debrief frameworks, and POV decks across 20+ accounts in FY26–FY27.</p>
+        <details><summary>Read more</summary><p>A working library of repeatable structures rather than one-off documents, built to compress pursuit turnaround time.</p></details>
+        <div class="project-impact">20+ accounts</div>
+      </article>
+
+      <article class="project-card featured" data-id="custom-demo-animations" data-category="ai-native" data-tools="Cursor,Claude" data-products="">
+        <span class="project-cat-badge ai-native">AI-Native</span>
+        <h3 class="project-title">Cursor-Generated Custom Demo Animations</h3>
+        <p class="project-summary">Bespoke MP4/GIF demo assets tailored to each customer's specific use case.</p>
+        <details><summary>Read more</summary><p>Adopted as a reusable workflow across the segment's Solutions Engineering team — generates customer-specific visuals in a fraction of the time of manual screen recording and editing.</p></details>
+        <div class="project-chips"><span class="chip">Cursor</span><span class="chip">Claude</span></div>
+        <div class="project-impact">Adopted team-wide</div>
+      </article>
+
+      <article class="project-card featured" data-id="ae-deck-kit" data-category="ai-native" data-tools="Claude,Cursor,GitHub Pages" data-products="">
+        <span class="project-cat-badge ai-native">AI-Native</span>
+        <h3 class="project-title">AE Deck Kit — "Stop Sending PDFs, Send This Instead"</h3>
+        <p class="project-summary">Self-serve tool letting Account Executives generate interactive, branded customer experiences without engineering support.</p>
+        <details><summary>Read more</summary><p>Built using Claude, Cursor, and GitHub Pages so AEs can produce the same quality of interactive asset this site demonstrates, without needing a Solutions Engineer to build it for them.</p></details>
+        <div class="project-chips"><span class="chip">Claude</span><span class="chip">Cursor</span><span class="chip">GitHub Pages</span></div>
+        <div class="project-impact">Self-serve for the AE team</div>
+      </article>
+
+      <article class="project-card" data-id="partner-leadgen-microsite" data-category="ai-native" data-tools="Claude,Cursor" data-products="Agentforce">
+        <span class="project-cat-badge ai-native">AI-Native</span>
+        <h3 class="project-title">Partner Lead-Gen Microsite</h3>
+        <p class="project-summary">Interactive Salesforce sandbox with an auto-triggered demo-request flow, built for a partner's book of business.</p>
+        <details><summary>Read more</summary><p>In development — combines a live sandbox walkthrough with an automated request-a-demo email flow, removing a manual step from the partner's lead handoff.</p></details>
+        <div class="project-chips"><span class="chip">Claude</span><span class="chip">Cursor</span><span class="chip">Agentforce</span></div>
+        <div class="project-impact">In development</div>
+      </article>
+
+      <article class="project-card" data-id="ai-coding-office-hours" data-category="ai-native" data-tools="Cursor" data-products="">
+        <span class="project-cat-badge ai-native">AI-Native</span>
+        <h3 class="project-title">Salesforce × Cursor AI Coding Office Hours</h3>
+        <p class="project-summary">Participant across multiple internal sessions applying agentic dev tools to customer workflows.</p>
+        <details><summary>Read more</summary><p>Ongoing engagement with internal AI-tooling office hours, directly feeding technique back into the AE Deck Kit and demo-animation workflows above.</p></details>
+        <div class="project-chips"><span class="chip">Cursor</span></div>
+      </article>
+
+      <article class="project-card" data-id="tdx-2026" data-category="ai-native" data-tools="" data-products="">
+        <span class="project-cat-badge ai-native">AI-Native</span>
+        <h3 class="project-title">TDX 2026 Participation</h3>
+        <p class="project-summary">True to the Core, Main Keynote, and Hackathon Showdown via Salesforce+.</p>
+        <details><summary>Read more</summary><p>Continued investment in staying current on platform and AI roadmap directly from the source.</p></details>
+      </article>
 
     </div>
   </div>
 </section>
 
-<!-- ── IN THE FIELD ─────────────────────────────── -->
+<!-- ── IN THE FIELD ──────────────────────────────── -->
 <section id="photos">
   <div class="container">
     <div class="sec-eyebrow fade-up">In the Field</div>
     <h2 class="sec-title fade-up">Moments From the Work</h2>
-    <div class="photos-grid">
-      <div class="p-item s2">
-        <img src="./images/boardroom.jpg" alt="Executive readout delivery">
-        <div class="p-cap">Executive readout delivery — CBS pursuit</div>
-      </div>
-      <div class="p-item">
-        <img src="./images/trailhead.jpg" alt="Dreamforce — Trailhead">
-        <div class="p-cap">Dreamforce — Trailhead</div>
-      </div>
-      <div class="p-item">
-        <img src="./images/triple-star.jpg" alt="Triple Star Ranger">
-        <div class="p-cap">Triple Star Ranger — Highest Trailhead tier</div>
-      </div>
-      <div class="p-item">
-        <img src="./images/meme.jpg" alt="AE Enablement — What's a CRM?">
-        <div class="p-cap">"What's a Salesforce?" — AE Enablement</div>
-      </div>
-      <div class="p-item">
-        <img src="./images/boston.jpg" alt="Bullhorn Engage Boston 2026">
-        <div class="p-cap">Bullhorn Engage Boston 2026</div>
-      </div>
-      <div class="p-item s2">
-        <img src="./images/enablement.jpg" alt="Team enablement session">
-        <div class="p-cap">Team enablement session</div>
-      </div>
+    <div class="photos-grid" id="photos-grid">
+      <button class="p-item s2" data-lightbox-index="0">
+        <img src="./images/boardroom.jpg" alt="Executive readout delivery" width="600" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">Executive readout delivery — CBS pursuit</span>
+      </button>
+      <button class="p-item" data-lightbox-index="1">
+        <img src="./images/trailhead.jpg" alt="Dreamforce — Trailhead" width="300" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">Dreamforce — Trailhead</span>
+      </button>
+      <button class="p-item" data-lightbox-index="2">
+        <img src="./images/triple-star.jpg" alt="Triple Star Ranger" width="300" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">Triple Star Ranger — Highest Trailhead tier</span>
+      </button>
+      <button class="p-item" data-lightbox-index="3">
+        <img src="./images/meme.jpg" alt="What's a Salesforce? AE enablement session" width="300" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">"What's a Salesforce?" — AE Enablement</span>
+      </button>
+      <button class="p-item" data-lightbox-index="4">
+        <img src="./images/boston.jpg" alt="Bullhorn Engage Boston 2026" width="300" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">Bullhorn Engage Boston 2026</span>
+      </button>
+      <button class="p-item s2" data-lightbox-index="5">
+        <img src="./images/enablement.jpg" alt="Team enablement session" width="600" height="240" loading="lazy" decoding="async">
+        <span class="p-cap">Team enablement session</span>
+      </button>
     </div>
   </div>
 </section>
+
+<dialog class="lightbox" id="lightbox-dialog" aria-label="Photo viewer">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next photo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+</dialog>
 
 <!-- ── FUTURE ASPIRATIONS ───────────────────────── -->
 <section id="future">
   <div class="container">
     <div class="sec-eyebrow fade-up">Looking Ahead</div>
     <h2 class="sec-title fade-up">Future Aspirations</h2>
+    <!-- TODO(eric): add a one-sentence "what I'm looking for next" line (role/team type) —
+         profile.js's lookingFor is intentionally left null until you supply this, per the
+         brief's "no invented facts" rule. Once set, render a .looking-for-card here. -->
     <div class="future-grid">
       <ul class="future-list fade-up">
         <li><span class="f-dot"></span>Advance to Principal Solutions Engineer at Salesforce</li>
@@ -1071,8 +1143,8 @@ footer { background: var(--navy); padding: 56px 48px; }
       </ul>
       <div class="future-stats">
         <div class="f-stat fade-up">
-          <div class="f-stat-val">$2.25M+</div>
-          <div class="f-stat-lbl">Active Open Pipeline — FY27 (as of September 2026)</div>
+          <div class="f-stat-val" id="future-pipeline">$2.25M+</div>
+          <div class="f-stat-lbl">Active Open Pipeline — FY27 (as of <span id="future-asof">September 2026</span>)</div>
         </div>
         <div class="f-stat fade-up">
           <div class="f-stat-val">FY27 Q4</div>
@@ -1087,175 +1159,34 @@ footer { background: var(--navy); padding: 56px 48px; }
   </div>
 </section>
 
+</main>
+
 <!-- ── FOOTER ───────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div>
       <div class="footer-name">Eric Dalton</div>
-      <div class="footer-title">Lead Solutions Engineer · Salesforce · Atlanta, GA · linkedin.com/in/eric-dalton-se</div>
+      <div class="footer-title">Lead Solutions Engineer · Salesforce · Atlanta, GA · <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" rel="noopener noreferrer" style="color:inherit;">linkedin.com/in/eric-dalton-se</a></div>
+      <div class="footer-title">
+        <a href="mailto:ewdalton122@gmail.com" style="color:inherit;">ewdalton122@gmail.com</a> ·
+        <a href="tel:8596086971" style="color:inherit;">859-608-6971</a>
+      </div>
+      <div class="footer-privacy-note" id="footer-privacy-note"></div>
     </div>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank">LinkedIn</a>
-      <a href="https://edalton122.github.io/bradley-salesforce-deck/" target="_blank">Sample Customer Deck</a>
-      <a href="#hero">Back to Top ↑</a>
+      <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://edalton122.github.io/bradley-salesforce-deck/" target="_blank" rel="noopener noreferrer">Live Customer Deck Example</a>
+      <a href="./resume.html" target="_blank" rel="noopener noreferrer">Résumé (Browser)</a>
+      <button type="button" id="footer-print">Print this page</button>
+      <a href="#hero" id="footer-top">Back to Top ↑</a>
     </div>
   </div>
 </footer>
 
-<!-- ── SCRIPTS ──────────────────────────────────── -->
-<script>
-// NAV scroll
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-}, { passive: true });
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
 
-// Intersection Observer — fade-up elements
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-
-// Timeline items — staggered
-document.querySelectorAll('.tl-item').forEach((item, i) => {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        setTimeout(() => item.classList.add('visible'), i * 90);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  obs.observe(item);
-});
-
-// Win / Quote / Cert cards — staggered
-['wins-grid','quotes-grid','certs-grid'].forEach(cls => {
-  const grid = document.querySelector('.' + cls);
-  if (!grid) return;
-  const cards = grid.querySelectorAll('.win-card,.q-card,.cert-card');
-  const go = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        cards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 75));
-        go.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  go.observe(grid);
-});
-
-// Count-up animation
-function countUp(el, target, prefix, suffix, isDecimal, delay) {
-  if (el.dataset.done) return;
-  el.dataset.done = '1';
-  const dur = 1600, fps = 60, steps = (dur / 1000) * fps;
-  const inc = target / steps;
-  let cur = 0, frame = 0;
-  setTimeout(() => {
-    const tick = setInterval(() => {
-      frame++;
-      cur = Math.min(cur + inc, target);
-      const display = isDecimal ? cur.toFixed(1) : (target >= 100 ? Math.round(cur).toLocaleString() : Math.round(cur));
-      el.textContent = prefix + display + suffix;
-      if (frame >= steps) { clearInterval(tick); el.textContent = prefix + (isDecimal ? target.toFixed(1) : (target >= 100 ? target.toLocaleString() : target)) + suffix; }
-    }, 1000 / fps);
-  }, delay || 0);
-}
-
-const numObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      countUp(document.getElementById('n-acv'),    6.3,   '$', 'M+', true,  0);
-      countUp(document.getElementById('n-deals'),  623,   '',  '+',  false, 80);
-      countUp(document.getElementById('n-years'),  7,     '',  ' Yrs', false, 160);
-      countUp(document.getElementById('n-peak'),   2.9,   '$', 'M',  true,  240);
-      countUp(document.getElementById('n-fy24deals'), 234, '', ' deals', false, 320);
-      countUp(document.getElementById('n-promos'), 5,     '',  ' total', false, 400);
-      numObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-const numSec = document.getElementById('numbers');
-if (numSec) numObs.observe(numSec);
-
-// Chart.js ACV
-const ctx = document.getElementById('acvChart').getContext('2d');
-new Chart(ctx, {
-  data: {
-    labels: ['FY23', 'FY24', 'FY25', 'FY26', 'FY27 YTD'],
-    datasets: [
-      {
-        type: 'bar',
-        label: 'Closed ACV ($)',
-        data: [573190, 2904583, 1429770, 1121180, 281357],
-        backgroundColor: ['rgba(1,118,211,0.82)', 'rgba(244,185,66,0.92)', 'rgba(1,118,211,0.82)', 'rgba(1,118,211,0.82)', 'rgba(1,118,211,0.45)'],
-        borderRadius: 8,
-        borderSkipped: false,
-        yAxisID: 'y',
-        order: 2,
-      },
-      {
-        type: 'line',
-        label: 'Deals Closed',
-        data: [106, 234, 145, 121, 17],
-        borderColor: '#032D60',
-        backgroundColor: 'transparent',
-        borderWidth: 2.5,
-        pointBackgroundColor: '#032D60',
-        pointRadius: 6,
-        pointHoverRadius: 8,
-        yAxisID: 'y2',
-        tension: 0.35,
-        order: 1,
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: { font: { family: 'Inter', size: 12, weight: '600' }, color: '#6B7280', padding: 20, usePointStyle: true }
-      },
-      tooltip: {
-        backgroundColor: '#032D60',
-        titleFont: { family: 'Inter', size: 13, weight: '700' },
-        bodyFont: { family: 'Inter', size: 13 },
-        padding: 14, cornerRadius: 8, displayColors: true,
-        callbacks: {
-          label: ctx => ctx.datasetIndex === 0
-            ? ` ACV: $${ctx.raw.toLocaleString()}`
-            : ` Deals: ${ctx.raw}`
-        }
-      }
-    },
-    scales: {
-      x: {
-        grid: { display: false },
-        border: { display: false },
-        ticks: { font: { family: 'Inter', size: 13, weight: '700' }, color: '#032D60' }
-      },
-      y: {
-        position: 'left',
-        grid: { color: '#F0F4F9' },
-        border: { display: false },
-        ticks: {
-          font: { family: 'Inter', size: 12 }, color: '#6B7280',
-          callback: v => v >= 1000000 ? '$' + (v/1000000).toFixed(1) + 'M' : v >= 1000 ? '$' + (v/1000).toFixed(0) + 'K' : '$' + v
-        }
-      },
-      y2: {
-        position: 'right',
-        grid: { display: false },
-        border: { display: false },
-        ticks: { font: { family: 'Inter', size: 12 }, color: '#6B7280', callback: v => v + ' deals' }
-      }
-    }
-  }
-});
-</script>
+<script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>

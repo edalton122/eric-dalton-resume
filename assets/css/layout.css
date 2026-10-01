@@ -164,7 +164,7 @@ section { scroll-margin-top: var(--nav-height); }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  .numbers-grid { grid-template-columns: repeat(4, 1fr); }
   .wins-grid { grid-template-columns: repeat(2, 1fr); }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
   .photos-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
