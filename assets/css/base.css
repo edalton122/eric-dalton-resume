@@ -46,7 +46,6 @@ button { font-family: inherit; }
 .on-dark :focus-visible,
 #hero :focus-visible,
 #wins :focus-visible,
-#photos :focus-visible,
 nav :focus-visible,
 footer :focus-visible {
   outline-color: var(--gold);

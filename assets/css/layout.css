@@ -167,8 +167,6 @@ section { scroll-margin-top: var(--nav-height); }
   .numbers-grid { grid-template-columns: repeat(4, 1fr); }
   .wins-grid { grid-template-columns: repeat(2, 1fr); }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
-  .photos-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-  .p-item.s2 { grid-column: span 2; }
   .builds-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -177,16 +175,31 @@ section { scroll-margin-top: var(--nav-height); }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   #hero { padding: calc(var(--nav-height) + 26px) var(--sp-5) var(--sp-10); }
-  .hero-inner { grid-template-columns: 1fr; gap: var(--sp-10); }
-  .hero-photo-wrap { order: -1; }
-  .photo-ring { width: 200px; height: 200px; }
+  /* #hero-prefixed to reliably beat sections.css's unconditional .hero-inner
+     rule — sections.css loads after layout.css, so at equal specificity its
+     always-on grid-template-columns would otherwise win even inside this
+     media query (pre-existing cascade quirk; bumping specificity here
+     rather than reordering stylesheets site-wide). */
+  #hero .hero-inner { grid-template-columns: 1fr; gap: var(--sp-10); }
+  #hero .hero-identity { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
+
+  /* Rail becomes a full-bleed horizontal strip below the hero copy instead
+     of a vertical column beside it (§2.3). min-width:0 overrides the grid
+     item's default auto-minimum, which would otherwise size the 1fr track
+     to fit the rail track's full unscrolled content width (12 × 260px). */
+  #hero .hero-photo-wrap { margin: 0 calc(-1 * var(--sp-5)); min-width: 0; }
+  #hero .hero-photo-rail { height: 160px; border-radius: 0; }
+  #hero .hero-photo-track { flex-direction: row; animation-name: rail-scroll-x; }
+  #hero .hero-photo-track .p-item, #hero .hero-photo-decoy-item { width: 260px; height: 160px; }
+  #hero .hero-photo-rail::before, #hero .hero-photo-rail::after { top: 0; bottom: 0; height: auto; width: 56px; }
+  #hero .hero-photo-rail::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
+  #hero .hero-photo-rail::after  { right: 0; left: auto; background: linear-gradient(to left, var(--navy), transparent); }
+
   section { padding: var(--sp-10) var(--sp-5) !important; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
   .wins-grid, .quotes-grid, .future-grid { grid-template-columns: 1fr; }
   .builds-grid, .projects-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
-  .photos-grid { grid-template-columns: 1fr 1fr; }
-  .p-item.s2 { grid-column: span 2; }
   .footer-inner { flex-direction: column; gap: var(--sp-7); text-align: center; }
   .section-pill { display: flex; }
 }

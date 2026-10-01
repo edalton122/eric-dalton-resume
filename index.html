@@ -157,8 +157,15 @@
 <section id="hero" aria-label="Introduction">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow">Lead Solutions Engineer · Salesforce · Atlanta, GA</div>
-      <h1 class="hero-name">Eric<br><em>Dalton</em></h1>
+      <div class="hero-identity">
+        <img class="hero-avatar" src="./images/headshot.jpg"
+             alt="Eric Dalton — Lead Solutions Engineer at Salesforce"
+             width="88" height="88" fetchpriority="high">
+        <div>
+          <div class="hero-eyebrow">Lead Solutions Engineer · Salesforce · Atlanta, GA</div>
+          <h1 class="hero-name">Eric<br><em>Dalton</em></h1>
+        </div>
+      </div>
       <p class="hero-desc">7 years at Salesforce. $6.3M+ in career closed ACV across 623 deals. Leading CBS New Logo pursuits across Home Services, Specialty Contracting, and Engineering &amp; Construction — with a track record of competitive displacements, multi-team deal orchestration, and AI-native technical selling.</p>
 
       <div class="hero-live-strip" id="hero-live-strip">
@@ -175,6 +182,7 @@
         <button class="hero-tag" data-jump="builds" data-filter-product="Data Cloud">Data Cloud</button>
         <button class="hero-tag" data-jump="builds" data-filter-product="Revenue Cloud (CPQ)">Revenue Cloud</button>
         <button class="hero-tag" data-jump="wins" data-flip="fy24-se-of-the-year">SE of the Year</button>
+        <button class="hero-tag" data-jump="certifications">Triple Star Ranger</button>
       </div>
 
       <div class="hero-cta-row">
@@ -197,10 +205,50 @@
       </div>
     </div>
     <div class="hero-photo-wrap">
-      <div class="photo-ring" id="photo-ring">
-        <img src="./images/headshot.jpg" alt="Eric Dalton — Lead Solutions Engineer at Salesforce" width="360" height="360" fetchpriority="high">
+      <div class="hero-photo-rail" id="hero-photo-rail">
+        <div class="hero-photo-track">
+          <button class="p-item" data-lightbox-index="0">
+            <img src="./images/boardroom.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">Executive readout delivery — CBS pursuit</span>
+          </button>
+          <button class="p-item" data-lightbox-index="1">
+            <img src="./images/trailhead.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">Dreamforce — Trailhead</span>
+          </button>
+          <button class="p-item" data-lightbox-index="2">
+            <img src="./images/triple-star.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">Triple Star Ranger — Highest Trailhead tier</span>
+          </button>
+          <button class="p-item" data-lightbox-index="3">
+            <img src="./images/meme.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">"What's a Salesforce?" — AE Enablement</span>
+          </button>
+          <button class="p-item" data-lightbox-index="4">
+            <img src="./images/boston.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">Bullhorn Engage Boston 2026</span>
+          </button>
+          <button class="p-item" data-lightbox-index="5">
+            <img src="./images/enablement.jpg" alt="" width="380" height="220" loading="lazy" decoding="async">
+            <span class="p-cap">Team enablement session</span>
+          </button>
+
+          <!-- DECORATIVE DUPLICATE — same 6 images again, for the seamless scroll
+               illusion only. Not buttons, not .p-item, aria-hidden, unfocusable.
+               lightbox.js's querySelectorAll('.p-item') must not find these. -->
+          <div class="hero-photo-track-decoy" aria-hidden="true" inert>
+            <div class="hero-photo-decoy-item"><img src="./images/boardroom.jpg" alt="" loading="lazy"></div>
+            <div class="hero-photo-decoy-item"><img src="./images/trailhead.jpg" alt="" loading="lazy"></div>
+            <div class="hero-photo-decoy-item"><img src="./images/triple-star.jpg" alt="" loading="lazy"></div>
+            <div class="hero-photo-decoy-item"><img src="./images/meme.jpg" alt="" loading="lazy"></div>
+            <div class="hero-photo-decoy-item"><img src="./images/boston.jpg" alt="" loading="lazy"></div>
+            <div class="hero-photo-decoy-item"><img src="./images/enablement.jpg" alt="" loading="lazy"></div>
+          </div>
+        </div>
       </div>
-      <div class="photo-badge">SE of the Year · Triple Star Ranger</div>
+      <button class="rail-pause-toggle" id="rail-pause-toggle" type="button" aria-pressed="false">
+        <span class="rail-pause-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Pause photo scroll</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1105,40 +1153,6 @@
   </div>
 </section>
 
-<!-- ── IN THE FIELD ──────────────────────────────── -->
-<section id="photos">
-  <div class="container">
-    <div class="sec-eyebrow fade-up">In the Field</div>
-    <h2 class="sec-title fade-up">Moments From the Work</h2>
-    <div class="photos-grid" id="photos-grid">
-      <button class="p-item s2" data-lightbox-index="0">
-        <img src="./images/boardroom.jpg" alt="" width="600" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">Executive readout delivery — CBS pursuit</span>
-      </button>
-      <button class="p-item" data-lightbox-index="1">
-        <img src="./images/trailhead.jpg" alt="" width="300" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">Dreamforce — Trailhead</span>
-      </button>
-      <button class="p-item" data-lightbox-index="2">
-        <img src="./images/triple-star.jpg" alt="" width="300" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">Triple Star Ranger — Highest Trailhead tier</span>
-      </button>
-      <button class="p-item" data-lightbox-index="3">
-        <img src="./images/meme.jpg" alt="" width="300" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">"What's a Salesforce?" — AE Enablement</span>
-      </button>
-      <button class="p-item" data-lightbox-index="4">
-        <img src="./images/boston.jpg" alt="" width="300" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">Bullhorn Engage Boston 2026</span>
-      </button>
-      <button class="p-item s2" data-lightbox-index="5">
-        <img src="./images/enablement.jpg" alt="" width="600" height="240" loading="lazy" decoding="async">
-        <span class="p-cap">Team enablement session</span>
-      </button>
-    </div>
-  </div>
-</section>
-
 <dialog class="lightbox" id="lightbox-dialog" aria-label="Photo viewer">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close">
@@ -1202,7 +1216,7 @@
       <div class="footer-title">Lead Solutions Engineer · Salesforce · Atlanta, GA · <a href="https://www.linkedin.com/in/eric-dalton-se" target="_blank" rel="noopener noreferrer" style="color:inherit;">linkedin.com/in/eric-dalton-se</a></div>
       <div class="footer-title">
         <a href="mailto:ewdalton122@gmail.com" style="color:inherit;">ewdalton122@gmail.com</a> ·
-        <a href="tel:8596086971" style="color:inherit;">859-608-6971</a>
+        <a href="tel:+18596086971" style="color:inherit;">859-608-6971</a>
       </div>
       <div class="footer-privacy-note" id="footer-privacy-note"></div>
     </div>

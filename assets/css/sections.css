@@ -23,6 +23,14 @@
   display: grid; grid-template-columns: 1fr 400px;
   gap: var(--sp-12); align-items: center; position: relative;
 }
+.hero-identity { display: flex; align-items: center; gap: var(--sp-6); margin-bottom: var(--sp-2); }
+.hero-avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  object-fit: cover; object-position: center 15%; /* keep the existing crop tuning */
+  border: 3px solid rgba(255,255,255,0.22);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: var(--sp-2);
   font-size: var(--fs-sm); font-weight: 700;
@@ -78,26 +86,75 @@
 }
 .hero-copy-link:hover { color: white; }
 
-.hero-photo-wrap { display: flex; justify-content: center; position: relative; }
-.photo-ring {
-  width: 360px; height: 360px; border-radius: 50%; padding: 4px;
-  background: conic-gradient(var(--gold) 0deg, var(--blue-light) 120deg, var(--gold) 240deg, var(--blue-light) 360deg);
+.hero-photo-wrap { position: relative; }
+
+/* ── HERO PHOTO RAIL — replaces the old spinning headshot border; same 6
+   "moments from the work" photos, auto-scrolling in a masked, loop-
+   seamless rail instead of their own section further down the page. ── */
+.hero-photo-rail {
   position: relative;
-  animation: rotate-ring 20s linear infinite;
+  height: 560px;
+  overflow: hidden;
+  border-radius: var(--r-lg);
 }
-@keyframes rotate-ring { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .photo-ring { animation: none; } }
-.photo-ring img {
-  width: 100%; height: 100%; border-radius: 50%;
-  object-fit: cover; object-position: center 15%;
-  display: block; border: 5px solid var(--navy);
+.hero-photo-rail::before, .hero-photo-rail::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 72px; z-index: 2;
+  pointer-events: none;
 }
-.photo-badge {
-  position: absolute; bottom: 16px; right: -8px;
-  background: var(--gold); color: var(--navy);
-  font-size: var(--fs-xs); font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 6px 14px; border-radius: 100px; white-space: nowrap;
+.hero-photo-rail::before { top: 0;    background: linear-gradient(var(--navy), transparent); }
+.hero-photo-rail::after  { bottom: 0; background: linear-gradient(transparent, var(--navy)); }
+
+.hero-photo-track {
+  display: flex; flex-direction: column; gap: var(--sp-4);
+  animation: rail-scroll 50s linear infinite;
+}
+.hero-photo-rail:hover .hero-photo-track,
+.hero-photo-rail:focus-within .hero-photo-track,
+.hero-photo-rail.paused .hero-photo-track {
+  animation-play-state: paused;
+}
+/* display:contents keeps the 6 decoy items as direct flex children of
+   .hero-photo-track (same size/gap math as the 6 real items above them),
+   so translateY(-50%) lands on an exact half — no end-of-loop jump. */
+.hero-photo-track-decoy { display: contents; }
+
+@keyframes rail-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+@keyframes rail-scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-track { animation: none; flex-direction: column; }
+  .hero-photo-rail { height: auto; }
+  .hero-photo-track-decoy { display: none; }
+}
+
+.hero-photo-track .p-item, .hero-photo-decoy-item {
+  width: 100%; height: 220px; flex-shrink: 0;
+  border-radius: var(--r-sm); overflow: hidden; position: relative;
+}
+/* .p-item img / .p-cap rules below (§ PHOTOS) are reused as-is for the rail. */
+
+.rail-pause-toggle {
+  position: absolute; bottom: var(--sp-4); right: var(--sp-4); z-index: 3;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(3,45,96,0.75); border: 1px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  color: white;
+}
+.rail-pause-toggle:hover { background: rgba(3,45,96,0.92); }
+.rail-pause-icon {
+  display: block; width: 12px; height: 12px;
+  background:
+    linear-gradient(to right, currentColor 0 35%, transparent 35% 65%, currentColor 65% 100%);
+}
+.rail-pause-toggle[aria-pressed="true"] .rail-pause-icon {
+  width: 0; height: 0;
+  border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+  border-left: 10px solid currentColor; background: none;
 }
 
 /* ── BY THE NUMBERS ─────────────────────────────────────────────── */
@@ -315,13 +372,10 @@
 .project-link-indicator { font-size: var(--fs-xs); color: var(--blue-text); font-weight: 600; }
 .view-toggle { display: flex; gap: var(--sp-2); align-items: center; }
 
-/* ── PHOTOS (lightbox-ready) ─────────────────────────────────────── */
-#photos { background: var(--navy); padding: var(--sp-12) var(--sp-9); }
-#photos .sec-eyebrow { color: var(--gold); }
-#photos .sec-title { color: white; margin-bottom: var(--sp-9); }
-.photos-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 240px 240px; gap: var(--sp-3); }
+/* ── PHOTOS (lightbox-ready) — now rendered inside the hero's photo rail
+   (see .hero-photo-rail above), not a standalone section. .p-item/.p-cap
+   are reused as-is; the rail's own CSS handles sizing/layout. ────────── */
 .p-item { border-radius: var(--r-sm); overflow: hidden; position: relative; background: var(--navy-mid); border: none; cursor: pointer; padding: 0; }
-.p-item.s2 { grid-column: span 2; }
 .p-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-mid) ease; display: block; }
 .p-item:hover img, .p-item:focus-visible img { transform: scale(1.04); }
 .p-cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(3,45,96,0.88)); color: rgba(255,255,255,0.92); font-size: var(--fs-sm); font-weight: 500; padding: 28px 14px 12px; opacity: 0; transition: opacity var(--dur-fast) ease; text-align: left; }

@@ -15,6 +15,7 @@ import { initQuotes } from './modules/quotes.js';
 import { initCerts } from './modules/certs.js';
 import { initGallery } from './modules/gallery.js';
 import { initLightbox } from './modules/lightbox.js';
+import { initPhotoRail } from './modules/photo-rail.js';
 import { initFooter } from './modules/footer.js';
 import { observeEntrance } from './lib/observe.js';
 
@@ -36,6 +37,7 @@ safeInit('quotes', initQuotes);
 safeInit('certs', initCerts);
 safeInit('gallery', initGallery);
 safeInit('lightbox', initLightbox);
+safeInit('photo-rail', initPhotoRail);
 safeInit('footer', initFooter);
 
 // Generic fade-up entrance for anything not already handled by a module

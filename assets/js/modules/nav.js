@@ -17,7 +17,6 @@ export function initNav() {
   initBackToTop();
   initHeroTags();
   initCopyLink();
-  initPhotoRingPause();
 }
 
 function initScrollChrome() {
@@ -144,16 +143,4 @@ function initCopyLink() {
       announce('Could not copy link — please copy the URL manually');
     }
   });
-}
-
-/** Pause the hero photo-ring's conic-gradient rotation when it's offscreen. */
-function initPhotoRingPause() {
-  const ring = document.getElementById('photo-ring');
-  if (!ring) return;
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      ring.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-    });
-  }, { threshold: 0 });
-  io.observe(ring);
 }
