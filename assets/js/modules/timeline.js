@@ -4,6 +4,7 @@
 
 import { roles, monthsInRole } from '../../data/roles.js';
 import { prefersReducedMotion } from '../lib/motion.js';
+import { observeEntrance } from '../lib/observe.js';
 
 export function initTimeline() {
   const wrap = document.getElementById('tl-wrap');
@@ -13,6 +14,9 @@ export function initTimeline() {
   wireExpandAll();
   wireScrollProgress();
   updateCurrentMonths();
+
+  const items = Array.from(wrap.querySelectorAll('.tl-item'));
+  observeEntrance(items, { stagger: 75, threshold: 0.1 }, (el) => el.classList.add('visible'));
 }
 
 function wireDisclosures() {
