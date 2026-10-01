@@ -102,7 +102,11 @@
   transition: transform var(--dur-slow) var(--ease-out);
   transform-style: preserve-3d;
 }
-.flip-card[aria-pressed="true"] .flip-card-inner { transform: rotateY(180deg); }
+.flip-card[aria-pressed="true"] .flip-card-inner,
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
 .flip-face {
   position: absolute; inset: 0;
   backface-visibility: hidden;
@@ -110,16 +114,36 @@
   display: flex; flex-direction: column;
 }
 .flip-face.back { transform: rotateY(180deg); }
-/* Hidden face must be unreachable by AT (brief §5.5) */
-.flip-card:not([aria-pressed="true"]) .flip-face.back { visibility: hidden; }
-.flip-card[aria-pressed="true"] .flip-face.front { visibility: hidden; }
+/* Hidden face must be unreachable by AT (brief §5.5). :focus-within (not
+   :focus-visible) keeps the back face revealed while a nested interactive
+   element — e.g. the "See a live example" link on the AI-Native Workflow
+   card's back face — holds focus; :focus-visible alone would un-flip the
+   card the instant Tab moved focus off the card and onto that link. */
+.flip-card:not([aria-pressed="true"]):not(:hover):not(:focus-within) .flip-face.back {
+  visibility: hidden;
+}
+.flip-card[aria-pressed="true"] .flip-face.front,
+.flip-card:hover .flip-face.front,
+.flip-card:focus-within .flip-face.front {
+  visibility: hidden;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .flip-card-inner { transition: opacity var(--dur-fast) ease; transform: none !important; }
   .flip-face.back { transform: none; opacity: 0; position: absolute; }
-  .flip-card[aria-pressed="true"] .flip-face.front { opacity: 0; visibility: hidden; }
-  .flip-card[aria-pressed="true"] .flip-face.back { opacity: 1; visibility: visible; position: relative; }
-  .flip-card:not([aria-pressed="true"]) .flip-face.back { position: absolute; }
+  .flip-card[aria-pressed="true"] .flip-face.front,
+  .flip-card:hover .flip-face.front,
+  .flip-card:focus-within .flip-face.front {
+    opacity: 0; visibility: hidden;
+  }
+  .flip-card[aria-pressed="true"] .flip-face.back,
+  .flip-card:hover .flip-face.back,
+  .flip-card:focus-within .flip-face.back {
+    opacity: 1; visibility: visible; position: relative;
+  }
+  .flip-card:not([aria-pressed="true"]):not(:hover):not(:focus-within) .flip-face.back {
+    position: absolute;
+  }
 }
 
 /* ── MODAL (shared: project gallery, lightbox) ───────────────────── */
