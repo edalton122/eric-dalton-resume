@@ -1,0 +1,55 @@
+/* ── DESIGN TOKENS ──────────────────────────────────────────────────
+   Single source of truth for color, spacing, radius, motion, and type.
+   §7 of the v2 brief: stop the magic-pixel sprawl — every value used more
+   than once anywhere in the CSS should trace back to a token defined here. */
+
+:root {
+  /* Color — unchanged from v1, this palette works */
+  --navy:       #032D60;
+  --navy-mid:   #0B4A8C;
+  --blue:       #0176D3;
+  --blue-light: #1B96FF;
+  --gold:       #F4B942;
+  --gold-dark:  #C8900A;
+  --white:      #FFFFFF;
+  --light:      #F3F6FB;
+  --border:     #DDE4EE;
+  --text:       #1A2332;
+  /* Darkened from v1's #6B7280 — the original failed WCAG AA at several
+     sizes/backgrounds used across the page (§4.3). This passes 4.5:1 on
+     both --white and --light. */
+  --muted:      #5B6474;
+  /* A muted tone usable on dark (--navy) surfaces — v1 used flat alpha
+     overlays that failed contrast; this is a solid, tested value instead. */
+  --muted-on-dark: #B9C4D6;
+  --green:      #2E844A;
+
+  /* Spacing scale — 4px base (§7) */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-7: 32px;  --sp-8: 40px;
+  --sp-9: 48px;  --sp-10: 64px; --sp-11: 80px; --sp-12: 96px;
+
+  /* Radius scale — collapses v1's 8/10/12/14/16px sprawl to three values */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+
+  /* Motion scale */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-mid:  320ms;
+  --dur-slow: 600ms;
+
+  /* Elevation — v1 had none; cards relied on background contrast alone */
+  --shadow-sm: 0 1px 2px rgba(3, 45, 96, 0.06), 0 1px 1px rgba(3, 45, 96, 0.04);
+  --shadow-md: 0 4px 12px rgba(3, 45, 96, 0.10), 0 2px 4px rgba(3, 45, 96, 0.06);
+  --shadow-lg: 0 12px 32px rgba(3, 45, 96, 0.16), 0 4px 8px rgba(3, 45, 96, 0.08);
+
+  /* Type scale */
+  --fs-xs: 11px;  --fs-sm: 12px;  --fs-base: 14px; --fs-md: 15px;
+  --fs-lg: 17px;  --fs-xl: 20px;  --fs-2xl: 24px;
+  --fs-3xl: clamp(28px, 3.5vw, 40px);
+  --fs-hero: clamp(60px, 7.5vw, 96px);
+
+  --nav-height: 64px;
+}

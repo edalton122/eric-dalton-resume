@@ -1,0 +1,20 @@
+// TEMPLATE — documents the shape of wins.full.js, which is gitignored and
+// never deployed. Copy this file to wins.full.js and fill in real customer
+// names/identifiers to enable full-detail local viewing. The deployed site
+// always ships wins.public.js regardless of this file's presence.
+
+export const wins = [
+  {
+    id: 'example-win-id',
+    metricValue: '$0.0M',          // headline figure
+    metricUnit: 'ACV',             // ALWAYS label the unit — ACV, TCV, sessions, etc.
+    icon: 'star',                  // one of: star, shield, bolt, network, document, trophy, spark
+    color: 'gold',                 // 'gold' | 'blue'
+    title: 'Customer Name — Deal Type',
+    situation: 'One sentence: the problem/context before you got involved.',
+    action: 'One sentence: what you specifically did.',
+    result: 'One sentence: the outcome, with a number if possible.',
+    products: ['Sales Cloud'],
+    link: null,                    // live artifact URL, or null
+  },
+];

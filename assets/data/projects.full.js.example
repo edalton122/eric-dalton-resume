@@ -1,0 +1,22 @@
+// EXAMPLE / TEMPLATE — committed to the repo so the full/public pattern is
+// documented even though the real projects.full.js is gitignored.
+//
+// To use locally: copy this file to `projects.full.js` and fill in real
+// customer names where projects.public.js uses sanitized language. The
+// override map below only needs entries for records that actually change;
+// anything omitted falls through to projects.public.js unchanged.
+//
+// Set PRIVACY_MODE = 'full' in privacy.js to load this file instead.
+
+import { projects as publicProjects } from './projects.public.js';
+
+const overrides = {
+  // 'some-project-id': {
+  //   title: 'Real Customer Name — Real Project Title',
+  //   summary: 'Summary with the real customer name included.',
+  // },
+};
+
+export const projects = publicProjects.map(p =>
+  overrides[p.id] ? { ...p, ...overrides[p.id] } : p
+);

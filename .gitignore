@@ -2,3 +2,9 @@ _preview.png
 _measure.html
 _bc.html
 .DS_Store
+
+# Full-detail data (named customers, verbatim Slack quotes) — local only,
+# never deployed. See privacy.js for the public/full resolution pattern.
+assets/data/wins.full.js
+assets/data/quotes.full.js
+assets/data/projects.full.js

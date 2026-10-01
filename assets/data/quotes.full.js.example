@@ -1,0 +1,13 @@
+// TEMPLATE — documents the shape of quotes.full.js, which is gitignored and
+// never deployed. Copy to quotes.full.js and fill in real names/channels.
+
+export const quotes = [
+  {
+    id: 'example-quote-id',
+    name: 'Full Name',
+    role: 'Title, Company',
+    channel: '#real-channel-name',
+    text: 'The verbatim quote, without the leading @mention.',
+    accent: 'gold', // 'gold' | 'blue'
+  },
+];

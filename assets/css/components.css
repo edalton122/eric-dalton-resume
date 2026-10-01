@@ -1,0 +1,235 @@
+/* ── SHARED COMPONENTS ──────────────────────────────────────────────
+   Built once, reused across sections, per §7: flip card, chip, modal,
+   segmented control, tooltip. */
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  padding: 13px var(--sp-6);
+  background: var(--blue); color: white;
+  font-size: var(--fs-base); font-weight: 700;
+  border-radius: var(--r-sm); text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background var(--dur-fast) ease;
+}
+.btn-primary:hover { background: var(--blue-light); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  padding: 13px var(--sp-6);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: var(--muted-on-dark);
+  font-size: var(--fs-base); font-weight: 700;
+  border-radius: var(--r-sm); cursor: pointer;
+  background: transparent; text-decoration: none;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.btn-ghost:hover { border-color: white; color: white; }
+.btn-light {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  padding: 13px var(--sp-6);
+  border: 1px solid var(--border);
+  color: var(--navy);
+  font-size: var(--fs-base); font-weight: 700;
+  border-radius: var(--r-sm); cursor: pointer;
+  background: var(--white); text-decoration: none;
+  transition: border-color var(--dur-fast) ease, background var(--dur-fast) ease;
+}
+.btn-light:hover { border-color: var(--blue); background: var(--light); }
+
+/* Chips */
+.chip {
+  display: inline-flex; align-items: center; gap: var(--sp-1);
+  font-size: var(--fs-xs); font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text);
+  cursor: default;
+}
+.chip.on-dark { border-color: rgba(255,255,255,0.18); background: transparent; color: var(--muted-on-dark); }
+.chip.on-dark.hi { border-color: var(--gold); color: var(--gold); }
+.chip-btn {
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) ease, background var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.chip-btn:hover { border-color: var(--blue); color: var(--blue); }
+.chip-btn[aria-pressed="true"] {
+  background: var(--navy); border-color: var(--navy); color: white;
+}
+
+/* Segmented control (tablist) — used by chart explorer */
+.segmented {
+  display: inline-flex;
+  background: var(--light);
+  border-radius: var(--r-sm);
+  padding: 3px;
+  gap: 2px;
+}
+.segmented [role="tab"] {
+  font-family: inherit;
+  font-size: var(--fs-sm); font-weight: 700;
+  padding: var(--sp-2) var(--sp-5);
+  border: none; background: transparent;
+  border-radius: calc(var(--r-sm) - 2px);
+  color: var(--muted); cursor: pointer;
+  transition: background var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.segmented [role="tab"][aria-selected="true"] {
+  background: var(--white); color: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Cards baseline */
+.card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+}
+
+/* ── FLIP CARD (shared: Signature Wins, By-the-Numbers) ──────────── */
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  min-height: inherit;
+  transition: transform var(--dur-slow) var(--ease-out);
+  transform-style: preserve-3d;
+}
+.flip-card[aria-pressed="true"] .flip-card-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--r-lg);
+  display: flex; flex-direction: column;
+}
+.flip-face.back { transform: rotateY(180deg); }
+/* Hidden face must be unreachable by AT (brief §5.5) */
+.flip-card:not([aria-pressed="true"]) .flip-face.back { visibility: hidden; }
+.flip-card[aria-pressed="true"] .flip-face.front { visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition: opacity var(--dur-fast) ease; transform: none !important; }
+  .flip-face.back { transform: none; opacity: 0; position: absolute; }
+  .flip-card[aria-pressed="true"] .flip-face.front { opacity: 0; visibility: hidden; }
+  .flip-card[aria-pressed="true"] .flip-face.back { opacity: 1; visibility: visible; position: relative; }
+  .flip-card:not([aria-pressed="true"]) .flip-face.back { position: absolute; }
+}
+
+/* ── MODAL (shared: project gallery, lightbox) ───────────────────── */
+dialog.modal {
+  border: none; padding: 0;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 640px; width: calc(100vw - 48px);
+  max-height: 85vh;
+  background: var(--white);
+}
+dialog.modal::backdrop { background: rgba(3, 45, 96, 0.6); }
+.modal-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: var(--sp-6) var(--sp-6) 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none; background: var(--light); color: var(--navy);
+  cursor: pointer; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-body { padding: var(--sp-5) var(--sp-6) var(--sp-6); overflow-y: auto; }
+
+/* ── TOOLTIP ──────────────────────────────────────────────────────── */
+.tooltip {
+  position: absolute;
+  background: var(--navy); color: white;
+  font-size: var(--fs-sm);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  z-index: 1200;
+  max-width: 260px;
+  opacity: 0; transition: opacity var(--dur-fast) ease;
+}
+.tooltip.visible { opacity: 1; }
+
+/* ── LIGHTBOX ─────────────────────────────────────────────────────── */
+dialog.lightbox {
+  border: none; padding: 0; background: transparent;
+  max-width: 92vw; width: 100%; max-height: 92vh;
+}
+dialog.lightbox::backdrop { background: rgba(3, 45, 96, 0.92); }
+.lightbox-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+.lightbox-inner img { max-height: 78vh; max-width: 100%; border-radius: var(--r-sm); }
+.lightbox-caption { color: white; font-size: var(--fs-base); margin-top: var(--sp-4); text-align: center; }
+.lightbox-counter { color: var(--muted-on-dark); font-size: var(--fs-sm); margin-top: var(--sp-1); }
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute;
+  background: rgba(255,255,255,0.1); color: white; border: none;
+  border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+}
+.lightbox-close { top: -8px; right: -8px; }
+.lightbox-prev { left: -56px; top: 40%; }
+.lightbox-next { right: -56px; top: 40%; }
+@media (max-width: 768px) {
+  .lightbox-prev { left: 4px; }
+  .lightbox-next { right: 4px; }
+}
+
+/* ── FILTER BAR (project gallery) ────────────────────────────────── */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: var(--sp-2);
+  align-items: center;
+  margin-bottom: var(--sp-6);
+}
+.filter-search {
+  font-family: inherit;
+  font-size: var(--fs-base);
+  padding: var(--sp-2) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  min-width: 200px;
+}
+.filter-count {
+  font-size: var(--fs-sm); color: var(--muted);
+  margin-left: auto;
+}
+
+/* ── EXPANDABLE DISCLOSURE (timeline rows) ───────────────────────── */
+.disclosure-trigger {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  display: block;
+}
+.disclosure-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+.disclosure-panel > div { overflow: hidden; }
+.disclosure-panel.open { grid-template-rows: 1fr; }
+.disclosure-chevron {
+  display: inline-flex;
+  transition: transform var(--dur-mid) var(--ease-out);
+  flex-shrink: 0;
+}
+.disclosure-trigger[aria-expanded="true"] .disclosure-chevron { transform: rotate(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-panel { transition: none; }
+}
