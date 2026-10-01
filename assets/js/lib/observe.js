@@ -2,6 +2,8 @@
 // ad-hoc observer instances (§3, rule 5). Supports an optional stagger so a
 // group of sibling elements animates in sequence rather than all at once.
 
+import { prefersReducedMotion } from './motion.js';
+
 /**
  * @param {string|NodeList|Element[]} selectorOrEls
  * @param {object} opts - { threshold, rootMargin, stagger, once }
@@ -15,12 +17,16 @@ export function observeEntrance(selectorOrEls, opts, onEnter) {
 
   if (!els.length) return null;
 
+  // The stagger delay is itself a motion effect — a sequential reveal over
+  // time — so it must be skipped under reduced motion, not just the CSS
+  // transition that follows it (§4.3 / §8 reduced-motion acceptance check).
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = els.indexOf(entry.target);
-        const delay = stagger * Math.max(0, index);
-        setTimeout(() => onEnter(entry.target, index), delay);
+        const delay = prefersReducedMotion() ? 0 : stagger * Math.max(0, index);
+        if (delay > 0) setTimeout(() => onEnter(entry.target, index), delay);
+        else onEnter(entry.target, index);
         if (once) io.unobserve(entry.target);
       }
     });

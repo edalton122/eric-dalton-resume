@@ -31,9 +31,6 @@ export const profile = {
   lookingFor: null,
   siteUrl: 'https://edalton122.github.io/eric-dalton-resume/',
   resumePdf: './Eric-Dalton-Resume.pdf',
-  // TODO(eric): the committed PDF still contains [PHONE]/[EMAIL] placeholders.
-  // Replace Eric-Dalton-Resume.pdf with the finished 3-page version — the
-  // download link below works regardless, but it currently serves stale content.
   resumeHtml: './resume.html',
   // Sanitized label — profile.js always loads regardless of PRIVACY_MODE
   // (it isn't part of the public/full split), so the customer name itself

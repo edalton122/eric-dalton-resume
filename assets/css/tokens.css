@@ -24,6 +24,16 @@
   --muted-on-dark: #B9C4D6;
   --green:      #2E844A;
 
+  /* "-text" variants: --blue / --gold-dark / --green darkened for use as
+     small (≤12px) text on light tints (--light or their own ~10-15% alpha
+     badge backgrounds). The base tones read fine as borders/icons/large
+     text but fall short of 4.5:1 at badge/label sizes (axe color-contrast,
+     §8). Each passes ≥4.5:1 against --light and against its own tinted
+     badge background. */
+  --blue-text:      #0061AF;
+  --gold-dark-text: #7E5A06;
+  --green-text:     #266E3E;
+
   /* Spacing scale — 4px base (§7) */
   --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
   --sp-5: 20px;  --sp-6: 24px;  --sp-7: 32px;  --sp-8: 40px;

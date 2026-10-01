@@ -1,0 +1,12 @@
+# https://edalton122.github.io/eric-dalton-resume/
+User-agent: *
+Allow: /
+
+# Keep AI crawlers welcome — this page exists to be found and read.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://edalton122.github.io/eric-dalton-resume/sitemap.xml
