@@ -12,8 +12,11 @@
   --gold:       #F4B942;
   --gold-dark:  #C8900A;
   --white:      #FFFFFF;
-  --light:      #F3F6FB;
-  --border:     #DDE4EE;
+  /* Nudged to SLDS's exact documented Background/Border neutrals
+     (--slds-g-color-neutral-base-95 / --slds-g-color-border-base-1) —
+     visually near-identical to the prior derived tints, now an exact match. */
+  --light:      #F3F3F3;
+  --border:     #E5E5E5;
   --text:       #1A2332;
   /* Darkened from v1's #6B7280 — the original failed WCAG AA at several
      sizes/backgrounds used across the page (§4.3). This passes 4.5:1 on
