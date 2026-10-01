@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eric Dalton — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page { size: letter; margin: 0.40in 0.55in; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #16365C;
+  --accent: #1F6FB2;
+  --rule:   #C9D4E0;
+  --text:   #1C2430;
+  --muted:  #5A6675;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9.1pt;
+  line-height: 1.38;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ─────────────────────────────── */
+header { border-bottom: 2.5px solid var(--navy); padding-bottom: 7px; margin-bottom: 10px; }
+
+.name {
+  font-size: 23pt;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.headline {
+  font-size: 9.6pt;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+}
+
+.contact {
+  font-size: 8.9pt;
+  color: var(--muted);
+  letter-spacing: 0.005em;
+}
+.contact span { white-space: nowrap; }
+.contact .sep { color: var(--rule); margin: 0 7px; }
+.ph { color: #B04A2F; font-weight: 600; }
+
+/* ── SECTIONS ───────────────────────────── */
+section { margin-bottom: 7px; }
+
+h2 {
+  font-size: 8.2pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--navy);
+  padding-bottom: 2.5px;
+  margin-bottom: 4.5px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.summary { font-size: 9.1pt; line-height: 1.45; text-align: justify; }
+
+/* ── COMPETENCIES ───────────────────────── */
+.comp-row { display: flex; gap: 10px; margin-bottom: 2.8px; font-size: 8.7pt; line-height: 1.4; }
+.comp-label {
+  flex: 0 0 86px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 8.4pt;
+}
+.comp-val { flex: 1; color: var(--text); }
+
+/* ── EMPLOYER ───────────────────────────── */
+.employer { margin-bottom: 6px; }
+.employer:last-child { margin-bottom: 0; }
+
+.emp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1px; }
+.emp-name { font-size: 10.8pt; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+.emp-meta { font-size: 8.6pt; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.emp-note { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-bottom: 5.5px; }
+
+/* ── ROLE ───────────────────────────────── */
+.role { margin-bottom: 5.5px; }
+.role-head { break-after: avoid; }
+.role:last-child { margin-bottom: 0; }
+
+.role-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5px; }
+.role-title { font-size: 9.6pt; font-weight: 700; color: var(--text); }
+.role-dates { font-size: 8.4pt; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.role-scope { font-size: 8.7pt; color: var(--muted); margin-bottom: 3px; line-height: 1.38; }
+
+ul { list-style: none; }
+li {
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 2.2px;
+  font-size: 9pt;
+  line-height: 1.4;
+}
+li:last-child { margin-bottom: 0; }
+li { break-inside: avoid; }
+li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 4.8px;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+li strong { font-weight: 700; color: var(--navy); }
+
+/* ── PERFORMANCE TABLE ──────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+th {
+  text-align: left;
+  font-size: 7.8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  padding: 0 0 3px;
+  border-bottom: 1px solid var(--rule);
+}
+th.r, td.r { text-align: right; }
+td { padding: 2.8px 0; border-bottom: 1px solid #EDF1F6; }
+tr:last-child td { border-bottom: none; }
+tr.total td {
+  font-weight: 800;
+  color: var(--navy);
+  border-top: 1.5px solid var(--navy);
+  border-bottom: none;
+  padding-top: 4px;
+}
+.peak { color: var(--accent); font-weight: 700; }
+.tbl-note { font-size: 7.9pt; color: var(--muted); font-style: italic; margin-top: 4px; line-height: 1.35; }
+
+/* ── TWO-COLUMN BLOCK ───────────────────── */
+.two-col { display: flex; gap: 24px; }
+.two-col > div { flex: 1; }
+
+.award { margin-bottom: 2.9px; font-size: 8.8pt; line-height: 1.33; }
+.award-name { font-weight: 700; color: var(--navy); }
+.award-detail { color: var(--muted); }
+
+.cert { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 2.6px; font-size: 8.8pt; line-height: 1.32; }
+.cert-name { font-weight: 600; }
+.cert-yr { color: var(--muted); font-size: 8.2pt; white-space: nowrap; flex-shrink: 0; }
+
+/* ── EDUCATION ──────────────────────────── */
+.edu-head { display: flex; justify-content: space-between; align-items: baseline; }
+.edu-school { font-size: 9.8pt; font-weight: 700; color: var(--navy); }
+.edu-dates { font-size: 8.4pt; font-weight: 600; color: var(--muted); }
+.edu-degree { font-size: 8.9pt; color: var(--text); }
+
+.pg-break { break-before: page; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name">Eric Dalton</div>
+  <div class="headline">Lead Solutions Engineer &nbsp;·&nbsp; Enterprise Technical Pre-Sales &nbsp;·&nbsp; AI &amp; Data Platform Strategy</div>
+  <div class="contact">
+    <span>Atlanta, GA</span><span class="sep">|</span><span class="ph">[PHONE]</span><span class="sep">|</span><span class="ph">[EMAIL]</span><span class="sep">|</span><span>linkedin.com/in/eric-dalton-se</span>
+  </div>
+</header>
+
+<section>
+  <h2>Professional Summary</h2>
+  <p class="summary">Technical pre-sales leader with seven years at Salesforce and <strong>$6.3M in career closed Annual Contract Value (ACV) across 623 transactions</strong>. Specializes in complex, multi-stakeholder new-business pursuits — owning technical discovery, solution architecture, proof-of-value delivery, and executive-level presentations for commercial and mid-market accounts across Home Services, Specialty Contracting, and Engineering &amp; Construction. Named <strong>Solutions Engineer of the Year</strong> for delivering the highest single-year ACV of any Solutions Engineer in the segment, with a proven record of competitive displacement against SAP and HubSpot and orchestration of cross-functional pursuit teams including systems integrators.</p>
+</section>
+
+<section>
+  <h2>Core Competencies</h2>
+  <div class="comp-row">
+    <div class="comp-label">Pre-Sales</div>
+    <div class="comp-val">Technical Discovery &nbsp;·&nbsp; Solution Architecture &nbsp;·&nbsp; Custom Demonstration Design &nbsp;·&nbsp; Proof of Value (POV) Delivery &nbsp;·&nbsp; Executive Readouts &nbsp;·&nbsp; RFP Response &nbsp;·&nbsp; Competitive Displacement &nbsp;·&nbsp; Technical Win Strategy</div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-label">Leadership</div>
+    <div class="comp-val">Cross-Functional Pursuit Orchestration &nbsp;·&nbsp; Systems Integrator &amp; Partner Collaboration &nbsp;·&nbsp; Sales Enablement Program Design &nbsp;·&nbsp; Mentorship &amp; Onboarding &nbsp;·&nbsp; Hiring Panels</div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-label">Platforms</div>
+    <div class="comp-val">Salesforce Sales Cloud, Service Cloud, Field Service, Revenue Cloud (CPQ), Data Cloud, Agentforce, Experience Cloud, Communications Cloud &nbsp;·&nbsp; MuleSoft &nbsp;·&nbsp; Tableau &nbsp;·&nbsp; Slack &nbsp;·&nbsp; HubSpot (competitive)</div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-label">Technical</div>
+    <div class="comp-val">CRM Architecture &nbsp;·&nbsp; Quote-to-Cash / CPQ &nbsp;·&nbsp; Agentic AI &amp; LLM Workflows &nbsp;·&nbsp; Customer Data Platforms &nbsp;·&nbsp; ERP Integration &nbsp;·&nbsp; Process Automation &nbsp;·&nbsp; Cursor, Claude, GitHub</div>
+  </div>
+</section>
+
+<section>
+  <h2>Professional Experience</h2>
+
+  <div class="employer">
+    <div class="emp-head">
+      <div class="emp-name">Salesforce</div>
+      <div class="emp-meta">Atlanta, GA &nbsp;|&nbsp; Dec 2019 – Present</div>
+    </div>
+    <div class="emp-note">Five promotions across seven years, progressing from sales development through senior technical pre-sales leadership.</div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Lead Solutions Engineer</div>
+        <div class="role-dates">Nov 2025 – Present</div>
+      </div>
+      <div class="role-scope">Technical lead for new-business acquisition across the Commercial Business Segment, covering the Home Services, Specialty Contracting, and Engineering &amp; Construction verticals.</div>
+      <ul>
+        <li>Closed <strong>$300K+ across three six-figure deals in a single month</strong> and entered the following quarter carrying <strong>$5M+ in qualified pipeline against a $900K forecast</strong> — recognized by the Regional Vice President as setting the standard for technical sales execution across the organization.</li>
+        <li>Led technical win strategy on a <strong>~$1M competitive displacement of SAP and HubSpot</strong>, presenting to board-level executives throughout a multi-month evaluation cycle.</li>
+        <li>Directed a full-cycle enterprise pursuit from initial demonstration through proof-of-value delivery and executive readout, orchestrating internal Solutions, Integration (MuleSoft), and AI Architecture teams alongside external partners including PwC across <strong>14+ working sessions</strong>.</li>
+        <li>Served as technical lead at a national industry conference representing the company's largest-ever sponsorship presence — delivered live AI agent demonstrations to <strong>30+ enterprise prospects</strong> and participated in a 30-customer executive roundtable alongside the partner's SVP of Product; named in the company-wide recap as a key contributor.</li>
+        <li>Pioneered <strong>AI-assisted demonstration workflows</strong> using agentic coding tools to generate customer-specific animated assets and interactive, branded web experiences in place of static slide decks — adopted as standard practice across the segment pre-sales team.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Senior Solutions Engineer</div>
+        <div class="role-dates">Aug 2024 – Nov 2025</div>
+      </div>
+      <div class="role-scope">Expanded scope across the SMB segment with formal responsibility for product community leadership and organization-wide enablement.</div>
+      <ul>
+        <li>Appointed by the Senior Director of Solution Engineering to <strong>lead the segment's Data Cloud specialist community</strong> — facilitated monthly strategy and enablement sessions spanning Sales, Service, Analytics, and AI product lines, serving as primary liaison between product specialists, product management, and the field pre-sales organization.</li>
+        <li>Designed and delivered a <strong>multi-session strategic account engagement curriculum deployed across an entire sales organization</strong>, equipping Account Executives to identify tier-one accounts and run executive mapping exercises, architecture reviews, and reverse demonstrations — shifting team behavior from transactional to consultative selling.</li>
+        <li>Sustained <strong>$1.4M and $1.1M in annual closed ACV</strong> across consecutive fiscal years while carrying expanded enablement and community leadership responsibilities, and mentored multiple Solutions Engineers through onboarding and career transitions.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Solutions Engineer</div>
+        <div class="role-dates">May 2022 – Aug 2024</div>
+      </div>
+      <div class="role-scope">Technical discovery, solution design, and demonstration delivery across a high-velocity new-business book of business.</div>
+      <ul>
+        <li>Delivered <strong>$2.9M in closed ACV across 234 transactions in a single fiscal year</strong> — the highest single-year production of any Solutions Engineer in the segment, averaging approximately one closed deal per working day. <strong>Named Solutions Engineer of the Year.</strong></li>
+        <li>Closed a <strong>$275K total contract value</strong> engagement with a high-growth immigration law firm through a fully customized CRM demonstration featuring dynamic intake forms, automated case workflows, pre-filled government form generation, and operational reporting — reducing projected case processing time by 50%.</li>
+        <li>Architected and delivered a <strong>CPQ and partner-portal solution</strong> for a building efficiency distributor launching a new U.S. business unit, supporting <strong>1,000+ SKUs</strong> with bundled configuration, external partner user management, and bidirectional ERP integration.</li>
+        <li>Earned <strong>Salesforce Certified Administrator</strong> and <strong>Platform App Builder</strong> certifications; recipient of the Creative Hustle Award and three-time team MVP. Designed and delivered monthly technical enablement sessions for the Account Executive organization.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Account Specialist</div>
+        <div class="role-dates">Apr 2021 – May 2022</div>
+      </div>
+      <ul>
+        <li>Supported Account Executives with technical discovery, solution positioning, and customer demonstrations across the commercial segment. <strong>Self-developed and launched a foundational technical onboarding program</strong> for incoming hires without prior SaaS experience — adopted as a standing quarterly program still in delivery five years later. <strong>Promoted to Solutions Engineer in 13 months.</strong></li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Sales Development Representative</div>
+        <div class="role-dates">Dec 2019 – Apr 2021</div>
+      </div>
+      <ul>
+        <li>Generated net-new qualified pipeline for commercial Account Executives through targeted outbound programs and account research across the Atlanta market; <strong>promoted to Account Specialist in 16 months.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="employer">
+    <div class="emp-head">
+      <div class="emp-name">Schneider</div>
+      <div class="emp-meta">Greater Chicago Area &nbsp;|&nbsp; Jun 2018 – Jul 2019</div>
+    </div>
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Account Executive</div>
+        <div class="role-dates">Jun 2018 – Jul 2019</div>
+      </div>
+      <ul>
+        <li>Managed a portfolio of B2B accounts across the Greater Chicago market for one of North America's largest transportation and logistics providers — driving revenue growth through consultative sales, account planning, and competitive positioning.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Revenue Performance — Closed Won ACV</h2>
+  <table>
+    <thead>
+      <tr><th>Fiscal Year</th><th>Period</th><th class="r">Closed ACV</th><th class="r">Deals Closed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FY23</td><td>Feb 2022 – Jan 2023</td><td class="r">$573,190</td><td class="r">106</td></tr>
+      <tr><td class="peak">FY24</td><td class="peak">Feb 2023 – Jan 2024</td><td class="r peak">$2,904,583</td><td class="r peak">234</td></tr>
+      <tr><td>FY25</td><td>Feb 2024 – Jan 2025</td><td class="r">$1,429,770</td><td class="r">145</td></tr>
+      <tr><td>FY26</td><td>Feb 2025 – Jan 2026</td><td class="r">$1,121,180</td><td class="r">121</td></tr>
+      <tr><td>FY27 YTD</td><td>Feb 2026 – Sep 2026</td><td class="r">$281,357</td><td class="r">17</td></tr>
+      <tr class="total"><td>Career Total</td><td></td><td class="r">$6,310,080</td><td class="r">623</td></tr>
+    </tbody>
+  </table>
+  <div class="tbl-note">Sourced from internal deal contribution records. FY27 reflects a partial year with $2.25M+ in additional active pipeline.</div>
+</section>
+
+<section>
+  <div class="two-col">
+    <div>
+      <h2>Awards &amp; Recognition</h2>
+      <div class="award"><span class="award-name">Solutions Engineer of the Year</span> <span class="award-detail">— SMB Solutions organization</span></div>
+      <div class="award"><span class="award-name">Creative Hustle Award</span> <span class="award-detail">— Solutions organization</span></div>
+      <div class="award"><span class="award-name">Three-Time Team MVP</span></div>
+      <div class="award"><span class="award-name">Data Cloud Specialist Community Captain</span> <span class="award-detail">— appointed by Senior Director of Solution Engineering</span></div>
+      <div class="award"><span class="award-name">Executive Recognition for Elite-Level Impact</span> <span class="award-detail">— Regional Vice President, 2026</span></div>
+    </div>
+    <div>
+      <h2>Certifications</h2>
+      <div class="cert"><span class="cert-name">Salesforce Certified Administrator</span><span class="cert-yr">2022</span></div>
+      <div class="cert"><span class="cert-name">Salesforce Certified Platform App Builder</span><span class="cert-yr">2022</span></div>
+      <div class="cert"><span class="cert-name">Revenue Cloud Blackbelt</span><span class="cert-yr">Achieved</span></div>
+      <div class="cert"><span class="cert-name">Data Cloud Blackbelt</span><span class="cert-yr">Achieved</span></div>
+      <div class="cert"><span class="cert-name">Agentblazer Innovator</span><span class="cert-yr">2026</span></div>
+      <div class="cert"><span class="cert-name">Process Automation Specialist (Superbadge)</span><span class="cert-yr">Achieved</span></div>
+      <div class="cert"><span class="cert-name">Triple Star Ranger — Trailhead</span><span class="cert-yr">Achieved</span></div>
+      <div class="cert"><span class="cert-name">Agentforce Specialist</span><span class="cert-yr">In Progress</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="edu-head">
+    <div class="edu-school">University of Kentucky</div>
+    <div class="edu-dates">2013 – 2017</div>
+  </div>
+  <div class="edu-degree">Bachelor of Business Administration (BBA), Finance</div>
+</section>
+
+</body>
+</html>
