@@ -306,13 +306,41 @@
 .win-metric.gold { color: var(--gold); }
 .win-unit { font-size: var(--fs-sm); font-weight: 600; color: var(--muted-on-dark); margin-bottom: var(--sp-3); }
 .win-title { font-size: var(--fs-xl); font-weight: 800; color: rgba(255,255,255,0.92); margin-bottom: var(--sp-2); line-height: 1.25; }
-.win-cta { font-size: var(--fs-sm); font-weight: 600; color: var(--gold); }
-/* Front face spreads icon → metric/unit/title → "Details →" across the
-   full card height instead of clustering content at the top and leaving
-   .win-cta's old margin-top: auto to create one large gap before the
-   footer. .back keeps its default top-aligned flow — the SAR blocks need
-   to read in order, not spread apart. */
-.win-face.front { justify-content: space-between; }
+/* Front face spreads icon → metric/unit/title → footer band across the
+   full card height. .back keeps its default top-aligned flow — the SAR
+   blocks need to read in order, not spread apart. */
+.win-face.front { justify-content: space-between; overflow: hidden; }
+/* Decorative reuse of the card's own icon, scaled way up as a low-opacity
+   watermark that fills what was previously flat dead space in the
+   middle/lower card. overflow: hidden on the front face (above) clips it
+   to the card's own rounded edge, so it bleeds past the visible boundary
+   rather than floating in empty space. Purely decorative: aria-hidden,
+   pointer-events: none, and stacked behind the real content (z-index: 0
+   vs. 1) so it can never block or compete with hover/click/flip or the
+   actual metric/title text. */
+.win-watermark {
+  position: absolute;
+  bottom: -28px; right: -28px;
+  width: 170px; height: 170px;
+  opacity: 0.07;
+  z-index: 0;
+  pointer-events: none;
+}
+.win-watermark svg { width: 100%; height: 100%; }
+.win-icon, .win-content, .win-cta { position: relative; z-index: 1; }
+.win-cta {
+  display: flex; align-items: center; gap: var(--sp-1);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: var(--fs-base); font-weight: 700; color: var(--gold);
+}
+.win-cta-arrow { display: inline-block; transition: transform var(--dur-fast) ease; }
+.win-card:hover .win-cta-arrow,
+.win-card:focus-within .win-cta-arrow { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) {
+  .win-cta-arrow { transition: none; }
+}
 .win-face.back { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: var(--fs-sm); overflow-y: auto; }
 .win-sar { margin-bottom: var(--sp-3); }
 .win-sar-label { font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
