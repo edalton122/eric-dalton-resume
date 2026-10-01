@@ -825,17 +825,21 @@
     <p class="sec-sub fade-up">Real shout-outs, pulled straight from Salesforce internal peer-recognition Slack channels — names, titles, and words exactly as posted.</p>
 
     <div class="shoutout-meta fade-up">
-      <p class="shoutout-count"><strong>13</strong> shoutouts and counting</p>
       <div class="shoutout-controls" id="shoutout-controls" role="group" aria-label="Sort shoutouts">
         <button type="button" class="chip chip-btn" data-sort="tier" aria-pressed="true">Leadership First</button>
+        <button type="button" class="chip chip-btn" data-sort="technical" aria-pressed="false">Technical First</button>
         <button type="button" class="chip chip-btn" data-sort="recent" aria-pressed="false">Most Recent</button>
         <button type="button" class="chip chip-btn" data-sort="shuffle">Shuffle</button>
+      </div>
+      <div class="shoutout-search">
+        <svg class="shoutout-search-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="shoutout-search-input" class="shoutout-search-input" placeholder="Search by name…" aria-label="Search shoutouts by name">
       </div>
     </div>
 
     <div class="shoutout-wall" id="shoutout-wall">
 
-      <article class="shoutout-msg tier-3" data-tier="3" data-order="1">
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="1" data-technical="true">
         <div class="shoutout-avatar" style="background:var(--navy-mid); color:#fff;">DL</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -843,6 +847,7 @@
             <div class="shoutout-head">
               <span class="shoutout-name">Daniel Loughran</span>
               <span class="shoutout-title">Principal, Strategic SE</span>
+              <span class="shoutout-tech-badge" title="Technical role">⚙ Technical</span>
             </div>
             <p class="shoutout-text">I can't tell you how great it has been working with you and getting ready for the preso. You've been doing amazing work.</p>
             <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙏</span><span class="reaction-pill">❤️</span></div>
@@ -850,7 +855,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-3" data-tier="3" data-order="2">
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="2" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--gold); color:var(--navy);">JP</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -865,7 +870,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-3" data-tier="3" data-order="3">
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="3" data-technical="true">
         <div class="shoutout-avatar" style="background:var(--blue); color:#fff;">MJ</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -873,6 +878,7 @@
             <div class="shoutout-head">
               <span class="shoutout-name">Madison Jenkins</span>
               <span class="shoutout-title">Manager, Solution Engineering</span>
+              <span class="shoutout-tech-badge" title="Technical role">⚙ Technical</span>
             </div>
             <p class="shoutout-text">Shoutout to Eric Dalton for being a total natural at building customer relationships!! It's one thing to demo a product, but it's another to have a customer text the AE personally just to say how great you are. Having an SE who truly listens and shows up for our customers makes all the difference.</p>
             <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">❤️</span><span class="reaction-pill">🙌</span></div>
@@ -880,7 +886,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-2" data-tier="2" data-order="4">
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="4" data-technical="true">
         <div class="shoutout-avatar" style="background:var(--green); color:#fff;">SC</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -888,6 +894,7 @@
             <div class="shoutout-head">
               <span class="shoutout-name">Skyler Cozad</span>
               <span class="shoutout-title">Lead, Account SE</span>
+              <span class="shoutout-tech-badge" title="Technical role">⚙ Technical</span>
             </div>
             <p class="shoutout-text">Having your leadership through the Enercon pursuit was just tremendous as everyone has noted. I'm reaching out to say how much I appreciated you taking the time to mentor me — you made this experience a home run for the customer, and helped me along my onboarding path in the same breath.</p>
             <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙏</span><span class="reaction-pill">🙌</span></div>
@@ -895,7 +902,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-2" data-tier="2" data-order="5">
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="5" data-technical="true">
         <div class="shoutout-avatar" style="background:#C9E6FF; color:var(--navy);">DO</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -903,6 +910,7 @@
             <div class="shoutout-head">
               <span class="shoutout-name">Dominika Opoka</span>
               <span class="shoutout-title">Lead, Technical Architect</span>
+              <span class="shoutout-tech-badge" title="Technical role">⚙ Technical</span>
             </div>
             <p class="shoutout-text">Eric Dalton is absolutely amazing. He is organized, straightforward, takes initiative and ensures meetings continue to progress in the right direction with clear next steps defined. He's one of those SEs that really carries the weight of many roles of the team and he's an absolute pleasure to work with.</p>
             <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">💯</span><span class="reaction-pill">🙌</span></div>
@@ -910,7 +918,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-2" data-tier="2" data-order="6">
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="6" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--gold-dark); color:var(--navy);">MD</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -925,7 +933,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-2" data-tier="2" data-order="11">
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="11" data-technical="false">
         <div class="shoutout-avatar" style="background:#FDE7B0; color:var(--navy);">LN</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -939,7 +947,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="7">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="7" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--blue); color:#fff;">CM</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -954,7 +962,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="8">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="8" data-technical="false">
         <div class="shoutout-avatar" style="background:#FDE7B0; color:var(--navy);">TG</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -969,7 +977,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="9">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="9" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--navy-mid); color:#fff;">CH</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -984,7 +992,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="10">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="10" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--gold); color:var(--navy);">SF</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -999,7 +1007,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="12">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="12" data-technical="false">
         <div class="shoutout-avatar" style="background:var(--green); color:#fff;">MM</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -1013,7 +1021,7 @@
         </div>
       </article>
 
-      <article class="shoutout-msg tier-1" data-tier="1" data-order="13">
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="13" data-technical="false">
         <div class="shoutout-avatar" style="background:#C9E6FF; color:var(--navy);">VM</div>
         <div class="shoutout-content">
           <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>

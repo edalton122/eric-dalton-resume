@@ -21,6 +21,7 @@ export function initRecognition() {
 
   revealOnScroll(messages);
   wireControls(wall, messages);
+  wireSearch(messages);
   wireConfetti();
 }
 
@@ -41,7 +42,7 @@ function arriveMessage(el) {
 function wireControls(wall, messages) {
   const controls = document.getElementById('shoutout-controls');
   if (!controls) return;
-  const sortButtons = Array.from(controls.querySelectorAll('[data-sort="tier"], [data-sort="recent"]'));
+  const sortButtons = Array.from(controls.querySelectorAll('[data-sort="tier"], [data-sort="technical"], [data-sort="recent"]'));
   const shuffleButton = controls.querySelector('[data-sort="shuffle"]');
 
   function setPressed(active) {
@@ -50,10 +51,23 @@ function wireControls(wall, messages) {
     });
   }
 
+  // Shared tie-break for every non-random sort: tier descending, then
+  // original (source-deck) order ascending — same hierarchy "Leadership
+  // First" uses, so "Technical First" reads as a filtered view of the
+  // same ranking rather than an unrelated ordering.
+  function byTierThenOrder(a, b) {
+    return Number(b.dataset.tier) - Number(a.dataset.tier) || Number(a.dataset.order) - Number(b.dataset.order);
+  }
+
   function sortedBy(mode) {
     const items = messages.slice();
     if (mode === 'tier') {
-      items.sort((a, b) => Number(b.dataset.tier) - Number(a.dataset.tier) || Number(a.dataset.order) - Number(b.dataset.order));
+      items.sort(byTierThenOrder);
+    } else if (mode === 'technical') {
+      items.sort((a, b) => {
+        const techDiff = (b.dataset.technical === 'true' ? 1 : 0) - (a.dataset.technical === 'true' ? 1 : 0);
+        return techDiff || byTierThenOrder(a, b);
+      });
     } else if (mode === 'recent') {
       items.sort((a, b) => Number(b.dataset.order) - Number(a.dataset.order));
     } else {
@@ -84,6 +98,34 @@ function wireControls(wall, messages) {
       applyOrder(sortedBy('shuffle'));
     });
   }
+}
+
+const SEARCH_DEBOUNCE_MS = 150;
+
+/** Live, debounced, case-insensitive substring filter on name — pure
+ * show/hide, no re-animation (filtering isn't a "reorder" the way the sort
+ * buttons are, so the stagger/typing beat would be the wrong signal here). */
+function wireSearch(messages) {
+  const input = document.getElementById('shoutout-search-input');
+  if (!input) return;
+  const names = messages.map((el) => el.querySelector('.shoutout-name').textContent.toLowerCase());
+
+  let timer;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const query = input.value.trim().toLowerCase();
+      messages.forEach((el, i) => {
+        const isMatch = query.length === 0 || names[i].includes(query);
+        el.classList.toggle('search-hidden', !isMatch);
+        // A match further down the wall may never have scrolled into view
+        // yet, so its entrance animation (and thus opacity:1) may never
+        // have fired — force it visible so a search result is never
+        // present-but-invisible.
+        if (isMatch) el.classList.add('visible');
+      });
+    }, SEARCH_DEBOUNCE_MS);
+  });
 }
 
 function reanimate(items) {

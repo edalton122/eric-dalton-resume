@@ -356,9 +356,42 @@
   gap: var(--sp-4);
   margin: var(--sp-6) 0 var(--sp-7);
 }
-.shoutout-count { font-size: var(--fs-md); color: var(--muted); }
-.shoutout-count strong { color: var(--navy); font-weight: 800; font-size: var(--fs-lg); }
 .shoutout-controls { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+
+/* Fills the dead space to the right of the sort row with something
+   functional rather than decorative — live, debounced name filter. */
+.shoutout-search {
+  display: flex; align-items: center; gap: var(--sp-2);
+  min-width: 220px;
+  padding: var(--sp-2) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--muted);
+  background: var(--white);
+  transition: border-color var(--dur-fast) ease;
+}
+.shoutout-search:focus-within { border-color: var(--blue); }
+.shoutout-search-icon { flex-shrink: 0; }
+.shoutout-search-input {
+  border: none; background: transparent;
+  font-size: var(--fs-base); color: var(--text);
+  width: 100%;
+}
+.shoutout-search-input:focus-visible { outline: none; }
+.shoutout-search-input::placeholder { color: var(--muted); }
+.shoutout-msg.search-hidden { display: none; }
+
+/* Technical-role marker — deliberately distinct from the gold/blue tier
+   accent (a card can be senior AND technical at once, e.g. Daniel
+   Loughran, so the two systems must stay visually separable). */
+.shoutout-tech-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--green-text);
+  background: rgba(46,132,74,0.12);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
 
 .shoutout-wall {
   display: flex; flex-direction: column; gap: var(--sp-5);
