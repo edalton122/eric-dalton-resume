@@ -85,13 +85,8 @@ function wireControls(wall, messages, spotlight) {
   function applyOrder(items) {
     items.forEach((el) => wall.appendChild(el));
     reanimate(items);
-    if (spotlight) {
-      // Keep the avatar rail's top-to-bottom order matching the list's new
-      // order (it's a minimap, not a fixed index), then re-sync the active
-      // card to whatever is now centered post-reorder.
-      spotlight.reorderRail(items);
-      spotlight.resync();
-    }
+    // Re-sync the spotlight to whatever is now centered post-reorder.
+    if (spotlight) spotlight.resync();
   }
 
   sortButtons.forEach((btn) => {
@@ -151,23 +146,41 @@ const SPOTLIGHT_SWITCH_MS = 160; // matches --dur-fast
 function wireSpotlight(messages) {
   const panel = document.getElementById('shoutout-spotlight');
   const card = document.getElementById('spotlight-card');
-  const rail = document.getElementById('spotlight-rail');
-  if (!panel || !card || !rail) return null;
-
-  const railItems = Array.from(rail.querySelectorAll('.spotlight-rail-item'));
-  const railByTarget = new Map(railItems.map((btn) => [btn.dataset.target, btn]));
+  if (!panel || !card) return null;
 
   // Default DOM order on load is already tier-sorted, so the first message
   // is Daniel Loughran — exactly what's pre-rendered in the panel's static
   // HTML, keeping JS and no-JS states in agreement from the first frame.
   let activeEl = messages[0];
 
-  function render(el) {
-    const avatarSrc = el.querySelector('.shoutout-avatar');
+  /** Renders the active person's avatar as a real photo when
+   * `data-photo="path/to/file.jpg"` is present on their `.shoutout-msg`
+   * (circular-cropped, same box as the colored-initials circle below);
+   * otherwise falls back to cloning today's colored-initials circle
+   * exactly as before. Keeps the photo swap a one-attribute change
+   * whenever/if real headshots are supplied, with no markup rework. */
+  function renderAvatar(el) {
     const avatar = document.getElementById('spotlight-avatar');
+    const photo = el.dataset.photo && el.dataset.photo.trim();
+    avatar.innerHTML = '';
+    if (photo) {
+      avatar.style.background = 'transparent';
+      avatar.style.color = '';
+      const img = document.createElement('img');
+      img.className = 'spotlight-avatar-img';
+      img.src = photo;
+      img.alt = '';
+      avatar.appendChild(img);
+      return;
+    }
+    const avatarSrc = el.querySelector('.shoutout-avatar');
     avatar.style.background = avatarSrc.style.background;
     avatar.style.color = avatarSrc.style.color;
     avatar.textContent = avatarSrc.textContent;
+  }
+
+  function render(el) {
+    renderAvatar(el);
 
     document.getElementById('spotlight-name').innerHTML = el.querySelector('.shoutout-name').innerHTML;
 
@@ -179,8 +192,6 @@ function wireSpotlight(messages) {
     const badgeSrc = el.querySelector('.shoutout-tech-badge');
     document.getElementById('spotlight-badges').innerHTML = badgeSrc ? badgeSrc.outerHTML : '';
 
-    document.getElementById('spotlight-text').textContent = el.querySelector('.shoutout-text').textContent;
-
     card.classList.remove('tier-1', 'tier-2', 'tier-3');
     card.classList.add(`tier-${el.dataset.tier}`);
   }
@@ -188,13 +199,6 @@ function wireSpotlight(messages) {
   function setActive(el, { instant = false } = {}) {
     if (!el || el === activeEl) return;
     activeEl = el;
-
-    railItems.forEach((btn) => {
-      const isActive = btn.dataset.target === el.dataset.id;
-      btn.classList.toggle('active', isActive);
-      if (isActive) btn.setAttribute('aria-current', 'true');
-      else btn.removeAttribute('aria-current');
-    });
 
     if (instant || prefersReducedMotion()) {
       render(el);
@@ -231,83 +235,18 @@ function wireSpotlight(messages) {
   // middle) stands in for "most centered" — whichever card crosses into
   // that band is the active one. Ties (more than one card in the band at
   // once) are broken by actual distance-to-center at callback time.
-  //
-  // navLock suppresses this auto-tracking for the duration of a rail
-  // click's smooth-scroll animation. Without it, the observer would fire
-  // repeatedly for whichever cards transit the center band *while the
-  // scroll is still animating toward the clicked target* and could settle
-  // on the wrong one — the explicit click should win outright, not race
-  // the scroll-in-progress.
-  let navLock = false;
-
   const centered = new Set();
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) centered.add(entry.target);
       else centered.delete(entry.target);
     });
-    if (navLock) return;
     const candidates = Array.from(centered).filter((el) => !el.classList.contains('search-hidden'));
     if (candidates.length) setActive(pickClosestToCenter(candidates));
   }, { threshold: 0, rootMargin: '-40% 0px -40% 0px' });
   messages.forEach((el) => io.observe(el));
 
-  /** Polls actual scroll position (rather than trusting the `scrollend`
-   * event's exact timing, which can fire a touch early relative to a long
-   * smooth-scroll animation's true rest point) until it stops changing,
-   * then runs `onSettled`. Capped so it can never hang indefinitely. */
-  function onceScrollSettles(onSettled) {
-    let lastY = window.scrollY;
-    let stableFrames = 0;
-    let framesElapsed = 0;
-    const maxFrames = 180; // ~3s safety cap at 60fps
-    function tick() {
-      framesElapsed += 1;
-      const y = window.scrollY;
-      if (Math.abs(y - lastY) < 1) {
-        stableFrames += 1;
-      } else {
-        stableFrames = 0;
-        lastY = y;
-      }
-      if (stableFrames >= 4 || framesElapsed >= maxFrames) {
-        onSettled();
-        return;
-      }
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  railItems.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const el = messages.find((m) => m.dataset.id === btn.dataset.target);
-      if (!el || el.classList.contains('search-hidden')) return;
-      setActive(el, { instant: true });
-      navLock = true;
-      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
-      onceScrollSettles(() => {
-        navLock = false;
-        // Resolve unambiguously from the wall's true settled geometry
-        // rather than trusting whichever observer callback happened to
-        // land last during (or immediately after) the scroll.
-        const nonHidden = messages.filter((m) => !m.classList.contains('search-hidden'));
-        const inView = nonHidden.filter(isRoughlyInViewport);
-        const candidates = inView.length ? inView : nonHidden;
-        if (candidates.length) setActive(pickClosestToCenter(candidates));
-      });
-    });
-  });
-
   return {
-    /** Keeps the rail's visual order matching the list's current order
-     * after a sort/shuffle, so it still reads as a minimap. */
-    reorderRail(items) {
-      items.forEach((el) => {
-        const btn = railByTarget.get(el.dataset.id);
-        if (btn) rail.appendChild(btn);
-      });
-    },
     /** Re-picks the active card from fresh geometry — used after a sort or
      * a search filter, where the IntersectionObserver's cached membership
      * may be stale relative to the just-changed layout/visibility. Never
