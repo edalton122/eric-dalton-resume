@@ -12,6 +12,7 @@ export function initGallery() {
   if (!grid || !filterBar) return;
 
   const cards = Array.from(grid.querySelectorAll('.project-card'));
+  const groups = Array.from(grid.querySelectorAll('.project-group'));
   const catButtons = Array.from(filterBar.querySelectorAll('[data-filter-cat]'));
   const toolButtons = Array.from(filterBar.querySelectorAll('[data-filter-tool]'));
   const search = document.getElementById('project-search');
@@ -51,6 +52,14 @@ export function initGallery() {
       const show = catMatch && toolMatch && qMatch;
       card.style.display = show ? '' : 'none';
       if (show) visible++;
+    });
+
+    // A group heading with zero visible cards beneath it would otherwise
+    // sit there orphaned when a category/tool/text filter clears a whole
+    // group — hide the group (heading + cards) as a unit in that case.
+    groups.forEach((group) => {
+      const hasVisibleCard = Array.from(group.querySelectorAll('.project-card')).some((c) => c.style.display !== 'none');
+      group.style.display = hasVisibleCard ? '' : 'none';
     });
 
     catButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filterCat === state.cat)));
