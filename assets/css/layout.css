@@ -15,9 +15,16 @@ nav.scrolled {
   backdrop-filter: blur(8px);
 }
 .nav-brand {
+  display: flex; align-items: center; gap: var(--sp-2);
   font-size: var(--fs-md); font-weight: 800;
   color: white; text-decoration: none;
   letter-spacing: 0.01em;
+}
+.nav-brand img {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  object-fit: cover; object-position: center 15%;
+  flex-shrink: 0;
 }
 .nav-links { display: flex; gap: var(--sp-7); list-style: none; }
 .nav-links a {
