@@ -204,7 +204,9 @@ section { scroll-margin-top: var(--nav-height); }
 
   section { padding: var(--sp-10) var(--sp-5) !important; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
-  .wins-grid, .quotes-grid, .future-grid { grid-template-columns: 1fr; }
+  .wins-grid, .future-grid { grid-template-columns: 1fr; }
+  .shoutout-wall { max-width: 100%; }
+  .shoutout-msg.tier-3 .shoutout-avatar { width: 44px; height: 44px; font-size: var(--fs-sm); }
   .builds-grid, .projects-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { flex-direction: column; gap: var(--sp-7); text-align: center; }

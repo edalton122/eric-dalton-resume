@@ -1,5 +1,8 @@
-// Controls which dataset the site loads for customer- and colleague-
-// identifying content (signature wins, Slack testimonials).
+// Controls which dataset the site loads for customer-identifying content
+// (signature wins, built projects). Colleague shoutouts ("What Colleagues
+// Say") use real names/titles directly in index.html by explicit, repeated
+// instruction — that section was deliberately opted out of this
+// public/full abstraction, not an oversight.
 //
 //   'public' → imports *.public.js  (safe for the deployed GitHub Pages site)
 //   'full'   → imports *.full.js    (local only; those files are gitignored)
@@ -25,19 +28,6 @@ export async function loadWins() {
   }
   const mod = await import('./wins.public.js');
   return mod.wins;
-}
-
-export async function loadQuotes() {
-  if (PRIVACY_MODE === 'full') {
-    try {
-      const mod = await import('./quotes.full.js');
-      return mod.quotes;
-    } catch {
-      // same silent fallback as above
-    }
-  }
-  const mod = await import('./quotes.public.js');
-  return mod.quotes;
 }
 
 export async function loadProjects() {

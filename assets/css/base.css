@@ -87,7 +87,7 @@ footer :focus-visible {
 html.js-enabled .fade-up,
 html.js-enabled .tl-item,
 html.js-enabled .win-card,
-html.js-enabled .q-card,
+html.js-enabled .shoutout-msg,
 html.js-enabled .cert-card {
   opacity: 0;
   transform: translateY(18px);
@@ -96,7 +96,7 @@ html.js-enabled .cert-card {
 html.js-enabled .fade-up.visible,
 html.js-enabled .tl-item.visible,
 html.js-enabled .win-card.visible,
-html.js-enabled .q-card.visible,
+html.js-enabled .shoutout-msg.visible,
 html.js-enabled .cert-card.visible {
   opacity: 1;
   transform: none;

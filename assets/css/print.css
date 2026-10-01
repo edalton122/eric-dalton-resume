@@ -10,9 +10,10 @@ nav, .scroll-progress, .back-to-top, .section-pill, .nav-drawer, .nav-drawer-bac
 #hero { min-height: auto; padding: 40px; }
 .hero-inner { grid-template-columns: 1fr; gap: 40px; }
 section { padding: 40px !important; break-inside: avoid; }
-.wins-grid, .quotes-grid { grid-template-columns: repeat(2, 1fr); }
+.wins-grid { grid-template-columns: repeat(2, 1fr); }
 .certs-grid { grid-template-columns: repeat(3, 1fr); }
-.win-card, .q-card, .cert-card, .fade-up, .tl-item {
+.shoutout-confetti, .shoutout-typing, .shoutout-controls { display: none !important; }
+.win-card, .shoutout-msg, .cert-card, .fade-up, .tl-item {
   opacity: 1 !important; transform: none !important;
 }
 .hero-name { font-size: 52px; }

@@ -821,66 +821,213 @@
 <section id="recognition">
   <div class="container">
     <div class="sec-eyebrow fade-up">Peer &amp; Leadership Recognition</div>
-    <h2 class="sec-title fade-up">What Colleagues Say</h2>
-    <p class="sec-sub fade-up">Sourced directly from Salesforce internal Slack peer-recognition channels.</p>
-    <div class="quotes-grid" id="quotes-grid">
+    <h2 class="sec-title fade-up" id="recognition-heading">What Colleagues Say</h2>
+    <p class="sec-sub fade-up">Real shout-outs, pulled straight from Salesforce internal peer-recognition Slack channels — names, titles, and words exactly as posted.</p>
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#FDE7B0;">LK</div>
-          <div><div class="q-name">Lars K.</div><div class="q-role">Solutions Engineering, Salesforce</div></div>
-        </div>
-        <div class="q-text">"Eric is the best damn SE in the game."</div>
+    <div class="shoutout-meta fade-up">
+      <p class="shoutout-count"><strong>13</strong> shoutouts and counting</p>
+      <div class="shoutout-controls" id="shoutout-controls" role="group" aria-label="Sort shoutouts">
+        <button type="button" class="chip chip-btn" data-sort="tier" aria-pressed="true">Leadership First</button>
+        <button type="button" class="chip chip-btn" data-sort="recent" aria-pressed="false">Most Recent</button>
+        <button type="button" class="chip chip-btn" data-sort="shuffle">Shuffle</button>
       </div>
+    </div>
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#C9E6FF;">TG</div>
-          <div><div class="q-name">Tucker G.</div><div class="q-role">Account Executive, Salesforce</div></div>
-        </div>
-        <div class="q-text">"When the customer texts you mid demo that Eric is crushing it — you the man!"</div>
-      </div>
+    <div class="shoutout-wall" id="shoutout-wall">
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#FDE7B0;">VM</div>
-          <div><div class="q-name">Vick M.</div><div class="q-role">Sales Leadership, Salesforce</div></div>
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="1">
+        <div class="shoutout-avatar" style="background:var(--navy-mid); color:#fff;">DL</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Daniel Loughran</span>
+              <span class="shoutout-title">Principal, Strategic SE</span>
+            </div>
+            <p class="shoutout-text">I can't tell you how great it has been working with you and getting ready for the preso. You've been doing amazing work.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙏</span><span class="reaction-pill">❤️</span></div>
+          </div>
         </div>
-        <div class="q-text">"Our very own Eric Dalton takes home SE of the Year."</div>
-      </div>
+      </article>
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#C9E6FF;">MM</div>
-          <div><div class="q-name">Mackenzie M.</div><div class="q-role">Account Executive, Salesforce</div></div>
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="2">
+        <div class="shoutout-avatar" style="background:var(--gold); color:var(--navy);">JP</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">James Parkes <span class="shoutout-nick">"JP"</span></span>
+              <span class="shoutout-title">Regional Manager, SB</span>
+            </div>
+            <p class="shoutout-text">Once again massive shout out Eric to your incredible discovery skills... And now SF is qualified in for managing the quote. Love that.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙌</span><span class="reaction-pill">💯</span></div>
+          </div>
         </div>
-        <div class="q-text">"Was able to close on Monday — 24K ACV on a 5 year deal! The trust in the solution — SE extraordinaire."</div>
-      </div>
+      </article>
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#C9E6FF;">MD</div>
-          <div><div class="q-name">Michael D.</div><div class="q-role">Account Executive, Salesforce</div></div>
+      <article class="shoutout-msg tier-3" data-tier="3" data-order="3">
+        <div class="shoutout-avatar" style="background:var(--blue); color:#fff;">MJ</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Madison Jenkins</span>
+              <span class="shoutout-title">Manager, Solution Engineering</span>
+            </div>
+            <p class="shoutout-text">Shoutout to Eric Dalton for being a total natural at building customer relationships!! It's one thing to demo a product, but it's another to have a customer text the AE personally just to say how great you are. Having an SE who truly listens and shows up for our customers makes all the difference.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">❤️</span><span class="reaction-pill">🙌</span></div>
+          </div>
         </div>
-        <div class="q-text">"Massive s/o to Eric for crushing it for the executive team. He goes above and beyond for every AE he works with — always ready to host a call and always comes prepared."</div>
-      </div>
+      </article>
 
-      <div class="q-card">
-        <span class="q-channel">#peer-recognition</span>
-        <div class="q-head">
-          <div class="q-avatar" style="background:#FDE7B0;">MC</div>
-          <div><div class="q-name">Macey C.</div><div class="q-role">Regional Manager, Salesforce</div></div>
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="4">
+        <div class="shoutout-avatar" style="background:var(--green); color:#fff;">SC</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Skyler Cozad</span>
+              <span class="shoutout-title">Lead, Account SE</span>
+            </div>
+            <p class="shoutout-text">Having your leadership through the Enercon pursuit was just tremendous as everyone has noted. I'm reaching out to say how much I appreciated you taking the time to mentor me — you made this experience a home run for the customer, and helped me along my onboarding path in the same breath.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙏</span><span class="reaction-pill">🙌</span></div>
+          </div>
         </div>
-        <div class="q-text">"You continue to amaze us! You bring so much upside to every call and consistently deliver your A game despite your workload. Our team couldn't operate the same without your help."</div>
-      </div>
+      </article>
+
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="5">
+        <div class="shoutout-avatar" style="background:#C9E6FF; color:var(--navy);">DO</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Dominika Opoka</span>
+              <span class="shoutout-title">Lead, Technical Architect</span>
+            </div>
+            <p class="shoutout-text">Eric Dalton is absolutely amazing. He is organized, straightforward, takes initiative and ensures meetings continue to progress in the right direction with clear next steps defined. He's one of those SEs that really carries the weight of many roles of the team and he's an absolute pleasure to work with.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">💯</span><span class="reaction-pill">🙌</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="6">
+        <div class="shoutout-avatar" style="background:var(--gold-dark); color:var(--navy);">MD</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Michael Darden</span>
+              <span class="shoutout-title">Associate Manager, SB</span>
+            </div>
+            <p class="shoutout-text">Eric has been a ROCKSTAR SE this year and truly is the prime example of what a selling partner should be. He goes above and beyond for every AE he works with, is always ready to hop on a call and ALWAYS COMES PREPARED!</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🐐</span><span class="reaction-pill">💯</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-2" data-tier="2" data-order="11">
+        <div class="shoutout-avatar" style="background:#FDE7B0; color:var(--navy);">LN</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Laura Nunnally</span>
+            </div>
+            <p class="shoutout-text">$48K new logo banger with Ballard Partners! This deal was a masterclass in thoughtful execution. Eric Dalton (LEAD) absolutely knocked the technical side out of the park; his demos were so impactful that the CFO repeatedly told the implementation partners, "We just want this built out exactly how Eric showed it" — to the point where I'm actually a little worried they might try to poach him!</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">💯</span><span class="reaction-pill">🐐</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="7">
+        <div class="shoutout-avatar" style="background:var(--blue); color:#fff;">CM</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Cody McCue</span>
+              <span class="shoutout-title">Account Executive, SB 3</span>
+            </div>
+            <p class="shoutout-text">HUGE shout out to Eric Dalton for crushing this demo. I counted 4 different times the customer stated they would hire Eric in a heartbeat to help implement their Sales Cloud — his demo was EXACTLY what they envisioned as a solution.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🐐</span><span class="reaction-pill">🙌</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="8">
+        <div class="shoutout-avatar" style="background:#FDE7B0; color:var(--navy);">TG</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Tucker Gustafson</span>
+              <span class="shoutout-title">Cloud Account Executive</span>
+            </div>
+            <p class="shoutout-text">When the customer texts you mid demo that Eric Dalton is crushing it &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; You the man Eric!</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙌</span><span class="reaction-pill">💯</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="9">
+        <div class="shoutout-avatar" style="background:var(--navy-mid); color:#fff;">CH</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Crystal Handley</span>
+              <span class="shoutout-title">Territory Account Executive</span>
+            </div>
+            <p class="shoutout-text">Truly the best SE, ever! So blessed to be able to work with Eric... and my first ever trail-guide when I started here at SF!</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">❤️</span><span class="reaction-pill">🙏</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="10">
+        <div class="shoutout-avatar" style="background:var(--gold); color:var(--navy);">SF</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Shelley Foster</span>
+              <span class="shoutout-title">Prime Territory Account Executive</span>
+            </div>
+            <p class="shoutout-text">go eric go eric</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙌</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="12">
+        <div class="shoutout-avatar" style="background:var(--green); color:#fff;">MM</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Mackenzie Moreno</span>
+            </div>
+            <p class="shoutout-text">Eric Dalton presented one of the BEST demos I've seen to date! He succinctly covered Sales Cloud, Maps, Sales Engagement in a way that made me want to buy Salesforce!</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🙌</span><span class="reaction-pill">💯</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shoutout-msg tier-1" data-tier="1" data-order="13">
+        <div class="shoutout-avatar" style="background:#C9E6FF; color:var(--navy);">VM</div>
+        <div class="shoutout-content">
+          <div class="shoutout-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="shoutout-bubble">
+            <div class="shoutout-head">
+              <span class="shoutout-name">Vick Mehrotra</span>
+            </div>
+            <p class="shoutout-text">How does it feel to have the Caitlin Clark of SEs on your team? Because Eric is hitting nothing but net.</p>
+            <div class="shoutout-reactions" aria-hidden="true"><span class="reaction-pill">🐐</span><span class="reaction-pill">🙌</span></div>
+          </div>
+        </div>
+      </article>
 
     </div>
-    <p class="quotes-count">6 of 6 shown</p>
   </div>
 </section>
 
