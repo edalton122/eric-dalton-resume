@@ -20,8 +20,9 @@ export function initRecognition() {
   if (!messages.length) return;
 
   revealOnScroll(messages);
-  wireControls(wall, messages);
-  wireSearch(messages);
+  const spotlight = wireSpotlight(messages);
+  wireControls(wall, messages, spotlight);
+  wireSearch(messages, spotlight);
   wireConfetti();
 }
 
@@ -39,7 +40,7 @@ function arriveMessage(el) {
   setTimeout(() => el.classList.remove('typing'), TYPING_BEAT_MS);
 }
 
-function wireControls(wall, messages) {
+function wireControls(wall, messages, spotlight) {
   const controls = document.getElementById('shoutout-controls');
   if (!controls) return;
   const sortButtons = Array.from(controls.querySelectorAll('[data-sort="tier"], [data-sort="technical"], [data-sort="recent"]'));
@@ -84,6 +85,13 @@ function wireControls(wall, messages) {
   function applyOrder(items) {
     items.forEach((el) => wall.appendChild(el));
     reanimate(items);
+    if (spotlight) {
+      // Keep the avatar rail's top-to-bottom order matching the list's new
+      // order (it's a minimap, not a fixed index), then re-sync the active
+      // card to whatever is now centered post-reorder.
+      spotlight.reorderRail(items);
+      spotlight.resync();
+    }
   }
 
   sortButtons.forEach((btn) => {
@@ -105,7 +113,7 @@ const SEARCH_DEBOUNCE_MS = 150;
 /** Live, debounced, case-insensitive substring filter on name — pure
  * show/hide, no re-animation (filtering isn't a "reorder" the way the sort
  * buttons are, so the stagger/typing beat would be the wrong signal here). */
-function wireSearch(messages) {
+function wireSearch(messages, spotlight) {
   const input = document.getElementById('shoutout-search-input');
   if (!input) return;
   const names = messages.map((el) => el.querySelector('.shoutout-name').textContent.toLowerCase());
@@ -124,8 +132,196 @@ function wireSearch(messages) {
         // present-but-invisible.
         if (isMatch) el.classList.add('visible');
       });
+      // A filter can hide the card the spotlight was pointing at — re-sync
+      // so it never shows a now-hidden person.
+      if (spotlight) spotlight.resync();
     }, SEARCH_DEBOUNCE_MS);
   });
+}
+
+const SPOTLIGHT_SWITCH_MS = 160; // matches --dur-fast
+
+/**
+ * Sticky "spotlight" panel that mirrors whichever `.shoutout-msg` card is
+ * most centered in the viewport (classic scrollspy), fed by the same
+ * IntersectionObserver technique as lib/observe.js rather than a second,
+ * scroll-listener-based tracking system. Returns null if the panel markup
+ * isn't present (e.g. stripped out), so callers can treat it as optional.
+ */
+function wireSpotlight(messages) {
+  const panel = document.getElementById('shoutout-spotlight');
+  const card = document.getElementById('spotlight-card');
+  const rail = document.getElementById('spotlight-rail');
+  if (!panel || !card || !rail) return null;
+
+  const railItems = Array.from(rail.querySelectorAll('.spotlight-rail-item'));
+  const railByTarget = new Map(railItems.map((btn) => [btn.dataset.target, btn]));
+
+  // Default DOM order on load is already tier-sorted, so the first message
+  // is Daniel Loughran — exactly what's pre-rendered in the panel's static
+  // HTML, keeping JS and no-JS states in agreement from the first frame.
+  let activeEl = messages[0];
+
+  function render(el) {
+    const avatarSrc = el.querySelector('.shoutout-avatar');
+    const avatar = document.getElementById('spotlight-avatar');
+    avatar.style.background = avatarSrc.style.background;
+    avatar.style.color = avatarSrc.style.color;
+    avatar.textContent = avatarSrc.textContent;
+
+    document.getElementById('spotlight-name').innerHTML = el.querySelector('.shoutout-name').innerHTML;
+
+    const titleSrc = el.querySelector('.shoutout-title');
+    const titleEl = document.getElementById('spotlight-title');
+    titleEl.textContent = titleSrc ? titleSrc.textContent : '';
+    titleEl.style.display = titleSrc ? '' : 'none';
+
+    const badgeSrc = el.querySelector('.shoutout-tech-badge');
+    document.getElementById('spotlight-badges').innerHTML = badgeSrc ? badgeSrc.outerHTML : '';
+
+    document.getElementById('spotlight-text').textContent = el.querySelector('.shoutout-text').textContent;
+
+    card.classList.remove('tier-1', 'tier-2', 'tier-3');
+    card.classList.add(`tier-${el.dataset.tier}`);
+  }
+
+  function setActive(el, { instant = false } = {}) {
+    if (!el || el === activeEl) return;
+    activeEl = el;
+
+    railItems.forEach((btn) => {
+      const isActive = btn.dataset.target === el.dataset.id;
+      btn.classList.toggle('active', isActive);
+      if (isActive) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
+    });
+
+    if (instant || prefersReducedMotion()) {
+      render(el);
+      return;
+    }
+    card.classList.add('is-switching');
+    setTimeout(() => {
+      render(el);
+      card.classList.remove('is-switching');
+    }, SPOTLIGHT_SWITCH_MS);
+  }
+
+  function isRoughlyInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
+  }
+
+  function pickClosestToCenter(candidates) {
+    const center = window.innerHeight / 2;
+    let best = candidates[0];
+    let bestDist = Infinity;
+    candidates.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const dist = Math.abs((rect.top + rect.bottom) / 2 - center);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = el;
+      }
+    });
+    return best;
+  }
+
+  // A thin band at the vertical center of the viewport (±~10% around the
+  // middle) stands in for "most centered" — whichever card crosses into
+  // that band is the active one. Ties (more than one card in the band at
+  // once) are broken by actual distance-to-center at callback time.
+  //
+  // navLock suppresses this auto-tracking for the duration of a rail
+  // click's smooth-scroll animation. Without it, the observer would fire
+  // repeatedly for whichever cards transit the center band *while the
+  // scroll is still animating toward the clicked target* and could settle
+  // on the wrong one — the explicit click should win outright, not race
+  // the scroll-in-progress.
+  let navLock = false;
+
+  const centered = new Set();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) centered.add(entry.target);
+      else centered.delete(entry.target);
+    });
+    if (navLock) return;
+    const candidates = Array.from(centered).filter((el) => !el.classList.contains('search-hidden'));
+    if (candidates.length) setActive(pickClosestToCenter(candidates));
+  }, { threshold: 0, rootMargin: '-40% 0px -40% 0px' });
+  messages.forEach((el) => io.observe(el));
+
+  /** Polls actual scroll position (rather than trusting the `scrollend`
+   * event's exact timing, which can fire a touch early relative to a long
+   * smooth-scroll animation's true rest point) until it stops changing,
+   * then runs `onSettled`. Capped so it can never hang indefinitely. */
+  function onceScrollSettles(onSettled) {
+    let lastY = window.scrollY;
+    let stableFrames = 0;
+    let framesElapsed = 0;
+    const maxFrames = 180; // ~3s safety cap at 60fps
+    function tick() {
+      framesElapsed += 1;
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) < 1) {
+        stableFrames += 1;
+      } else {
+        stableFrames = 0;
+        lastY = y;
+      }
+      if (stableFrames >= 4 || framesElapsed >= maxFrames) {
+        onSettled();
+        return;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  railItems.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const el = messages.find((m) => m.dataset.id === btn.dataset.target);
+      if (!el || el.classList.contains('search-hidden')) return;
+      setActive(el, { instant: true });
+      navLock = true;
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
+      onceScrollSettles(() => {
+        navLock = false;
+        // Resolve unambiguously from the wall's true settled geometry
+        // rather than trusting whichever observer callback happened to
+        // land last during (or immediately after) the scroll.
+        const nonHidden = messages.filter((m) => !m.classList.contains('search-hidden'));
+        const inView = nonHidden.filter(isRoughlyInViewport);
+        const candidates = inView.length ? inView : nonHidden;
+        if (candidates.length) setActive(pickClosestToCenter(candidates));
+      });
+    });
+  });
+
+  return {
+    /** Keeps the rail's visual order matching the list's current order
+     * after a sort/shuffle, so it still reads as a minimap. */
+    reorderRail(items) {
+      items.forEach((el) => {
+        const btn = railByTarget.get(el.dataset.id);
+        if (btn) rail.appendChild(btn);
+      });
+    },
+    /** Re-picks the active card from fresh geometry — used after a sort or
+     * a search filter, where the IntersectionObserver's cached membership
+     * may be stale relative to the just-changed layout/visibility. Never
+     * selects a search-hidden card. */
+    resync() {
+      requestAnimationFrame(() => {
+        const nonHidden = messages.filter((el) => !el.classList.contains('search-hidden'));
+        if (!nonHidden.length) return;
+        const inView = nonHidden.filter(isRoughlyInViewport);
+        const candidates = inView.length ? inView : nonHidden;
+        setActive(pickClosestToCenter(candidates), { instant: true });
+      });
+    },
+  };
 }
 
 function reanimate(items) {

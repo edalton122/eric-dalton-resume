@@ -349,7 +349,13 @@
 .win-link { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--gold); font-weight: 600; }
 
 /* ── RECOGNITION (animated Slack-style shoutout wall) ─────────────── */
-#recognition { background: var(--white); padding: var(--sp-12) var(--sp-9); overflow: hidden; }
+/* No overflow:hidden here (unlike #hero) — this section's sticky spotlight
+   panel needs its nearest ancestor to allow normal document scrolling;
+   overflow:hidden on an ancestor confines position:sticky to that
+   ancestor's own box instead of the viewport, breaking the stick. Nothing
+   in this section needs clipping (confetti is a viewport-fixed canvas
+   appended to <body>, not a child of #recognition). */
+#recognition { background: var(--white); padding: var(--sp-12) var(--sp-9); }
 
 .shoutout-meta {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
@@ -393,9 +399,86 @@
   border-radius: 100px;
 }
 
+/* Sticky scrollspy spotlight — mirrors whichever card is centered in the
+   left list. position:sticky keeps it in place while the list scrolls
+   past; it naturally stops tracking once the taller left column (the grid
+   row's containing block) runs out, so no extra bottom-boundary math is
+   needed. */
+.shoutout-spotlight {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--sp-6));
+  display: flex; flex-direction: column; gap: var(--sp-5);
+}
+
+.spotlight-card {
+  background: var(--light);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  border-left: 3px solid transparent;
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.spotlight-card.tier-3 { border-left-color: var(--gold); }
+.spotlight-card.tier-2 { border-left-color: var(--blue-light); }
+/* Transient exit state while the active card's content swaps underneath —
+   crossfade/slide reusing the same duration tokens as the rest of this
+   section rather than inventing new timing. */
+.spotlight-card.is-switching { opacity: 0; transform: translateY(6px); }
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card { transition: none; }
+}
+
+.spotlight-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-xl); font-weight: 800;
+  margin-bottom: var(--sp-4);
+}
+.spotlight-name { font-size: var(--fs-xl); font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+.spotlight-title { font-size: var(--fs-sm); color: var(--muted); margin-bottom: var(--sp-3); }
+.spotlight-badges:empty { display: none; }
+.spotlight-badges { margin-bottom: var(--sp-3); }
+.spotlight-text { font-size: var(--fs-md); line-height: 1.65; color: var(--text); }
+
+/* Compact vertical rail of all 13 avatars — a navigation aid, not a
+   counter, so it's deliberately just circles with no numbering. */
+.spotlight-rail {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  max-height: 360px; overflow-y: auto;
+  padding: var(--sp-3);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+.spotlight-rail-item {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: 11px; font-weight: 800;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+.spotlight-rail-item:hover { transform: scale(1.1); }
+.spotlight-rail-item.active { transform: scale(1.25); border-color: var(--navy); }
+.spotlight-rail-item:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-rail-item { transition: none; }
+}
+
+/* Two-pane layout — the message list stays on the left; the sticky
+   spotlight panel fills the right column that would otherwise sit empty
+   for the section's full height. Collapses to a single column (spotlight
+   hidden) below the same breakpoint already used for other grid collapses
+   on this site (layout.css's .wins-grid/.certs-grid). */
+.shoutout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--sp-9);
+  align-items: start;
+}
+
 .shoutout-wall {
   display: flex; flex-direction: column; gap: var(--sp-5);
-  max-width: 720px;
 }
 .shoutout-msg {
   display: flex; align-items: flex-start; gap: var(--sp-3);
@@ -479,6 +562,17 @@ html.js-enabled .shoutout-msg.typing .shoutout-bubble { opacity: 0; transform: s
   position: fixed; inset: 0;
   pointer-events: none;
   z-index: 500;
+}
+
+/* The spotlight panel's two-pane premise only works with real width to
+   spare; below the breakpoint, drop it entirely and let the list stack as
+   a normal single column (same collapse pattern as .wins-grid/.certs-grid
+   in layout.css's @media (max-width: 1024px) block). Placed after the
+   base .shoutout-layout rule above so it actually wins the cascade at
+   matching specificity. */
+@media (max-width: 1024px) {
+  .shoutout-layout { grid-template-columns: 1fr; }
+  .shoutout-spotlight { display: none; }
 }
 
 /* ── CERTIFICATIONS (tiered) ────────────────────────────────────── */
