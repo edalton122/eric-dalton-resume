@@ -286,7 +286,11 @@
 #wins .sec-title { color: white; }
 #wins .sec-sub { color: var(--muted-on-dark); }
 .wins-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); grid-auto-rows: 1fr; }
-.win-card { min-height: 300px; }
+/* 440px measured against the tallest back face (Engineering & Construction
+   pursuit card, 3 SAR blocks at ~427px scrollHeight at 1280/1440/1920px
+   container-capped widths) plus headroom, so overflow-y: auto on
+   .win-face.back never actually needs to scroll. */
+.win-card { min-height: 440px; }
 .win-face {
   background: rgba(255,255,255,0.055);
   border: 1px solid rgba(255,255,255,0.09);
