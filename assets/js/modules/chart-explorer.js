@@ -54,7 +54,7 @@ function wireTabs() {
   }
 }
 
-let currentView = 'acv';
+let currentView = 'avg';
 function activateView(view, tabs, activeTab, { skipRender = false } = {}) {
   currentView = view;
   tabs.forEach(t => t.setAttribute('aria-selected', String(t === activeTab)));
