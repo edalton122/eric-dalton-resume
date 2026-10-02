@@ -236,13 +236,31 @@ function wireSpotlight(messages) {
   // that band is the active one. Ties (more than one card in the band at
   // once) are broken by actual distance-to-center at callback time.
   const centered = new Set();
+
+  function resolveActive() {
+    const candidates = Array.from(centered).filter((el) => !el.classList.contains('search-hidden'));
+    if (candidates.length) setActive(pickClosestToCenter(candidates));
+  }
+
+  // `html { scroll-behavior: smooth }` means even a single large jump (a
+  // long page-down, End key, or scrollbar-track click — more likely now
+  // that the wall is twice as long) animates over several hundred ms.
+  // IntersectionObserver only fires on enter/exit of the center band, so
+  // the very last callback can land mid-flight and "stick" on whichever
+  // card happened to be closest at that instant, not at true scroll rest.
+  // A short settle re-check (fresh geometry, fired only once events go
+  // quiet) corrects that without reintroducing a scroll-position poller.
+  const SETTLE_DEBOUNCE_MS = 150;
+  let settleTimer;
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) centered.add(entry.target);
       else centered.delete(entry.target);
     });
-    const candidates = Array.from(centered).filter((el) => !el.classList.contains('search-hidden'));
-    if (candidates.length) setActive(pickClosestToCenter(candidates));
+    resolveActive();
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(resolveActive, SETTLE_DEBOUNCE_MS);
   }, { threshold: 0, rootMargin: '-40% 0px -40% 0px' });
   messages.forEach((el) => io.observe(el));
 
