@@ -9,8 +9,22 @@
 import { observeEntrance, observeOnce } from '../lib/observe.js';
 import { prefersReducedMotion } from '../lib/motion.js';
 
-const TYPING_BEAT_MS = 480;
+const TYPING_BEAT_MS = 200;
 const REANIMATE_STAGGER_MS = 90;
+const REANIMATE_MAX_STEPS = 4;
+
+// observeEntrance's own `stagger` option multiplies by the element's
+// ABSOLUTE index in the full array (see lib/observe.js) — fine for the
+// Timeline/Wins/Certs sections at their small counts, but at 26 shoutouts
+// that means card #20 waits 3.4s+ just to start revealing, regardless of
+// scroll speed. revealOnScroll passes stagger: 0 to that shared helper (so
+// every intersecting card fires immediately) and instead ripples a FEW
+// genuinely-co-arriving cards locally, bounded to a handful of short
+// steps — a card scrolled into view well after the last reveal gets no
+// artificial wait at all.
+const REVEAL_BATCH_WINDOW_MS = 250;
+const REVEAL_BATCH_STEP_MS = 50;
+const REVEAL_BATCH_MAX_STEPS = 4;
 
 export function initRecognition() {
   const wall = document.getElementById('shoutout-wall');
@@ -27,7 +41,25 @@ export function initRecognition() {
 }
 
 function revealOnScroll(messages) {
-  observeEntrance(messages, { stagger: 180, threshold: 0.15 }, (el) => arriveMessage(el));
+  let lastRevealAt = 0;
+  let batchStep = 0;
+
+  observeEntrance(messages, { stagger: 0, threshold: 0.15 }, (el) => {
+    if (prefersReducedMotion()) {
+      arriveMessage(el);
+      return;
+    }
+    const now = performance.now();
+    // Still inside the same scroll-triggered batch as the last reveal ->
+    // bump the ripple step (capped); otherwise this card arrived on its
+    // own, well after the last one, so it starts the count over at 0 —
+    // i.e. no wait.
+    batchStep = (now - lastRevealAt <= REVEAL_BATCH_WINDOW_MS) ? batchStep + 1 : 0;
+    lastRevealAt = now;
+    const delay = Math.min(batchStep, REVEAL_BATCH_MAX_STEPS) * REVEAL_BATCH_STEP_MS;
+    if (delay > 0) setTimeout(() => arriveMessage(el), delay);
+    else arriveMessage(el);
+  });
 }
 
 /** Shows the typing-indicator beat (unless reduced motion), then the bubble. */
@@ -288,7 +320,9 @@ function reanimate(items) {
       el.classList.add('visible');
       return;
     }
-    setTimeout(() => arriveMessage(el), i * REANIMATE_STAGGER_MS);
+    // Capped the same way as revealOnScroll's ripple — without this, a
+    // 26-card re-sort took i * 90ms = up to 2.25s to finish rippling in.
+    setTimeout(() => arriveMessage(el), Math.min(i, REANIMATE_MAX_STEPS) * REANIMATE_STAGGER_MS);
   });
 }
 
