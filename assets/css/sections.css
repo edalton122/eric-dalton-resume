@@ -234,7 +234,7 @@
 /* ── VELOCITY VIZ ────────────────────────────────────────────────── */
 #timeline { background: var(--light); padding: var(--sp-12) var(--sp-9); }
 .velocity-wrap { margin-bottom: var(--sp-11); max-width: 820px; }
-.velocity-row { display: grid; grid-template-columns: 190px 1fr 70px; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-3); }
+.velocity-row { display: grid; grid-template-columns: 190px 1fr 70px; align-items: center; gap: var(--sp-4); margin-bottom: var(--sp-3); position: relative; }
 .velocity-label { font-size: var(--fs-sm); font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .velocity-track { height: 22px; background: var(--border); border-radius: var(--r-sm); overflow: hidden; position: relative; }
 .velocity-bar {
@@ -252,6 +252,61 @@
 }
 .velocity-summary strong { color: var(--navy); }
 .velocity-toggle { font-size: var(--fs-xs); color: var(--blue-text); background: none; border: none; cursor: pointer; text-decoration: underline; margin-top: var(--sp-4); }
+
+/* Hover/focus tooltip per bar — real dates + outcomes from roles.js
+   (§ velocity.js attachTooltip). Shown on :hover/:focus-within, the same
+   hover-or-keyboard-focus pattern .flip-card uses in components.css, so
+   mouse and keyboard users get identical access with no separate JS
+   show/hide logic. Hidden by default via opacity+visibility (not
+   display:none), so it stays in the accessibility tree for
+   aria-describedby — and because :focus-within reveals it visually at
+   exactly the moment a screen reader would land on it, sighted-keyboard
+   and AT users see/hear the same thing at the same time. */
+.velocity-tooltip {
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 4px);
+  width: max-content;
+  max-width: min(300px, 90vw);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.velocity-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--navy);
+}
+/* Rows can end up scrolled right under the sticky nav, which would clip an
+   above-positioned tooltip — attachTooltip() in velocity.js measures
+   available space on hover/focus and adds this modifier so it opens
+   downward instead. */
+.velocity-tooltip.velocity-tooltip--below {
+  bottom: auto;
+  top: calc(100% + 10px);
+  transform: translate(-50%, -4px);
+}
+.velocity-tooltip--below::after {
+  top: auto; bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: var(--navy);
+}
+.velocity-row:hover .velocity-tooltip,
+.velocity-row:focus-within .velocity-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.velocity-tooltip-dates { font-weight: 700; margin-bottom: var(--sp-1); }
+.velocity-tooltip .tl-outcomes { font-size: var(--fs-xs); line-height: 1.4; }
+.velocity-tooltip .tl-outcomes li::before { background: var(--gold); }
+/* prefers-reduced-motion is handled globally in base.css (forces all
+   transition-durations near-instant) — same as .flip-card, no local
+   override needed here. */
 
 /* ── TIMELINE (expandable) ──────────────────────────────────────── */
 .tl-head-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-6); }
