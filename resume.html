@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+  SYNC WARNING: this file is a separate, hand-authored copy of the résumé —
+  it is NOT generated from the same source as Eric-Dalton-Resume.pdf (built
+  by the reportlab/Python script elsewhere in this project). The two have
+  drifted out of sync before (see the Revenue Performance section). Whenever
+  you update one, check the other — content, numbers, and footnotes — and
+  update it to match by hand. There is no shared data source today.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -144,6 +152,29 @@ tr.total td {
 }
 .peak { color: var(--accent); font-weight: 700; }
 .tbl-note { font-size: 7.9pt; color: var(--muted); font-style: italic; margin-top: 4px; line-height: 1.35; }
+
+/* ── CUMULATIVE ACV STRIP ───────────────── */
+/* The table alone makes FY24 look like the high point the career has been
+   declining from since. This single bar — segmented by each year's share
+   of the career total and shaded light-to-dark left to right, paired with
+   the FY23 -> FY27 YTD cumulative-total callout above it — tells the
+   "continuous progress" story instead: same intent as the PDF's cumulative-
+   ACV chart line, kept to 2 compact lines so it doesn't push this print-
+   constrained page past its existing page count. Plain CSS, renders
+   identically on screen and in print — no JS/canvas dependency. */
+.cum-strip { margin: 4px 0 5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.cum-strip-label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 7.3pt; font-weight: 700; color: var(--muted); margin-bottom: 1.8px;
+}
+.cum-strip-label .cum-growth { color: var(--navy); font-weight: 800; }
+.cum-bar { display: flex; height: 7px; border-radius: 2px; overflow: hidden; }
+.cum-seg { display: block; height: 100%; }
+.cum-seg:nth-child(1) { background: #BFD6EC; }
+.cum-seg:nth-child(2) { background: #8FB7DD; }
+.cum-seg:nth-child(3) { background: #5C96CB; }
+.cum-seg:nth-child(4) { background: var(--accent); }
+.cum-seg:nth-child(5) { background: var(--navy); }
 
 /* ── TWO-COLUMN BLOCK ───────────────────── */
 .two-col { display: flex; gap: 24px; }
@@ -306,7 +337,20 @@ tr.total td {
       <tr class="total"><td>Career Total</td><td></td><td class="r">$6,310,080</td><td class="r">623</td></tr>
     </tbody>
   </table>
-  <div class="tbl-note">Sourced from internal deal contribution records. FY27 reflects a partial year with $2.25M+ in additional active pipeline.</div>
+  <div class="cum-strip">
+    <div class="cum-strip-label">
+      <span>CUMULATIVE CAREER ACV — GROWS EVERY YEAR</span>
+      <span class="cum-growth">$573K FY23 &rarr; $6.31M FY27 YTD</span>
+    </div>
+    <div class="cum-bar">
+      <span class="cum-seg" style="width:9.08%"></span>
+      <span class="cum-seg" style="width:46.03%"></span>
+      <span class="cum-seg" style="width:22.66%"></span>
+      <span class="cum-seg" style="width:17.78%"></span>
+      <span class="cum-seg" style="width:4.46%"></span>
+    </div>
+  </div>
+  <div class="tbl-note">Sourced from internal deal contribution records. FY27 reflects a partial year with $2.25M+ in additional active pipeline. Average deal size has grown to a career-high $16.6K per deal in FY27 YTD, reflecting a shift toward larger, more strategic engagements.</div>
 </section>
 
 <section>
