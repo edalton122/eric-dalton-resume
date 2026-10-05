@@ -25,10 +25,7 @@ export const profile = {
   // revenue.js is refreshed; everything marked "YTD" reads from here.
   asOf: '2026-09-30',
   openPipeline: 2250000,
-  // TODO(eric): write one sentence on what kind of role/team you're looking
-  // for next — the Future Aspirations section lists ambitions but never
-  // states this, which is the one thing a hiring manager actually wants to know.
-  lookingFor: null,
+  lookingFor: 'A Principal Solution Engineer role in ENTR, bringing a New Logo track record, staffing and recruiting vertical depth, a roughly 3× increase in average deal size, and AI-native selling to larger, multi-stakeholder enterprise pursuits.',
   siteUrl: 'https://edalton122.github.io/eric-dalton-resume/',
   resumePdf: './Eric-Dalton-Resume.pdf',
   resumeHtml: './resume.html',

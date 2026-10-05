@@ -3,7 +3,6 @@ _measure.html
 _bc.html
 .DS_Store
 
-# Full-detail data (named customers) — local only, never deployed.
-# See privacy.js for the public/full resolution pattern.
-assets/data/wins.full.js
-assets/data/projects.full.js
+# Full-detail data files were un-gitignored on 2026-10-05 for an internal
+# Salesforce ENTR Director share. Real customer names are intentionally public.
+# Do NOT re-add these without reverting privacy.js to 'public' mode first.

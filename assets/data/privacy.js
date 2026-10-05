@@ -14,7 +14,7 @@
 // Anything shipped in a JS module on a public site is readable by anyone who
 // opens devtools or clones the repo. Never put anything in *.public.js that
 // Eric wouldn't want public, regardless of this flag's value.
-export const PRIVACY_MODE = 'public';
+export const PRIVACY_MODE = 'full';
 
 export async function loadWins() {
   if (PRIVACY_MODE === 'full') {

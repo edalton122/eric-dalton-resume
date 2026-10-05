@@ -135,8 +135,8 @@ export function totalSalesforceMonths(today = new Date()) {
   return salesforceRoles().reduce((sum, r) => sum + monthsInRole(r, today), 0);
 }
 
-/** Five Salesforce titles held (SDR → AS → SE → Senior SE → Lead SE) =
- *  "five promotions in seven years" per the résumé framing. */
+/** Four promotions across five Salesforce titles (SDR → AS → SE → Senior SE → Lead SE).
+ *  length - 1 = 4 promotions (number of moves between titles). */
 export function promotionCount() {
-  return salesforceRoles().length; // 5
+  return salesforceRoles().length - 1; // 4
 }

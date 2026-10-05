@@ -1,4 +1,4 @@
-// Filterable "What I Build" project gallery (§5.8). All 21 cards are
+// Filterable "What I Build" project gallery (§5.8). All 27 cards are
 // static in index.html (readable with JS disabled, per the noscript note
 // in the filter bar); this module adds category + tool + text filtering,
 // AND across facets / OR within a facet, a live result count, and a
